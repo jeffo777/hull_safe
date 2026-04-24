@@ -1,0 +1,99 @@
+---
+import LocationLayout from '../../../layouts/LocationLayout.astro';
+import locations from '../../../data/locations.json';
+import pricing from '../../../data/pricing.json';
+
+const loc = locations.locations[1]; // Torquay
+---
+<LocationLayout
+  title="Hull Cleaning & Inspection in Torquay"
+  description="Professional robotic hull cleaning & inspection at Torquay Marina (MDL). 5 Gold Anchor marina, 440 berths, vessels up to 30m. From £15/metre."
+  locationName={loc.name}
+  locationSlug={loc.slug}
+  marina={loc.marina}
+  tagline={loc.tagline}
+  berths={loc.berths}
+  maxVesselLength={loc.maxVesselLength}
+  access={loc.access}
+  foulingFactors={loc.foulingFactors}
+  contentAngle={loc.contentAngle}
+>
+  <section class="section">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>Hull Care at {loc.marina}</h2>
+          <p>{loc.character}</p>
+          <p>HullSafe provides professional robotic hull cleaning and inspection at Torquay Marina — the English Riviera's premier 5 Gold Anchor facility. With berths accommodating vessels up to 30m, we serve every boat owner from weekday sailors to superyacht crews.</p>
+          <p>Our Keelcrab Pro robot delivers a premium clean that matches the standards of this world-class marina — no lift-out, full HD documentation, and eco-compliant debris capture.</p>
+        </div>
+        <div class="content-sidebar">
+          <div class="marina-info">
+            <h3>Marina at a Glance</h3>
+            <dl>
+              <dt>Berths</dt><dd>{loc.berths}</dd>
+              <dt>Max Vessel</dt><dd>{loc.maxVesselLength}</dd>
+              <dt>Access</dt><dd>{loc.access}</dd>
+              <dt>Operator</dt><dd>{loc.operator}</dd>
+              <dt>Gold Anchors</dt><dd>⭐ {loc.goldAnchors}</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Why Regular Cleaning Matters in Torquay</h2>
+        <p class="section__subtitle">Torquay Marina's premium status demands premium hull maintenance.</p>
+      </div>
+      <div class="grid grid--2">
+        {loc.foulingFactors.map((factor) => (
+          <div class="card"><p class="card__text">{factor}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header"><h2>Our Services in Torquay</h2></div>
+      <div class="grid grid--3">
+        <a href="/locations/torquay/hull-cleaning" class="card service-link">
+          <div class="card__icon">🛥️</div>
+          <h3 class="card__title">Hull Cleaning</h3>
+          <p class="card__text">Full robotic hull clean from £{pricing.services.hullCleaning.pricePerMetre}/m. HD video report included.</p>
+          <span class="card__cta">Learn more →</span>
+        </a>
+        <a href="/locations/torquay/hull-inspection" class="card service-link">
+          <div class="card__icon">🔍</div>
+          <h3 class="card__title">Hull Inspection</h3>
+          <p class="card__text">Visual condition report from £{pricing.services.hullInspection.pricePerMetre}/m. See below the waterline.</p>
+          <span class="card__cta">Learn more →</span>
+        </a>
+        <a href="/locations/torquay/maintenance-plans" class="card service-link">
+          <div class="card__icon">📋</div>
+          <h3 class="card__title">Maintenance Plans</h3>
+          <p class="card__text">Save up to {pricing.subscriptions.premium.discountPercent}% with a regular cleaning subscription.</p>
+          <span class="card__cta">Learn more →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</LocationLayout>
+
+<style>
+  .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-3xl); align-items: start; }
+  @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } }
+  .content-main p { color: var(--text-light); margin-bottom: var(--space-md); }
+  .content-main p:first-of-type { color: var(--text); font-size: 1.05rem; }
+  .marina-info { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-xl); position: sticky; top: calc(var(--header-height) + var(--space-lg)); }
+  .marina-info h3 { font-size: 1rem; margin-bottom: var(--space-md); }
+  .marina-info dl { display: grid; grid-template-columns: auto 1fr; gap: var(--space-sm) var(--space-md); }
+  .marina-info dt { font-weight: 600; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.03em; }
+  .marina-info dd { font-size: 0.9rem; color: var(--text); }
+  .service-link { text-decoration: none; color: var(--text); }
+  .card__cta { color: var(--accent); font-weight: 600; font-size: 0.9rem; margin-top: var(--space-md); display: inline-block; }
+</style>

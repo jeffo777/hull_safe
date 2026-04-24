@@ -1,0 +1,299 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const articles = [
+  {
+    title: "What Is Marine Biofouling and Why Should You Care?",
+    slug: "what-is-marine-biofouling",
+    excerpt: "A plain-English guide to what grows on your hull, why it matters, and how to stop it costing you money.",
+    category: "Hull Science",
+    readTime: "6 min",
+    image: "/images/blog/fouled-hull.png"
+  },
+  {
+    title: "How Often Should You Clean Your Boat Hull?",
+    slug: "how-often-clean-boat-hull",
+    excerpt: "The real-world cleaning frequency your hull needs in South Devon — based on water conditions, not guesswork.",
+    category: "Maintenance Guide",
+    readTime: "5 min",
+    image: "/images/blog/waterline-fouling.png"
+  },
+  {
+    title: "ROV Cleaning vs Traditional Divers: The Full Comparison",
+    slug: "rov-vs-diver-hull-cleaning",
+    excerpt: "We break down the pros, cons, and costs of robotic hull cleaning versus a traditional dive team.",
+    category: "Technology",
+    readTime: "7 min",
+    image: "/images/blog/pontoon-operator.png"
+  },
+  {
+    title: "Understanding Your Antifouling Paint",
+    slug: "understanding-antifouling-paint",
+    excerpt: "What antifouling paint does, how different types work, and why the wrong cleaning method can destroy it.",
+    category: "Hull Science",
+    readTime: "8 min",
+    image: "/images/blog/antifouling-paint.png"
+  },
+  {
+    title: "How a Dirty Hull Costs You More in Fuel",
+    slug: "fuel-cost-dirty-hull",
+    excerpt: "The hard numbers on fuel consumption and performance loss — and how much a regular clean can save you.",
+    category: "Performance",
+    readTime: "5 min",
+    image: "/images/blog/yacht-sailing.png"
+  },
+  {
+    title: "Brixham Marina: A Complete Guide for Boat Owners",
+    slug: "brixham-marina-guide",
+    excerpt: "Everything you need to know about berths, services, and hull care at MDL Brixham Marina.",
+    category: "Local Guide",
+    readTime: "6 min",
+    image: "/images/locations/brixham-harbour.png"
+  },
+  {
+    title: "Hull Fouling and Invasive Species in the River Dart",
+    slug: "invasive-species-river-dart",
+    excerpt: "How biological fouling on boat hulls contributes to the spread of invasive marine species — and what we can do about it.",
+    category: "Environment",
+    readTime: "7 min",
+    image: "/images/locations/dartmouth-river.png"
+  },
+  {
+    title: "What Does a Visual Hull Inspection Actually Tell You?",
+    slug: "visual-hull-inspection-explained",
+    excerpt: "What our HD inspection reveals, what it doesn't, and when you might need a qualified marine survey instead.",
+    category: "Service Guide",
+    readTime: "5 min",
+    image: "/images/blog/keel-inspection.png"
+  },
+  {
+    title: "Preparing Your Boat for Winter Lay-Up in South Devon",
+    slug: "winter-layup-guide",
+    excerpt: "A practical guide to winterising your boat in Brixham, Torquay, or Dartmouth — including hull care advice for boats staying in the water.",
+    category: "Seasonal Guide",
+    readTime: "6 min",
+    image: "/images/blog/boatyard-winter.png"
+  },
+  {
+    title: "The True Cost of Owning a Boat in South Devon",
+    slug: "true-cost-boat-ownership-south-devon",
+    excerpt: "An honest breakdown of what it actually costs to own and maintain a yacht in Brixham, Torquay, or Dartmouth — including the hidden costs.",
+    category: "Boat Ownership",
+    readTime: "8 min",
+    image: "/images/locations/torquay-marina.png"
+  }
+];
+
+const categories = [...new Set(articles.map(a => a.category))];
+---
+<ServiceLayout
+  title="Blog"
+  description="Expert articles on hull cleaning, marine maintenance, antifouling science, and South Devon boat care. Practical advice from HullSafe."
+  heroTitle="The HullSafe Blog"
+  heroSubtitle="Expert advice on hull maintenance, marine science, and keeping your boat performing at its best."
+  heroBadge="Knowledge Base"
+  ctaText=""
+>
+
+  <section class="section">
+    <div class="container">
+      <!-- Category Filter -->
+      <div class="blog-categories">
+        <span class="blog-categories__label">Filter:</span>
+        <button class="category-btn category-btn--active" data-category="all">All</button>
+        {categories.map((cat) => (
+          <button class="category-btn" data-category={cat}>{cat}</button>
+        ))}
+      </div>
+
+      <!-- Articles Grid -->
+      <div class="articles-grid">
+        {articles.map((article) => (
+          <article class="article-card" data-category={article.category}>
+            <a href={`/blog/${article.slug}`} class="article-card__image-link">
+              <img src={article.image} alt={article.title} class="article-card__image" loading="lazy" />
+            </a>
+            <div class="article-card__body">
+              <div class="article-card__meta">
+                <span class="badge badge--primary">{article.category}</span>
+                <span class="article-card__read-time">{article.readTime}</span>
+              </div>
+              <h3 class="article-card__title">
+                <a href={`/blog/${article.slug}`}>{article.title}</a>
+              </h3>
+              <p class="article-card__excerpt">{article.excerpt}</p>
+              <a href={`/blog/${article.slug}`} class="article-card__link">Read more →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Coming Soon Notice -->
+      <div class="blog-notice">
+        <p>📝 <strong>More articles coming soon.</strong> We're building our knowledge base with practical advice for South Devon boat owners. Check back regularly.</p>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>
+
+<script>
+  const buttons = document.querySelectorAll('.category-btn');
+  const cards = document.querySelectorAll('.article-card');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cat = btn.getAttribute('data-category');
+
+      buttons.forEach(b => b.classList.remove('category-btn--active'));
+      btn.classList.add('category-btn--active');
+
+      cards.forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
+          (card as HTMLElement).style.display = '';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .blog-categories {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-3xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--surface-alt);
+  }
+
+  .blog-categories__label {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-right: var(--space-sm);
+  }
+
+  .category-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--surface-alt);
+    border-radius: var(--radius-full);
+    background: transparent;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-family: var(--font-body);
+  }
+
+  .category-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  .category-btn--active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  @media (max-width: 768px) {
+    .articles-grid { grid-template-columns: 1fr; }
+  }
+
+  .article-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: all var(--transition-base);
+    overflow: hidden;
+  }
+
+  .article-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .article-card__image-link {
+    display: block;
+    overflow: hidden;
+  }
+
+  .article-card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .article-card:hover .article-card__image {
+    transform: scale(1.05);
+  }
+
+  .article-card__body {
+    padding: var(--space-xl);
+  }
+
+  .article-card__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .article-card__read-time {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .article-card__title {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .article-card__title a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  .article-card__title a:hover {
+    color: var(--accent);
+  }
+
+  .article-card__excerpt {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .article-card__link {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .blog-notice {
+    text-align: center;
+    margin-top: var(--space-3xl);
+    padding: var(--space-xl);
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+  }
+
+  .blog-notice p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+</style>

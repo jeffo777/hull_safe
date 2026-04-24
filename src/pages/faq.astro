@@ -1,0 +1,93 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const faqs = [
+  {
+    category: "The Technology",
+    questions: [
+      { q: "What is a Keelcrab?", a: "Keelcrab is an Italian-engineered underwater robot designed specifically for hull cleaning and inspection. It attaches to your hull using a magnetic system (or vacuum for GRP hulls) and moves across the surface using interchangeable nylon brushes. Our Keelcrab Pro model cleans up to 7m² per minute." },
+      { q: "Will it damage my antifouling paint?", a: "No. The Keelcrab uses A.N.C.C.P. certified nylon brushes that are specifically designed to remove fouling (barnacles, algae, biofilm) without damaging your antifouling coating. In fact, regular robotic cleaning can extend your antifoul's useful life by preventing heavy buildup." },
+      { q: "What types of hull can you clean?", a: "We clean GRP (fibreglass), steel, aluminium, and wooden hulls. The Keelcrab Pro has interchangeable brush heads — soft brushes for delicate coatings, standard nylon for routine cleaning, and harder brushes for heavy fouling. We'll select the right brush for your hull." },
+      { q: "How much of the hull can the robot reach?", a: "On displacement hulls (typical sailing yachts), we achieve 95-97% coverage. On planing or semi-planing hulls (motor boats), coverage is 85-87%. The robot navigates around keels, rudders, and hull features — only very tight recesses may be missed." },
+      { q: "What happens to the debris?", a: "All removed fouling is captured in the Keelcrab Bag — a built-in filtration system that prevents debris from entering the water. This makes our service eco-compliant and marina-approved." },
+    ]
+  },
+  {
+    category: "Booking & Service",
+    questions: [
+      { q: "How do I book a clean or inspection?", a: "Use our online booking forms — 'Book a Clean' or 'Book an Inspection' on the contact page. Tell us your boat length, location, and preferred date, and we'll confirm within 24 hours. Alternatively, call or email us directly." },
+      { q: "How long does a clean take?", a: "A typical 12m (39ft) yacht takes about 1 hour. A 16m (52ft) vessel takes approximately 1.5 hours, and an 18m (59ft) vessel around 2 hours. These are estimates — heavily fouled hulls may take longer." },
+      { q: "Do I need to be present during the clean?", a: "No. You're welcome to watch, but it's not necessary. We'll send you the HD video report and documentation afterwards so you can see exactly what was done." },
+      { q: "What do I receive after a clean?", a: "Every clean includes HD video footage of your hull and a digital before/after report. For inspections, you receive a written visual condition report (PDF) with timestamped video and recommendations." },
+      { q: "Which marinas do you cover?", a: "We're based in Brixham and cover MDL Brixham Marina, MDL Torquay Marina, and Darthaven Marina in Dartmouth. We can also service vessels on swing moorings and private pontoons across the River Dart." },
+    ]
+  },
+  {
+    category: "Pricing & Plans",
+    questions: [
+      { q: "How much does a hull clean cost?", a: "Hull cleaning is £15 per metre of boat length, with a minimum charge of £150. For example, a 12m yacht costs £180, and a 15m vessel costs £225." },
+      { q: "How much does an inspection cost?", a: "Visual hull inspections are £10 per metre, with a minimum charge of £100. For example, a 12m yacht costs £120. This is a visual condition report, not a qualified marine survey." },
+      { q: "What are the maintenance plan options?", a: "We offer two plans: the Essential Plan (4 cleans per year, 15% discount) and the Premium Plan (6 cleans per year, 20% discount plus one free annual visual inspection). Both include priority scheduling." },
+      { q: "Is there a minimum charge?", a: "Yes. The minimum charge for cleaning is £150 (covers vessels up to 10m). The minimum charge for inspection is £100. This ensures every visit is operationally viable." },
+    ]
+  },
+  {
+    category: "Safety & Environment",
+    questions: [
+      { q: "Is robotic cleaning safer than using divers?", a: "Yes. Robotic cleaning eliminates the need for commercial dive teams and the associated HSE risks. There are no divers in the water, no heavy lifting equipment, and the operator works safely from the pontoon." },
+      { q: "Is your service eco-friendly?", a: "Absolutely. All debris is captured in the Keelcrab Bag and disposed of properly. Nothing enters the water during the cleaning process. This is a key advantage over traditional diver-based cleaning, where debris typically falls to the seabed." },
+      { q: "Does cleaning affect the marine environment?", a: "Our cleaning process is designed to protect the marine environment. By capturing all debris and using gentle nylon brushes, we minimise any impact. Regular hull cleaning also helps prevent the spread of invasive species between harbours — a concern specifically flagged by Dart Harbour authority." },
+    ]
+  }
+];
+---
+<ServiceLayout
+  title="Frequently Asked Questions"
+  description="Everything you need to know about HullSafe's robotic hull cleaning and inspection service. Pricing, technology, booking, and more."
+  heroTitle="Frequently Asked Questions"
+  heroSubtitle="Everything you need to know about robotic hull cleaning and inspection."
+  heroBadge="Got Questions?"
+  ctaText="Still Have Questions? Ask Us"
+>
+
+  {faqs.map((category) => (
+    <section class="section faq-section">
+      <div class="container">
+        <h2 class="faq-category">{category.category}</h2>
+        <div class="faq-list">
+          {category.questions.map((faq) => (
+            <details class="faq-item">
+              <summary>{faq.q}</summary>
+              <div class="faq-answer">
+                <p>{faq.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+</ServiceLayout>
+
+<style>
+  .faq-section {
+    padding: var(--space-2xl) 0;
+  }
+
+  .faq-section:nth-child(odd) {
+    background: var(--surface);
+  }
+
+  .faq-category {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+
+  .faq-list {
+    max-width: 800px;
+  }
+</style>

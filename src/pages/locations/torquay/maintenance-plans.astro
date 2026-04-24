@@ -1,0 +1,111 @@
+---
+import LocationLayout from '../../../layouts/LocationLayout.astro';
+import locations from '../../../data/locations.json';
+import pricing from '../../../data/pricing.json';
+
+const loc = locations.locations[1];
+const essential = pricing.subscriptions.essential;
+const premium = pricing.subscriptions.premium;
+---
+<LocationLayout
+  title="Maintenance Plans in Torquay"
+  description="Save up to 20% on hull cleaning at Torquay Marina with a HullSafe subscription. Ideal for larger vessels, charter fleets, and performance sailors. Priority scheduling included."
+  locationName={loc.name} locationSlug={loc.slug} marina={loc.marina} tagline="Subscription Hull Care at Torquay Marina"
+  berths={loc.berths} maxVesselLength={loc.maxVesselLength} access={loc.access}
+  foulingFactors={loc.foulingFactors} contentAngle={loc.contentAngle}
+  breadcrumbService="Maintenance Plans" breadcrumbServiceSlug="maintenance-plans"
+>
+  <section class="section">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>Fleet-Grade Consistency for Torquay's Premier Marina</h2>
+          <p>Torquay Marina attracts a different profile of boat owner to Brixham or Dartmouth. The 5 Gold Anchor rating, the ability to berth vessels up to 30 metres, and the English Riviera's reputation for premium leisure sailing mean that the boats here tend to be higher-value, higher-specification vessels. For these owners, hull maintenance isn't just about preventing fouling — it's about protecting a significant financial investment and maintaining the performance characteristics they paid for.</p>
+          <p>A maintenance plan at Torquay makes particular sense for three audiences: owners of motor yachts over 15 metres who burn enough fuel that fouling-related drag has a measurable impact on running costs; performance sailors who compete in regional regattas and need consistent hull smoothness; and charter fleet operators who need documented, repeatable cleaning standards for client-facing vessels.</p>
+
+          <h3>The Economics of Torquay's Larger Vessels</h3>
+          <p>The bigger the boat, the stronger the case for a maintenance plan. A 25-metre motor yacht on an Essential plan (4 cleans per year at £12.75/metre) costs £1,275 annually in hull cleaning. That sounds significant until you calculate the alternative: four one-off cleans at £15/metre costs £1,500 — a saving of £225. Switch to Premium and the saving grows further, plus you get a free annual inspection worth £250.</p>
+          <p>But the real saving isn't in the cleaning discount. It's in the fuel. Independent research consistently shows that even moderate biofouling increases drag by 10-15%, which translates directly into higher fuel consumption. For a vessel burning 30 litres per hour at cruise, that's 3-5 extra litres per hour — easily £5-8 wasted per running hour. Over a 200-hour season, the fuel waste alone dwarfs the cost of a maintenance plan.</p>
+
+          <h3>Charter Fleet and Sailing School Packages</h3>
+          <p>We work with several multi-vessel operators in the Torquay area. If you manage 3+ boats, we offer streamlined scheduling — clean all vessels in a single visit block — and consolidated invoicing. Each vessel on the plan receives its own HD documentation, making it straightforward to demonstrate maintenance standards to clients, insurers, and classification societies.</p>
+          <p>For sailing schools, the mid-season clean is critical. Training vessels accumulate fouling faster than privately-owned boats because they're used more frequently in warm months. A bi-monthly cleaning schedule keeps your fleet responsive and safe for students, and the documentation provides evidence of ongoing maintenance for your RYA accreditation records.</p>
+        </div>
+        <div class="content-sidebar">
+          <div class="sidebar-example">
+            <h4>Example: 20m Motor Yacht</h4>
+            <div class="example-row"><span>One-off clean</span><strong>£300</strong></div>
+            <div class="example-row"><span>Essential (per clean)</span><strong>£255</strong></div>
+            <div class="example-row"><span>Premium (per clean)</span><strong>£240</strong></div>
+            <div class="example-row highlight"><span>Annual saving (Premium)</span><strong>£360+</strong></div>
+          </div>
+          <div class="other-services">
+            <h4>Also in Torquay</h4>
+            <a href="/locations/torquay/hull-cleaning">Hull Cleaning →</a>
+            <a href="/locations/torquay/hull-inspection">Hull Inspection →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Torquay Maintenance Plan Options</h2>
+        <p class="section__subtitle">Designed for the English Riviera's premium marine community. Both plans include full HD documentation and priority scheduling.</p>
+      </div>
+      <div class="plans-grid">
+        <div class="pricing-card">
+          <h3>{essential.name}</h3>
+          <p class="plan-sub">Quarterly cleaning — suits private owners who sail mainly April–October and want seasonal coverage</p>
+          <div class="pricing-card__price">£{essential.pricePerMetre}<span>/metre per clean</span></div>
+          <span class="badge badge--success">Save {essential.discountPercent}% vs one-off</span>
+          <ul class="pricing-card__features">
+            <li>4 cleans per year (every 3 months)</li>
+            <li>Priority scheduling at Torquay Marina</li>
+            <li>HD video report with every clean</li>
+            <li>Ideal for vessels 10-20m</li>
+          </ul>
+          <a href="/contact" class="btn btn--outline btn--large" style="width:100%">Enquire About Essential</a>
+        </div>
+        <div class="pricing-card pricing-card--featured">
+          <h3>{premium.name}</h3>
+          <p class="plan-sub">Bi-monthly cleaning — recommended for vessels over 20m, charter fleets, and performance-critical hulls</p>
+          <div class="pricing-card__price">£{premium.pricePerMetre}<span>/metre per clean</span></div>
+          <span class="badge badge--accent">Save {premium.discountPercent}% vs one-off</span>
+          <ul class="pricing-card__features">
+            <li>6 cleans per year (every 2 months)</li>
+            <li>1 free annual visual hull inspection</li>
+            <li>Priority scheduling all year round</li>
+            <li>HD video report with every clean</li>
+            <li>Multi-vessel fleet discounts available</li>
+          </ul>
+          <a href="/contact" class="btn btn--primary btn--large" style="width:100%">Enquire About Premium</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</LocationLayout>
+
+<style>
+  .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-3xl); align-items: start; }
+  @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } }
+  .content-main p { color: var(--text-light); margin-bottom: var(--space-md); line-height: 1.8; }
+  .content-main h3 { margin-top: var(--space-2xl); margin-bottom: var(--space-md); font-size: 1.25rem; }
+  .plans-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2xl); max-width: 800px; margin: 0 auto; align-items: start; }
+  @media (max-width: 768px) { .plans-grid { grid-template-columns: 1fr; } }
+  .plan-sub { color: var(--text-light); font-size: 0.9rem; margin-bottom: var(--space-md); }
+
+  .sidebar-example { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-xl); margin-bottom: var(--space-xl); }
+  .sidebar-example h4 { font-size: 0.9rem; margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--surface-alt); }
+  .example-row { display: flex; justify-content: space-between; padding: var(--space-sm) 0; font-size: 0.9rem; color: var(--text-light); }
+  .example-row strong { color: var(--primary); }
+  .example-row.highlight { border-top: 2px solid var(--accent); margin-top: var(--space-sm); padding-top: var(--space-md); }
+  .example-row.highlight span { font-weight: 600; color: var(--text); }
+  .example-row.highlight strong { color: var(--success); font-size: 1.1rem; }
+
+  .other-services { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-xl); }
+  .other-services h4 { font-size: 0.9rem; margin-bottom: var(--space-md); }
+  .other-services a { display: block; padding: var(--space-sm) 0; color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+</style>

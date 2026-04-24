@@ -1,0 +1,109 @@
+---
+import LocationLayout from '../../../layouts/LocationLayout.astro';
+import locations from '../../../data/locations.json';
+import pricing from '../../../data/pricing.json';
+
+const loc = locations.locations[2];
+const p = pricing.services.hullCleaning;
+---
+<LocationLayout
+  title="Hull Cleaning in Dartmouth"
+  description="Robotic hull cleaning at Darthaven Marina and River Dart moorings. Estuarine silt, algae, and freshwater fouling specialist. From £15/metre. No lift-out required."
+  locationName={loc.name} locationSlug={loc.slug} marina={loc.marina} tagline="River Dart Hull Cleaning Specialists"
+  berths={loc.berths} maxVesselLength={loc.maxVesselLength} access={loc.access}
+  foulingFactors={loc.foulingFactors} contentAngle={loc.contentAngle}
+  breadcrumbService="Hull Cleaning" breadcrumbServiceSlug="hull-cleaning"
+>
+  <section class="section">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>The River Dart Is Not Like Other Harbours</h2>
+          <p>If you've ever owned a boat at Dartmouth, you already know this: hull fouling on the River Dart behaves differently to anything you'd experience in Torbay's open harbour marinas. The Dart is a tidal estuary fed by freshwater running off Dartmoor — and that mix of brackish water, agricultural runoff, fine sediment, and fluctuating salinity creates a fouling environment that's more aggressive, more unpredictable, and more varied than a typical coastal marina.</p>
+          <p>Boats on Dart Harbour swing moorings are particularly affected. Unlike marina-berthed vessels that benefit from some water movement through the berths, a boat sitting on a single point mooring in the river doesn't move enough to discourage fouling organisms from settling. Add Dartmoor's high rainfall washing phosphates and nitrates into the water, and you've got the ideal conditions for rapid algae growth overlaid with fine river silt that embeds into antifouling paint and creates a hard, adhesive layer that conventional scrubbing struggles to shift.</p>
+
+          <h3>How We Handle Estuarine Fouling</h3>
+          <p>Our approach at Dartmouth is adapted to these conditions. The Keelcrab Pro's interchangeable brush system means we can select the right brush hardness for the fouling type — soft nylon for light biofilm and silt, standard nylon for moderate barnacle and algae, and harder brushes for heavily encrusted areas where River Dart sediment has bonded with biological growth to form a tough composite layer.</p>
+          <p>We also take extra care with the Keelcrab Bag debris capture at Dartmouth. The River Dart is a designated Area of Outstanding Natural Beauty, and Dart Harbour Authority takes environmental compliance seriously. Every gram of removed fouling is captured and disposed of properly — nothing enters the estuary during the cleaning process.</p>
+
+          <h3>Beyond Darthaven: Swing Moorings and Private Pontoons</h3>
+          <p>While Darthaven Marina is our primary base in Dartmouth, we're not limited to marina berths. We can service vessels on Dart Harbour swing moorings, private pontoons along the river, and visiting yachts on the town quay — provided safe pontoon or dinghy access to your vessel. If you're on a mooring upstream from Darthaven, get in touch and we'll work out the logistics. Many of our Dartmouth clients are on river moorings and we've developed efficient procedures for reaching them.</p>
+
+          <h3>The Dartmouth Lift-Out Alternative</h3>
+          <p>Noss-on-Dart and Darthaven's own facilities offer traditional lift-out and scrub services — but they come with significant cost, scheduling constraints, and the risk of antifouling damage from pressure washing. A typical lift, scrub, and re-launch for a 12-metre yacht can easily cost £400-600 and takes a full day. Our robotic clean achieves comparable results at a fraction of the cost, in about an hour, with your boat staying in the water throughout. For many Dartmouth boat owners, the maths speaks for itself.</p>
+        </div>
+        <div class="content-sidebar">
+          <div class="price-box">
+            <span class="price-box__label">Hull Cleaning</span>
+            <span class="price-box__amount">£{p.pricePerMetre}</span>
+            <span class="price-box__unit">per metre</span>
+            <span class="price-box__min">Min: £{p.minimumCharge}</span>
+            <a href="/contact" class="btn btn--primary" style="width:100%;margin-top:var(--space-md)">Book a Clean</a>
+          </div>
+          <div class="sidebar-info">
+            <h4>Dartmouth-Specific Notes</h4>
+            <ul>
+              <li>Estuarine silt requires adapted brush selection</li>
+              <li>Swing mooring service available by arrangement</li>
+              <li>AONB — strict environmental compliance</li>
+              <li>Tidal scheduling essential (river access)</li>
+              <li>Higher-frequency cleaning often recommended</li>
+            </ul>
+          </div>
+          <div class="other-services">
+            <h4>Also in Dartmouth</h4>
+            <a href="/locations/dartmouth/hull-inspection">Hull Inspection →</a>
+            <a href="/locations/dartmouth/maintenance-plans">Maintenance Plans →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Understanding River Dart Fouling Stages</h2>
+        <p class="section__subtitle">The progression from clean hull to heavily fouled hull happens faster on the Dart than in open harbour marinas.</p>
+      </div>
+      <div class="grid grid--4">
+        <div class="card">
+          <h3 class="card__title">Week 1–2</h3>
+          <p class="card__text">Bacterial biofilm forms — a slimy, invisible layer. Already increasing drag by 1-2%. Easily removed with soft brushes.</p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Week 3–6</h3>
+          <p class="card__text">Microalgae colonise the biofilm. Green/brown slime visible at the waterline. Silt begins embedding. Fuel consumption starts rising.</p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Month 2–3</h3>
+          <p class="card__text">Macroalgae and early barnacle settlement. Silt has bonded with growth to form a tough layer. Standard brushes now required.</p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Month 4+</h3>
+          <p class="card__text">Established barnacle colonies, tubeworms, and heavy algae. Significantly increased drag and fuel cost. Hard brushes may be needed for removal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</LocationLayout>
+
+<style>
+  .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-3xl); align-items: start; }
+  @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } }
+  .content-main p { color: var(--text-light); margin-bottom: var(--space-md); line-height: 1.8; }
+  .content-main h3 { margin-top: var(--space-2xl); margin-bottom: var(--space-md); font-size: 1.25rem; }
+  .price-box { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-xl); text-align: center; margin-bottom: var(--space-xl); position: sticky; top: calc(var(--header-height) + var(--space-lg)); }
+  .price-box__label { display: block; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-sm); }
+  .price-box__amount { display: block; font-family: var(--font-heading); font-size: 3rem; font-weight: 800; color: var(--primary); }
+  .price-box__unit { display: block; color: var(--text-light); font-size: 0.9rem; }
+  .price-box__min { display: block; color: var(--text-muted); font-size: 0.8rem; margin-top: var(--space-xs); }
+  .sidebar-info { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-xl); margin-bottom: var(--space-xl); }
+  .sidebar-info h4 { font-size: 0.9rem; margin-bottom: var(--space-md); }
+  .sidebar-info ul { list-style: none; }
+  .sidebar-info li { padding: var(--space-xs) 0; font-size: 0.85rem; color: var(--text-light); }
+  .sidebar-info li::before { content: '→ '; color: var(--accent); font-weight: 600; }
+  .other-services { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-xl); }
+  .other-services h4 { font-size: 0.9rem; margin-bottom: var(--space-md); }
+  .other-services a { display: block; padding: var(--space-sm) 0; color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+</style>

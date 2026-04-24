@@ -1,0 +1,110 @@
+---
+import LocationLayout from '../../../layouts/LocationLayout.astro';
+import locations from '../../../data/locations.json';
+import pricing from '../../../data/pricing.json';
+
+const loc = locations.locations[2];
+const essential = pricing.subscriptions.essential;
+const premium = pricing.subscriptions.premium;
+---
+<LocationLayout
+  title="Maintenance Plans in Dartmouth"
+  description="Save up to 20% on hull cleaning at Darthaven Marina and River Dart moorings. Higher-frequency plans recommended for estuarine fouling conditions."
+  locationName={loc.name} locationSlug={loc.slug} marina={loc.marina} tagline="Subscription Hull Care on the River Dart"
+  berths={loc.berths} maxVesselLength={loc.maxVesselLength} access={loc.access}
+  foulingFactors={loc.foulingFactors} contentAngle={loc.contentAngle}
+  breadcrumbService="Maintenance Plans" breadcrumbServiceSlug="maintenance-plans"
+>
+  <section class="section">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>River Dart Boats Need More Frequent Cleaning — Our Plans Make It Affordable</h2>
+          <p>If there's one thing we've learned from working on the River Dart, it's that the recommended cleaning frequency is higher here than at either Brixham or Torquay. The estuary's unique cocktail of brackish water, Dartmoor runoff, and fine sediment creates fouling conditions that outpace open harbour marinas by a significant margin. Boats that stay clean on quarterly cleans in Torbay often need bi-monthly attention on the Dart.</p>
+          <p>That's precisely why our maintenance plans exist. Paying one-off rates for 6 cleans per year adds up quickly. On a Premium plan, you save 20% on every clean — and the included annual inspection lets you monitor the long-term impact of estuarine conditions on your hull and antifouling.</p>
+
+          <h3>The Swing Mooring Problem — Solved</h3>
+          <p>Boat owners on Dart Harbour swing moorings face the worst fouling conditions of any berth type in our service area. A vessel sitting stationary on a single point in the river doesn't generate enough water flow to discourage fouling settlement. Add the Dart's nutrient load and silt suspension, and you have hulls that can move from clean to moderately fouled in as little as 6-8 weeks during summer.</p>
+          <p>For mooring owners, the Premium plan with its bi-monthly schedule isn't a premium choice — it's the sensible minimum. Each visit keeps fouling in its early, soft stages where our nylon brushes remove it efficiently and cleanly. Let it progress to month 3 or 4, and you're dealing with established barnacle colonies and silt-bonded algae that takes longer to clean and causes more antifouling wear during removal.</p>
+
+          <h3>Year-Round Protection in a Year-Round River</h3>
+          <p>Unlike some owners who lift out for winter, many Dartmouth boat owners keep their vessels in the water twelve months a year. The Dart doesn't freeze, and the estuary's sheltered conditions make it a viable year-round mooring — but that means your hull is exposed to fouling and silt accumulation continuously, with no natural break in the cycle.</p>
+          <p>Our maintenance plans run on an annual basis regardless of season. While biological fouling slows dramatically in winter, silt deposition continues, and a winter clean prevents the build-up of compacted river sediment that becomes increasingly difficult to remove as it ages. Many of our Dartmouth clients describe the January or February clean as a "reset" — clearing the slate before the spring growth season begins.</p>
+
+          <h3>Environmental Compliance on the Dart</h3>
+          <p>The River Dart is a designated Area of Outstanding Natural Beauty, and Dart Harbour Authority takes environmental standards seriously. Our maintenance plans deliver scheduled, compliant cleaning where all debris is captured and disposed of properly. For berth holders subject to harbour authority environmental guidelines, being on a documented cleaning schedule demonstrates proactive compliance — and our HD video records provide evidence of every visit.</p>
+        </div>
+        <div class="content-sidebar">
+          <div class="sidebar-recommend">
+            <h4>Our Recommendation for River Dart</h4>
+            <div class="recommend-badge">Premium Plan</div>
+            <p>Based on the Dart's accelerated fouling rates, we recommend the Premium plan (bi-monthly) for most river-moored vessels. Quarterly cleaning is suitable only for boats used infrequently or berthed in Darthaven's more sheltered inner berths.</p>
+          </div>
+          <div class="other-services">
+            <h4>Also in Dartmouth</h4>
+            <a href="/locations/dartmouth/hull-cleaning">Hull Cleaning →</a>
+            <a href="/locations/dartmouth/hull-inspection">Hull Inspection →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>River Dart Maintenance Plan Options</h2>
+        <p class="section__subtitle">Adapted for estuarine conditions. The Premium plan is our most popular choice for Dartmouth boat owners.</p>
+      </div>
+      <div class="plans-grid">
+        <div class="pricing-card">
+          <h3>{essential.name}</h3>
+          <p class="plan-sub">Quarterly cleaning — suitable for Darthaven inner berths or infrequently used vessels with lower fouling exposure</p>
+          <div class="pricing-card__price">£{essential.pricePerMetre}<span>/metre per clean</span></div>
+          <span class="badge badge--success">Save {essential.discountPercent}% vs one-off</span>
+          <ul class="pricing-card__features">
+            <li>4 cleans per year (every 3 months)</li>
+            <li>Priority scheduling at Darthaven</li>
+            <li>HD video report with every clean</li>
+            <li>Swing mooring access included</li>
+          </ul>
+          <a href="/contact" class="btn btn--outline btn--large" style="width:100%">Enquire About Essential</a>
+        </div>
+        <div class="pricing-card pricing-card--featured">
+          <h3>{premium.name}</h3>
+          <p class="plan-sub">Bi-monthly cleaning — strongly recommended for swing moorings and vessels exposed to the Dart's full estuarine fouling cycle</p>
+          <div class="pricing-card__price">£{premium.pricePerMetre}<span>/metre per clean</span></div>
+          <span class="badge badge--accent">Save {premium.discountPercent}% vs one-off</span>
+          <ul class="pricing-card__features">
+            <li>6 cleans per year (every 2 months)</li>
+            <li>1 free annual visual hull inspection</li>
+            <li>Priority scheduling all year round</li>
+            <li>HD video report with every clean</li>
+            <li>Swing mooring and private pontoon access</li>
+            <li>Environmental compliance documentation</li>
+          </ul>
+          <a href="/contact" class="btn btn--primary btn--large" style="width:100%">Enquire About Premium</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</LocationLayout>
+
+<style>
+  .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-3xl); align-items: start; }
+  @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } }
+  .content-main p { color: var(--text-light); margin-bottom: var(--space-md); line-height: 1.8; }
+  .content-main h3 { margin-top: var(--space-2xl); margin-bottom: var(--space-md); font-size: 1.25rem; }
+  .plans-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2xl); max-width: 800px; margin: 0 auto; align-items: start; }
+  @media (max-width: 768px) { .plans-grid { grid-template-columns: 1fr; } }
+  .plan-sub { color: var(--text-light); font-size: 0.9rem; margin-bottom: var(--space-md); }
+
+  .sidebar-recommend { background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: var(--radius-lg); padding: var(--space-xl); margin-bottom: var(--space-xl); color: var(--white); }
+  .sidebar-recommend h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-md); color: rgba(255,255,255,0.7); }
+  .recommend-badge { display: inline-block; background: var(--accent); color: var(--text-on-accent); padding: 0.375rem 1rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.9rem; margin-bottom: var(--space-md); }
+  .sidebar-recommend p { font-size: 0.85rem; color: rgba(255,255,255,0.85); margin: 0; line-height: 1.7; }
+
+  .other-services { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-xl); }
+  .other-services h4 { font-size: 0.9rem; margin-bottom: var(--space-md); }
+  .other-services a { display: block; padding: var(--space-sm) 0; color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+</style>

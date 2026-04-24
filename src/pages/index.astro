@@ -1,0 +1,598 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import pricing from '../data/pricing.json';
+import services from '../data/services.json';
+import locations from '../data/locations.json';
+
+const title = "Robotic Hull Cleaning & Inspection — Brixham, Torquay, Dartmouth";
+const description = "Professional robotic hull cleaning & inspection across South Devon. Powered by Keelcrab technology. From £15/metre. Save up to 20% with a maintenance plan.";
+---
+<BaseLayout title={title} description={description}>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero__overlay"></div>
+    <div class="container hero__content">
+      <span class="badge badge--accent animate-in">Powered by Keelcrab Technology</span>
+      <h1 class="hero__title animate-in animate-delay-1">Your Hull. Our Robot.<br />Zero Compromise.</h1>
+      <p class="hero__subtitle animate-in animate-delay-2">Professional robotic hull cleaning & inspection across Brixham, Torquay & Dartmouth. Eco-friendly. Camera-documented. No lift-out required.</p>
+      <div class="hero__cta animate-in animate-delay-3">
+        <a href="/contact" class="btn btn--primary btn--large">Book a Clean</a>
+        <a href="/gallery" class="btn btn--secondary btn--large">See It In Action</a>
+      </div>
+      <div class="hero__stats animate-in animate-delay-4">
+        <div class="hero__stat">
+          <span class="hero__stat-value">£15</span>
+          <span class="hero__stat-label">per metre</span>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-value">1-2hrs</span>
+          <span class="hero__stat-label">typical clean</span>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-value">HD</span>
+          <span class="hero__stat-label">video report</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QUAD-SAFE ===== -->
+  <section class="section" id="quad-safe">
+    <div class="container">
+      <div class="section__header">
+        <span class="badge badge--primary">The Quad-Safe Promise</span>
+        <h2>Four Pillars of Protection</h2>
+        <p class="section__subtitle">Every HullSafe service delivers on all four — because cutting corners below the waterline is never an option.</p>
+      </div>
+      <div class="grid grid--4">
+        {services.quadSafe.map((pillar, i) => (
+          <div class={`card animate-in animate-delay-${i + 1}`}>
+            <div class="card__icon">{pillar.icon}</div>
+            <h3 class="card__title">{pillar.pillar}</h3>
+            <p class="card__text">{pillar.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="section section--dark" id="how-it-works">
+    <div class="container">
+      <div class="section__header">
+        <span class="badge badge--accent">Simple Process</span>
+        <h2>How It Works</h2>
+        <p class="section__subtitle">From booking to report — your hull clean is done in three easy steps.</p>
+      </div>
+      <div class="steps">
+        {services.services[0].steps.map((step, i) => (
+          <div class="step">
+            <div class="step__number">{i + 1}</div>
+            <div class="step__content">
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="video-section">
+        <div class="video-embed">
+          <iframe 
+            src="https://www.youtube.com/embed/3Zv9ICgNKrE" 
+            title="Keelcrab Pro — Product Showcase" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMPARISON TABLE ===== -->
+  <section class="section" id="comparison">
+    <div class="container">
+      <div class="section__header">
+        <span class="badge badge--primary">Why Choose Robotic</span>
+        <h2>How We Compare</h2>
+        <p class="section__subtitle">See how robotic hull cleaning stacks up against traditional methods.</p>
+      </div>
+      <div class="table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              {services.comparison.headers.map((header) => (
+                <th>{header}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {services.comparison.rows.map((row) => (
+              <tr>
+                {row.map((cell, i) => (
+                  <td class={i === 0 ? 'comparison-table__feature' : ''}>{cell}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOCATIONS ===== -->
+  <section class="section section--alt" id="locations">
+    <div class="container">
+      <div class="section__header">
+        <span class="badge badge--primary">Service Areas</span>
+        <h2>Serving South Devon's Finest Marinas</h2>
+        <p class="section__subtitle">Based in Brixham, covering Torbay and the River Dart — ~1,195 berths across three world-class marinas.</p>
+      </div>
+      <div class="grid grid--3">
+        {locations.locations.map((loc) => (
+          <a href={`/locations/${loc.slug}`} class="location-card card">
+            <div class="location-card__image" data-location={loc.slug}></div>
+            <div class="location-card__content">
+              <h3>{loc.name}</h3>
+              <p class="location-card__tagline">{loc.tagline}</p>
+              <div class="location-card__stats">
+                <span>{loc.berths} berths</span>
+                <span>Up to {loc.maxVesselLength}</span>
+              </div>
+              <span class="location-card__link">Explore services →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING TEASER ===== -->
+  <section class="section section--dark" id="pricing-teaser">
+    <div class="container">
+      <div class="pricing-teaser">
+        <div class="pricing-teaser__content">
+          <h2>Transparent, Per-Metre Pricing</h2>
+          <p>No hidden fees. No surprises. Just honest pricing based on your boat's length.</p>
+          <div class="pricing-teaser__prices">
+            <div class="pricing-teaser__price">
+              <span class="pricing-teaser__amount">£{pricing.services.hullCleaning.pricePerMetre}</span>
+              <span class="pricing-teaser__label">per metre — cleaning</span>
+            </div>
+            <div class="pricing-teaser__price">
+              <span class="pricing-teaser__amount">£{pricing.services.hullInspection.pricePerMetre}</span>
+              <span class="pricing-teaser__label">per metre — inspection</span>
+            </div>
+          </div>
+          <div class="pricing-teaser__sub">
+            <span class="badge badge--accent">Save up to {pricing.subscriptions.premium.discountPercent}%</span>
+            <span>with a maintenance plan</span>
+          </div>
+        </div>
+        <div class="pricing-teaser__cta">
+          <a href="/pricing" class="btn btn--primary btn--large">View Full Pricing</a>
+          <a href="/services/maintenance-plans" class="btn btn--secondary">See Maintenance Plans</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIAL ===== -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section__header">
+        <span class="badge badge--primary">Trusted Technology</span>
+        <h2>What Operators Say</h2>
+      </div>
+      <div class="testimonial">
+        <blockquote class="testimonial__quote">
+          "I truly believe that Keelcrab will revolutionize the way we understand hull maintenance, not only by its performance standards but by taking care of the marine environment."
+        </blockquote>
+        <cite class="testimonial__author">
+          <strong>Richard Court</strong>
+          <span>Keelcleaners Poole, UK</span>
+        </cite>
+      </div>
+      <div class="trust-stats">
+        <div class="trust-stat">
+          <span class="trust-stat__value">450+</span>
+          <span class="trust-stat__label">Robots deployed worldwide</span>
+        </div>
+        <div class="trust-stat">
+          <span class="trust-stat__value">75</span>
+          <span class="trust-stat__label">Countries reached</span>
+        </div>
+        <div class="trust-stat">
+          <span class="trust-stat__value">250+</span>
+          <span class="trust-stat__label">Professional operators</span>
+        </div>
+        <div class="trust-stat">
+          <span class="trust-stat__value">EU</span>
+          <span class="trust-stat__label">Horizon 2020 funded R&D</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section section--cta" id="cta">
+    <div class="container">
+      <div class="cta-strip">
+        <h2>Ready to See What's Under Your Hull?</h2>
+        <p>Book a hull clean or inspection today. Professional, eco-friendly, and camera-documented.</p>
+        <div class="cta-strip__buttons">
+          <a href="/contact" class="btn btn--primary btn--large">Book a Clean</a>
+          <a href="/contact" class="btn btn--outline btn--large">Book an Inspection</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* --- Hero --- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #1a3a4a 100%);
+    overflow: hidden;
+    padding-top: var(--header-height);
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 30% 50%, rgba(52, 152, 219, 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 80%, rgba(245, 166, 35, 0.08) 0%, transparent 50%);
+    z-index: 1;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: var(--space-4xl) 0;
+  }
+
+  .hero__title {
+    color: var(--white);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    margin: var(--space-lg) 0;
+    letter-spacing: -0.02em;
+  }
+
+  .hero__subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    max-width: 640px;
+    margin: 0 auto var(--space-2xl);
+    line-height: 1.7;
+  }
+
+  .hero__cta {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .hero__stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);
+    flex-wrap: wrap;
+  }
+
+  .hero__stat {
+    text-align: center;
+  }
+
+  .hero__stat-value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--accent);
+  }
+
+  .hero__stat-label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .hero__stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* --- Steps --- */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-3xl);
+  }
+
+  .step {
+    text-align: center;
+  }
+
+  .step__number {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--text-on-accent);
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-lg);
+  }
+
+  .step h3 {
+    color: var(--white);
+    margin-bottom: var(--space-sm);
+    font-size: 1.25rem;
+  }
+
+  .step p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .steps {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+  }
+
+  /* --- Video Section --- */
+  .video-section {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* --- Table Wrapper --- */
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .comparison-table__feature {
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  /* --- Location Cards --- */
+  .location-card {
+    text-decoration: none;
+    color: var(--text);
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .location-card__image {
+    height: 200px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--sea-blue) 100%);
+    position: relative;
+  }
+
+  .location-card__image[data-location="brixham"] {
+    background: linear-gradient(135deg, #2C3E50 0%, #2980B9 100%);
+  }
+
+  .location-card__image[data-location="torquay"] {
+    background: linear-gradient(135deg, #2C3E50 0%, #27AE60 100%);
+  }
+
+  .location-card__image[data-location="dartmouth"] {
+    background: linear-gradient(135deg, #2C3E50 0%, #8E44AD 100%);
+  }
+
+  .location-card__content {
+    padding: var(--space-xl);
+  }
+
+  .location-card__tagline {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .location-card__stats {
+    display: flex;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-md);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .location-card__link {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  /* --- Pricing Teaser --- */
+  .pricing-teaser {
+    text-align: center;
+  }
+
+  .pricing-teaser h2 {
+    color: var(--white);
+    margin-bottom: var(--space-md);
+  }
+
+  .pricing-teaser p {
+    color: var(--text-muted);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .pricing-teaser__prices {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3xl);
+    margin-bottom: var(--space-xl);
+    flex-wrap: wrap;
+  }
+
+  .pricing-teaser__amount {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent);
+  }
+
+  .pricing-teaser__label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+  }
+
+  .pricing-teaser__sub {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-2xl);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .pricing-teaser__cta {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* --- Testimonial --- */
+  .testimonial {
+    max-width: 700px;
+    margin: 0 auto var(--space-3xl);
+    text-align: center;
+  }
+
+  .testimonial__quote {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: var(--space-lg);
+    position: relative;
+    padding: 0 var(--space-xl);
+  }
+
+  .testimonial__quote::before {
+    content: '"';
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    color: var(--accent);
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    opacity: 0.3;
+  }
+
+  .testimonial__author {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .testimonial__author strong {
+    color: var(--primary);
+    font-size: 1rem;
+  }
+
+  .testimonial__author span {
+    color: var(--text-light);
+    font-size: 0.9rem;
+  }
+
+  /* --- Trust Stats --- */
+  .trust-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+    text-align: center;
+    padding: var(--space-2xl);
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+  }
+
+  .trust-stat__value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: var(--space-xs);
+  }
+
+  .trust-stat__label {
+    font-size: 0.85rem;
+    color: var(--text-light);
+  }
+
+  @media (max-width: 768px) {
+    .trust-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* --- CTA Strip --- */
+  .section--cta {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  }
+
+  .cta-strip {
+    text-align: center;
+  }
+
+  .cta-strip h2 {
+    color: var(--text-on-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-strip p {
+    color: rgba(26, 37, 47, 0.8);
+    font-size: 1.125rem;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .cta-strip__buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-strip .btn--outline {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  .cta-strip .btn--outline:hover {
+    background: var(--primary);
+    color: var(--white);
+  }
+</style>

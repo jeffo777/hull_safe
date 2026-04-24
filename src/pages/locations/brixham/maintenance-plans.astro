@@ -1,0 +1,94 @@
+---
+import LocationLayout from '../../../layouts/LocationLayout.astro';
+import locations from '../../../data/locations.json';
+import pricing from '../../../data/pricing.json';
+
+const loc = locations.locations[0];
+const essential = pricing.subscriptions.essential;
+const premium = pricing.subscriptions.premium;
+---
+<LocationLayout
+  title="Maintenance Plans in Brixham"
+  description="Save up to 20% on hull cleaning at Brixham Marina with a HullSafe subscription plan. Quarterly or bi-monthly robotic cleaning with priority scheduling."
+  locationName={loc.name} locationSlug={loc.slug} marina={loc.marina} tagline="Subscription Hull Care at Brixham Marina"
+  berths={loc.berths} maxVesselLength={loc.maxVesselLength} access={loc.access}
+  foulingFactors={loc.foulingFactors} contentAngle={loc.contentAngle}
+  breadcrumbService="Maintenance Plans" breadcrumbServiceSlug="maintenance-plans"
+>
+  <section class="section">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>Why Brixham Boats Benefit Most from Scheduled Cleaning</h2>
+          <p>We've cleaned enough hulls in Brixham to know the pattern: boat owners who wait until fouling is visible are already months late. By the time you notice barnacles at the waterline, the entire hull below has been colonised. At that point, a single clean removes the growth — but the damage to your antifouling paint is already done. Hard fouling adhesion, particularly from Brixham's aggressive barnacle populations, pulls away antifouling ablative layers when removed, shortening the coating's useful life.</p>
+          <p>A maintenance plan breaks this cycle. By cleaning quarterly (Essential) or every two months (Premium), we remove fouling in its early soft stages — biofilm and juvenile barnacles — before it bonds to and damages your paint. The result is cleaner hulls for longer, antifouling that lasts an extra season or more, and lower cleaning costs per visit because light fouling takes less time to remove.</p>
+
+          <h3>The Brixham Fisherman's Logic</h3>
+          <p>Brixham's trawler fleet has understood this for generations: a boat that goes to sea with a foul bottom burns more fuel, runs slower, and earns less. The commercial fishermen at Brixham Harbour clean their hulls regularly because the maths is simple — the cost of cleaning is always less than the cost of lost performance.</p>
+          <p>The same logic applies to recreational boat owners. If your 15-metre yacht burns an extra 2 litres per hour because of moderate fouling, and you motor for 100 hours per season, that's 200 litres of wasted diesel — roughly £400 at current prices. Our Essential plan for the same vessel costs less than that over the full year, and you get four professional cleans with HD documentation.</p>
+
+          <h3>Priority Scheduling in Peak Season</h3>
+          <p>Brixham Marina gets busy from May onwards, and our ad-hoc booking calendar fills up fast during summer. Maintenance plan members get priority scheduling — which means when you want a mid-July clean before your family holiday, you're at the front of the queue. For many of our Brixham clients, this scheduling priority alone justifies the subscription commitment.</p>
+        </div>
+        <div class="content-sidebar">
+          <div class="other-services">
+            <h4>Also in Brixham</h4>
+            <a href="/locations/brixham/hull-cleaning">Hull Cleaning →</a>
+            <a href="/locations/brixham/hull-inspection">Hull Inspection →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Brixham Maintenance Plan Options</h2>
+        <p class="section__subtitle">Both plans include full HD documentation for every visit and priority scheduling during peak season.</p>
+      </div>
+      <div class="plans-grid">
+        <div class="pricing-card">
+          <h3>{essential.name}</h3>
+          <p class="plan-sub">Quarterly cleaning — ideal for boats used seasonally or berthed in moderate-fouling zones of the harbour</p>
+          <div class="pricing-card__price">£{essential.pricePerMetre}<span>/metre per clean</span></div>
+          <span class="badge badge--success">Save {essential.discountPercent}% vs one-off</span>
+          <ul class="pricing-card__features">
+            <li>4 cleans per year (every 3 months)</li>
+            <li>Priority scheduling at Brixham Marina</li>
+            <li>HD video report every visit</li>
+            <li>Consistent brush selection for your hull type</li>
+          </ul>
+          <a href="/contact" class="btn btn--outline btn--large" style="width:100%">Enquire About Essential</a>
+        </div>
+        <div class="pricing-card pricing-card--featured">
+          <h3>{premium.name}</h3>
+          <p class="plan-sub">Bi-monthly cleaning — recommended for Brixham hulls exposed to the harbour's highest-fouling conditions</p>
+          <div class="pricing-card__price">£{premium.pricePerMetre}<span>/metre per clean</span></div>
+          <span class="badge badge--accent">Save {premium.discountPercent}% vs one-off</span>
+          <ul class="pricing-card__features">
+            <li>6 cleans per year (every 2 months)</li>
+            <li>1 free annual visual hull inspection</li>
+            <li>Priority scheduling all year round</li>
+            <li>HD video report every visit</li>
+            <li>Antifouling lifespan maximisation</li>
+          </ul>
+          <a href="/contact" class="btn btn--primary btn--large" style="width:100%">Enquire About Premium</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</LocationLayout>
+
+<style>
+  .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-3xl); align-items: start; }
+  @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } }
+  .content-main p { color: var(--text-light); margin-bottom: var(--space-md); line-height: 1.8; }
+  .content-main h3 { margin-top: var(--space-2xl); margin-bottom: var(--space-md); font-size: 1.25rem; }
+  .plans-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2xl); max-width: 800px; margin: 0 auto; align-items: start; }
+  @media (max-width: 768px) { .plans-grid { grid-template-columns: 1fr; } }
+  .plan-sub { color: var(--text-light); font-size: 0.9rem; margin-bottom: var(--space-md); }
+  .other-services { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-xl); }
+  .other-services h4 { font-size: 0.9rem; margin-bottom: var(--space-md); }
+  .other-services a { display: block; padding: var(--space-sm) 0; color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+</style>

@@ -1,0 +1,188 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import services from '../../data/services.json';
+import pricing from '../../data/pricing.json';
+
+const service = services.services[1]; // Hull Inspection
+const inspectionPricing = pricing.services.hullInspection;
+---
+<ServiceLayout
+  title="Hull Inspection"
+  description="Underwater visual hull inspection across South Devon using HD camera technology. See what's happening below the waterline without a lift-out. From £10/metre."
+  heroTitle="Visual Hull Inspection"
+  heroSubtitle="See exactly what's happening below your waterline — HD camera footage and a detailed condition report, without a costly lift-out."
+  heroBadge="From £10 per metre"
+  ctaText="Book an Inspection"
+>
+
+  <!-- Benefits -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Why Get a Hull Inspection?</h2>
+        <p class="section__subtitle">Knowledge is power. Our HD visual inspections give you a clear picture of your hull's condition — no guesswork required.</p>
+      </div>
+      <div class="grid grid--4">
+        {service.benefits.map((benefit) => (
+          <div class="card">
+            <h3 class="card__title">{benefit.title}</h3>
+            <p class="card__text">{benefit.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>How It Works</h2>
+      </div>
+      <div class="process-steps">
+        {service.steps.map((step, i) => (
+          <div class="process-step">
+            <div class="process-step__number">{i + 1}</div>
+            <div class="process-step__content">
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="section">
+    <div class="container">
+      <div class="included-grid">
+        <div class="included-content">
+          <h2>What Your Inspection Includes</h2>
+          <ul class="included-list">
+            {inspectionPricing.includes.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <div class="included-price">
+            <span class="included-price__amount">£{inspectionPricing.pricePerMetre}</span>
+            <span class="included-price__unit">per metre</span>
+            <span class="included-price__min">Minimum charge: £{inspectionPricing.minimumCharge}</span>
+          </div>
+          <a href="/pricing" class="btn btn--primary">View Full Pricing</a>
+        </div>
+        <div class="included-info">
+          <div class="info-box">
+            <h3>When Should You Get an Inspection?</h3>
+            <ul class="info-list">
+              <li><strong>Pre-season:</strong> Check your hull's condition before the sailing season begins</li>
+              <li><strong>Pre-purchase:</strong> See what's below the waterline before you commit to buying</li>
+              <li><strong>Post-grounding:</strong> Assess potential damage after an incident</li>
+              <li><strong>Insurance:</strong> Document hull condition for your insurance records</li>
+              <li><strong>Between cleans:</strong> Monitor fouling progression between scheduled maintenance</li>
+            </ul>
+          </div>
+          <div class="disclaimer-box">
+            <p><strong>⚠️ Important:</strong> {service.disclaimer}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section__header">
+        <h2>See the Technology in Action</h2>
+        <p class="section__subtitle">Our Keelcrab Pro's HD camera captures detailed footage of your entire hull.</p>
+      </div>
+      <div class="video-section">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/lULJv65LQUQ" title="Motor Yacht Cleaning — WiFi Recording" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Locations -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Available Across South Devon</h2>
+      </div>
+      <div class="grid grid--3">
+        <a href="/locations/brixham/hull-inspection" class="card location-link">
+          <h3 class="card__title">Brixham</h3>
+          <p class="card__text">Hull inspection at MDL Brixham Marina — 485 berths, vessels up to 18m.</p>
+          <span class="card__cta">Learn more →</span>
+        </a>
+        <a href="/locations/torquay/hull-inspection" class="card location-link">
+          <h3 class="card__title">Torquay</h3>
+          <p class="card__text">Hull inspection at MDL Torquay Marina — 440 berths, vessels up to 30m.</p>
+          <span class="card__cta">Learn more →</span>
+        </a>
+        <a href="/locations/dartmouth/hull-inspection" class="card location-link">
+          <h3 class="card__title">Dartmouth</h3>
+          <p class="card__text">Hull inspection at Darthaven Marina — 270 berths, vessels up to 21.3m.</p>
+          <span class="card__cta">Learn more →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>
+
+<style>
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2xl);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .process-step { text-align: center; }
+  .process-step__number {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--accent); color: var(--text-on-accent);
+    font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto var(--space-md);
+  }
+  .process-step h3 { font-size: 1.1rem; margin-bottom: var(--space-sm); }
+  .process-step p { color: var(--text-light); font-size: 0.9rem; }
+  @media (max-width: 768px) { .process-steps { grid-template-columns: 1fr; } }
+
+  .included-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: start; }
+  @media (max-width: 768px) { .included-grid { grid-template-columns: 1fr; } }
+
+  .included-list { list-style: none; margin: var(--space-xl) 0; }
+  .included-list li { padding: var(--space-sm) 0; display: flex; align-items: flex-start; gap: var(--space-sm); }
+  .included-list li::before { content: '✓'; color: var(--success); font-weight: 700; flex-shrink: 0; }
+
+  .included-price {
+    background: var(--surface); border-radius: var(--radius-lg);
+    padding: var(--space-xl); margin-bottom: var(--space-xl); text-align: center;
+  }
+  .included-price__amount { font-family: var(--font-heading); font-size: 3rem; font-weight: 800; color: var(--primary); }
+  .included-price__unit { display: block; color: var(--text-light); }
+  .included-price__min { display: block; color: var(--text-muted); font-size: 0.85rem; margin-top: var(--space-xs); }
+
+  .info-box {
+    background: var(--surface); border-radius: var(--radius-lg);
+    padding: var(--space-xl); margin-bottom: var(--space-xl);
+  }
+  .info-box h3 { font-size: 1.1rem; margin-bottom: var(--space-md); }
+  .info-list { list-style: none; }
+  .info-list li { padding: var(--space-sm) 0; font-size: 0.95rem; color: var(--text-light); }
+
+  .disclaimer-box {
+    background: rgba(231, 76, 60, 0.08); border: 1px solid rgba(231, 76, 60, 0.2);
+    border-radius: var(--radius-md); padding: var(--space-lg);
+  }
+  .disclaimer-box p { font-size: 0.9rem; color: var(--text-light); margin: 0; }
+
+  .video-section { max-width: 800px; margin: 0 auto; }
+  .location-link { text-decoration: none; color: var(--text); }
+  .card__cta { color: var(--accent); font-weight: 600; font-size: 0.9rem; margin-top: var(--space-md); display: inline-block; }
+</style>

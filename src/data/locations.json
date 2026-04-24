@@ -1,0 +1,71 @@
+{
+  "locations": [
+    {
+      "name": "Brixham",
+      "slug": "brixham",
+      "marina": "Brixham Marina (MDL)",
+      "tagline": "Where Heritage Meets Technology",
+      "headline": "Hull Cleaning & Inspection in Brixham",
+      "berths": 485,
+      "maxVesselLength": "18m (larger by arrangement)",
+      "access": "All-tide, all-weather — sheltered behind wavescreen",
+      "operator": "MDL Marinas",
+      "goldAnchors": null,
+      "nearbyYard": "Dolphin Boatyard — 65-ton hoist",
+      "character": "Working fishing harbour first, marina second. One of England's most significant fishing ports by catch value — the birthplace of trawling.",
+      "foulingFactors": [
+        "Active fishing harbour with higher nutrient load from fishing waste",
+        "South-facing bay exposure to English Channel currents",
+        "Gulf Stream-influenced waters extend the fouling season",
+        "Mixed commercial and leisure vessel traffic increases debris"
+      ],
+      "contentAngle": "Position HullSafe as part of Brixham's maritime heritage — where England's fishing tradition meets 21st-century marine technology.",
+      "services": ["hull-cleaning", "hull-inspection", "maintenance-plans"]
+    },
+    {
+      "name": "Torquay",
+      "slug": "torquay",
+      "marina": "Torquay Marina (MDL)",
+      "tagline": "Premium Care for the English Riviera",
+      "headline": "Hull Cleaning & Inspection in Torquay",
+      "berths": 440,
+      "maxVesselLength": "30m",
+      "access": "All-tide access with comprehensive facilities",
+      "operator": "MDL Marinas",
+      "goldAnchors": 5,
+      "nearbyYard": null,
+      "character": "The English Riviera — Torquay is the premium end of Torbay, primarily leisure motor-yachts and sailing yachts with larger, higher-value vessels.",
+      "foulingFactors": [
+        "Larger vessels up to 30m — bigger cleaning jobs",
+        "MDL 5 Gold Anchor standards demand regular maintenance",
+        "Recent MDL investment in pontoons and facilities raises service expectations",
+        "Town centre location offers high visibility"
+      ],
+      "contentAngle": "Premium hull care for the English Riviera — where professional service meets world-class marina facilities.",
+      "services": ["hull-cleaning", "hull-inspection", "maintenance-plans"]
+    },
+    {
+      "name": "Dartmouth",
+      "slug": "dartmouth",
+      "marina": "Darthaven Marina",
+      "tagline": "Mastering the River Dart Challenge",
+      "headline": "Hull Cleaning & Inspection in Dartmouth",
+      "berths": 270,
+      "maxVesselLength": "21.3m (70ft)",
+      "access": "All-tide, no tidal restrictions",
+      "operator": "Darthaven Marina Ltd (family-run)",
+      "goldAnchors": null,
+      "nearbyYard": "On-site — 40-ton travel hoist, engineers, shipwrights",
+      "character": "The River Dart presents fundamentally different fouling conditions. Freshwater from Dartmoor meets seawater in a tidal estuary — creating unique challenges for hull maintenance.",
+      "foulingFactors": [
+        "Tidal estuary with fluctuating salinity — freshwater from Dartmoor meets seawater",
+        "Agricultural runoff from Dartmoor creates nutrient-rich water accelerating biofouling",
+        "Fine sediment and silt carried by the river accumulates on hulls",
+        "Many vessels on stationary swing moorings — no movement means faster fouling",
+        "Dart Harbour actively concerned about invasive alien species transfer"
+      ],
+      "contentAngle": "Your hull faces different enemies on the River Dart. We know every one of them.",
+      "services": ["hull-cleaning", "hull-inspection", "maintenance-plans"]
+    }
+  ]
+}

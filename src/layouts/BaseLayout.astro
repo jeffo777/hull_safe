@@ -1,0 +1,493 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+}
+
+const { 
+  title, 
+  description = "Professional robotic hull cleaning & inspection across Brixham, Torquay & Dartmouth. Powered by Keelcrab technology.",
+  ogImage = "/images/og-default.jpg",
+  canonicalUrl
+} = Astro.props;
+
+const siteTitle = `${title} | HullSafe`;
+const siteUrl = "https://hullsafe.co.uk";
+---
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  
+  <!-- Title -->
+  <title>{siteTitle}</title>
+
+  <!-- Canonical -->
+  {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={siteTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:site_name" content="HullSafe" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={siteTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles/global.css" />
+</head>
+<body>
+  <slot name="header">
+    <header class="site-header" id="site-header">
+      <div class="container">
+        <nav class="nav" aria-label="Main navigation">
+          <a href="/" class="nav__logo" aria-label="HullSafe home">
+            <span class="nav__logo-text">Hull<span class="nav__logo-accent">Safe</span></span>
+          </a>
+          
+          <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <ul class="nav__menu" id="nav-menu">
+            <li class="nav__item nav__item--dropdown">
+              <button class="nav__link nav__dropdown-trigger" aria-expanded="false">Services <span class="nav__chevron">▾</span></button>
+              <ul class="nav__dropdown">
+                <li><a href="/services/hull-cleaning">Hull Cleaning</a></li>
+                <li><a href="/services/hull-inspection">Hull Inspection</a></li>
+                <li><a href="/services/maintenance-plans">Maintenance Plans</a></li>
+              </ul>
+            </li>
+            <li class="nav__item nav__item--dropdown">
+              <button class="nav__link nav__dropdown-trigger" aria-expanded="false">Locations <span class="nav__chevron">▾</span></button>
+              <ul class="nav__dropdown">
+                <li><a href="/locations/brixham">Brixham</a></li>
+                <li><a href="/locations/torquay">Torquay</a></li>
+                <li><a href="/locations/dartmouth">Dartmouth</a></li>
+              </ul>
+            </li>
+            <li class="nav__item"><a href="/pricing" class="nav__link">Pricing</a></li>
+            <li class="nav__item"><a href="/gallery" class="nav__link">Gallery</a></li>
+            <li class="nav__item"><a href="/about" class="nav__link">About</a></li>
+            <li class="nav__item"><a href="/blog" class="nav__link">Blog</a></li>
+            <li class="nav__item"><a href="/faq" class="nav__link">FAQs</a></li>
+            <li class="nav__item nav__item--cta">
+              <a href="/contact" class="btn btn--primary btn--small">Book Now</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </slot>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" class="footer__logo">Hull<span>Safe</span></a>
+          <p class="footer__tagline">Professional robotic hull cleaning & inspection across South Devon.</p>
+          <a href="https://keelcrab.com" target="_blank" rel="noopener noreferrer" class="powered-by">
+            Powered by Keelcrab
+          </a>
+        </div>
+
+        <div class="footer__links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services/hull-cleaning">Hull Cleaning</a></li>
+            <li><a href="/services/hull-inspection">Hull Inspection</a></li>
+            <li><a href="/services/maintenance-plans">Maintenance Plans</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__links">
+          <h4>Locations</h4>
+          <ul>
+            <li><a href="/locations/brixham">Brixham</a></li>
+            <li><a href="/locations/torquay">Torquay</a></li>
+            <li><a href="/locations/dartmouth">Dartmouth</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/faq">FAQs</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; {new Date().getFullYear()} HullSafe. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('nav-menu');
+    
+    toggle?.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      menu?.classList.toggle('nav__menu--open');
+      document.body.classList.toggle('nav-open');
+    });
+
+    // Dropdown toggles
+    document.querySelectorAll('.nav__dropdown-trigger').forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const parent = (e.currentTarget as HTMLElement).closest('.nav__item--dropdown');
+        parent?.classList.toggle('nav__item--active');
+      });
+    });
+
+    // Header scroll effect
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header?.classList.add('site-header--scrolled');
+      } else {
+        header?.classList.remove('site-header--scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
+
+<style>
+  /* --- Header --- */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: transparent;
+    transition: all var(--transition-base);
+    padding: var(--space-md) 0;
+  }
+
+  .site-header--scrolled {
+    background: rgba(26, 37, 47, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-sm) 0;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav__logo {
+    text-decoration: none;
+  }
+
+  .nav__logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+
+  .nav__logo-accent {
+    color: var(--accent);
+  }
+
+  .nav__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: var(--space-xs);
+  }
+
+  .nav__link {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+  }
+
+  .nav__link:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .nav__chevron {
+    font-size: 0.7rem;
+    margin-left: 2px;
+  }
+
+  /* Dropdown */
+  .nav__item--dropdown {
+    position: relative;
+  }
+
+  .nav__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xl);
+    padding: var(--space-sm);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all var(--transition-base);
+    list-style: none;
+    z-index: 100;
+  }
+
+  .nav__item--dropdown:hover .nav__dropdown,
+  .nav__item--active .nav__dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav__dropdown a {
+    display: block;
+    padding: var(--space-sm) var(--space-md);
+    color: var(--text);
+    font-size: 0.9rem;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+  }
+
+  .nav__dropdown a:hover {
+    background: var(--surface);
+    color: var(--accent);
+  }
+
+  /* Mobile toggle */
+  .nav__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-sm);
+  }
+
+  .nav__toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    transition: all var(--transition-fast);
+  }
+
+  @media (max-width: 1024px) {
+    .nav__toggle {
+      display: flex;
+    }
+
+    .nav__menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 360px;
+      height: 100vh;
+      background: var(--surface-dark);
+      flex-direction: column;
+      align-items: stretch;
+      padding: 80px var(--space-xl) var(--space-xl);
+      transition: right var(--transition-slow);
+      gap: var(--space-xs);
+    }
+
+    .nav__menu--open {
+      right: 0;
+    }
+
+    .nav__link {
+      width: 100%;
+      text-align: left;
+    }
+
+    .nav__dropdown {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-sm);
+      display: none;
+    }
+
+    .nav__item--active .nav__dropdown {
+      display: block;
+    }
+
+    .nav__dropdown a {
+      color: rgba(255, 255, 255, 0.75);
+      padding-left: var(--space-xl);
+    }
+
+    .nav__dropdown a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--accent);
+    }
+  }
+
+  /* --- Footer --- */
+  .site-footer {
+    background: var(--surface-dark);
+    color: var(--text-on-dark);
+    padding: var(--space-4xl) 0 var(--space-xl);
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--space-3xl);
+    margin-bottom: var(--space-3xl);
+  }
+
+  .footer__logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--white);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: var(--space-md);
+  }
+
+  .footer__logo span {
+    color: var(--accent);
+  }
+
+  .footer__tagline {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: var(--space-lg);
+    line-height: 1.6;
+  }
+
+  .footer__links h4 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: var(--space-lg);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+  }
+
+  .footer__links ul {
+    list-style: none;
+  }
+
+  .footer__links li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer__links a {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: color var(--transition-fast);
+  }
+
+  .footer__links a:hover {
+    color: var(--accent);
+  }
+
+  .footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: var(--space-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .footer__bottom p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  .footer__legal {
+    display: flex;
+    gap: var(--space-lg);
+  }
+
+  .footer__legal a {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .footer__legal a:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .footer__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .footer__brand {
+      grid-column: 1 / -1;
+    }
+
+    .footer__bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

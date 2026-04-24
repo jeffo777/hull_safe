@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Terms of Service" description="HullSafe terms of service. Service agreements, liability, cancellation policy, and conditions of use.">
+
+  <section class="legal-hero">
+    <div class="container">
+      <h1>Terms of Service</h1>
+      <p>Last updated: April 2026</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="legal-content">
+
+        <h2>1. About These Terms</h2>
+        <p>These terms govern the provision of hull cleaning, hull inspection, and maintenance plan services by HullSafe ("we", "us", "our") to you ("the customer", "you"). By booking our services, you agree to these terms.</p>
+
+        <h2>2. Services</h2>
+        <p>We provide:</p>
+        <ul>
+          <li><strong>Hull Cleaning:</strong> Robotic underwater hull cleaning using Keelcrab Pro technology</li>
+          <li><strong>Visual Hull Inspection:</strong> HD camera-based visual condition report of your hull below the waterline</li>
+          <li><strong>Maintenance Plans:</strong> Subscription-based regular cleaning schedules at discounted rates</li>
+        </ul>
+
+        <h2>3. Visual Inspection Disclaimer</h2>
+        <p><strong>Important:</strong> Our visual hull inspection service provides a visual condition report delivered by robotic technology. It is <strong>not</strong> a qualified marine survey and does not replace the professional opinion of a certified marine surveyor. We do not provide structural assessments, osmosis testing, or MCA compliance surveys. The report is provided for informational purposes only, and no liability is accepted for decisions made based solely on our inspection report.</p>
+
+        <h2>4. Booking & Cancellation</h2>
+        <ul>
+          <li>Bookings are confirmed once we have acknowledged your request (typically within 24 hours)</li>
+          <li>Cancellations made more than 48 hours before the scheduled service will be refunded in full</li>
+          <li>Cancellations made within 48 hours may be subject to a cancellation fee</li>
+          <li>We reserve the right to postpone services due to adverse weather conditions, tidal restrictions, or operational requirements. We will reschedule at no additional cost</li>
+        </ul>
+
+        <h2>5. Pricing</h2>
+        <ul>
+          <li>Prices are quoted per metre of boat length (LOA)</li>
+          <li>Minimum charges apply: £150 for cleaning, £100 for inspection</li>
+          <li>Subscription plan pricing is per clean, billed on a schedule agreed at sign-up</li>
+          <li>We reserve the right to update pricing. Existing subscription customers will receive 30 days' notice of any price changes</li>
+        </ul>
+
+        <h2>6. Liability</h2>
+        <ul>
+          <li>We take reasonable care in performing our services. However, hull cleaning and inspection inherently involves working with your vessel and we cannot guarantee zero risk</li>
+          <li>We carry appropriate public liability insurance</li>
+          <li>We are not liable for pre-existing damage, damage caused by severe fouling growth, or damage to hull coatings that are already compromised</li>
+          <li>Our liability is limited to the value of the service fee paid for the specific service in question</li>
+        </ul>
+
+        <h2>7. Antifouling Paint</h2>
+        <p>Our Keelcrab Pro uses A.N.C.C.P. certified nylon brushes designed to clean without damaging antifouling coatings. However, antifouling paint naturally degrades over time, and some minor wear may occur during cleaning, particularly on older or heavily fouled coatings. We select brush types appropriate to your hull coating, but accept no liability for paint that is already beyond its effective life.</p>
+
+        <h2>8. Maintenance Plans</h2>
+        <ul>
+          <li>Plans run on an annual basis from the date of sign-up</li>
+          <li>Cancellation of a plan before the annual term expires may result in retroactive billing at one-off rates for cleans already completed</li>
+          <li>Priority scheduling is offered on a best-efforts basis during peak season</li>
+          <li>The free annual inspection included in the Premium plan must be redeemed within the plan year</li>
+        </ul>
+
+        <h2>9. Intellectual Property</h2>
+        <p>All content on this website — including text, images, design, and code — is the property of HullSafe unless otherwise stated. Video footage from cleaning and inspection services belongs to HullSafe, though customers receive a copy for personal use. We may use anonymised footage for marketing purposes unless you opt out.</p>
+
+        <h2>10. Governing Law</h2>
+        <p>These terms are governed by the laws of England and Wales. Any disputes will be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+
+        <h2>11. Contact</h2>
+        <p>For questions about these terms, please contact:</p>
+        <p><strong>Email:</strong> <a href="mailto:hello@hullsafe.co.uk">hello@hullsafe.co.uk</a></p>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .legal-hero {
+    padding: calc(var(--header-height) + var(--space-3xl)) 0 var(--space-2xl);
+    background: var(--primary);
+    color: var(--white);
+  }
+  .legal-hero h1 { color: var(--white); margin-bottom: var(--space-sm); }
+  .legal-hero p { color: rgba(255,255,255,0.6); }
+
+  .legal-content h2 { margin-top: var(--space-2xl); margin-bottom: var(--space-md); font-size: 1.25rem; }
+  .legal-content p { color: var(--text-light); margin-bottom: var(--space-md); }
+  .legal-content ul { margin: 0 0 var(--space-lg) var(--space-xl); color: var(--text-light); }
+  .legal-content li { margin-bottom: var(--space-sm); }
+</style>

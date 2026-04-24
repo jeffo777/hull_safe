@@ -1,0 +1,182 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+const { title, description, category, readTime, publishDate, author = 'HullSafe', image } = Astro.props;
+---
+<BaseLayout title={title} description={description}>
+
+  <article class="blog-post">
+    <header class="blog-post__hero">
+      <div class="container container--narrow">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a> / <a href="/blog">Blog</a> / <span>{title}</span>
+        </nav>
+        <div class="blog-post__meta">
+          <span class="badge badge--primary">{category}</span>
+          <span class="blog-post__read-time">📖 {readTime}</span>
+        </div>
+        <h1>{title}</h1>
+        <div class="blog-post__byline">
+          <span>By {author}</span>
+          {publishDate && <span>· {publishDate}</span>}
+        </div>
+      </div>
+    </header>
+
+    {image && (
+      <div class="blog-post__featured-image">
+        <div class="container container--narrow">
+          <img src={image} alt={title} />
+        </div>
+      </div>
+    )}
+
+    <div class="blog-post__body">
+      <div class="container container--narrow">
+        <slot />
+      </div>
+    </div>
+
+    <footer class="blog-post__footer">
+      <div class="container container--narrow">
+        <div class="blog-post__cta">
+          <h2>Ready to Take Care of Your Hull?</h2>
+          <p>Whether you need a one-off clean, a visual inspection, or a year-round maintenance plan — we're here to help.</p>
+          <div class="blog-post__cta-buttons">
+            <a href="/contact" class="btn btn--primary">Get in Touch</a>
+            <a href="/pricing" class="btn btn--outline">View Pricing</a>
+          </div>
+        </div>
+        <div class="blog-post__nav">
+          <a href="/blog" class="blog-post__back">← Back to all articles</a>
+        </div>
+      </div>
+    </footer>
+  </article>
+
+</BaseLayout>
+
+<style>
+  .blog-post__hero {
+    padding: calc(var(--header-height) + var(--space-3xl)) 0 var(--space-3xl);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: var(--white);
+  }
+
+  .blog-post__featured-image {
+    margin-top: calc(-1 * var(--space-xl));
+    padding-bottom: var(--space-xl);
+  }
+
+  .blog-post__featured-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .breadcrumb {
+    font-size: 0.85rem;
+    margin-bottom: var(--space-xl);
+    color: rgba(255,255,255,0.5);
+  }
+  .breadcrumb a { color: rgba(255,255,255,0.6); }
+  .breadcrumb a:hover { color: var(--accent); }
+
+  .blog-post__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .blog-post__read-time {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .blog-post__hero h1 {
+    color: var(--white);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: var(--space-md);
+  }
+
+  .blog-post__byline {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  .blog-post__body {
+    padding: var(--space-4xl) 0;
+  }
+
+  .blog-post__body :global(h2) {
+    margin-top: var(--space-3xl);
+    margin-bottom: var(--space-lg);
+    font-size: 1.5rem;
+  }
+
+  .blog-post__body :global(h3) {
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+    font-size: 1.2rem;
+  }
+
+  .blog-post__body :global(p) {
+    color: var(--text-light);
+    line-height: 1.9;
+    margin-bottom: var(--space-lg);
+    font-size: 1.05rem;
+  }
+
+  .blog-post__body :global(ul),
+  .blog-post__body :global(ol) {
+    margin: 0 0 var(--space-xl) var(--space-xl);
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  .blog-post__body :global(li) {
+    margin-bottom: var(--space-sm);
+  }
+
+  .blog-post__body :global(blockquote) {
+    border-left: 4px solid var(--accent);
+    padding: var(--space-lg) var(--space-xl);
+    margin: var(--space-2xl) 0;
+    background: var(--surface);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    font-style: italic;
+    color: var(--text);
+  }
+
+  .blog-post__body :global(strong) {
+    color: var(--text);
+  }
+
+  .blog-post__footer {
+    padding: var(--space-3xl) 0;
+    border-top: 1px solid var(--surface-alt);
+  }
+
+  .blog-post__cta {
+    text-align: center;
+    padding: var(--space-3xl);
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .blog-post__cta h2 { margin-bottom: var(--space-md); font-size: 1.5rem; }
+  .blog-post__cta p { color: var(--text-light); margin-bottom: var(--space-xl); }
+  .blog-post__cta-buttons { display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; }
+
+  .blog-post__back {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+</style>

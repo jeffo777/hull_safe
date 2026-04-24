@@ -1,0 +1,291 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+---
+<ServiceLayout
+  title="Contact & Booking"
+  description="Book a hull clean, hull inspection, or get in touch with HullSafe. Serving Brixham, Torquay, and Dartmouth marinas across South Devon."
+  heroTitle="Get in Touch"
+  heroSubtitle="Book a clean, book an inspection, or send us a question. We typically respond within 24 hours."
+  heroBadge="Book Today"
+  ctaText=""
+  ctaLink=""
+>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Forms -->
+        <div class="forms-column">
+          <!-- Book a Clean -->
+          <div class="form-card" id="book-clean">
+            <div class="form-card__header form-card__header--clean">
+              <h2>🛥️ Book a Clean</h2>
+              <p>Tell us about your boat and we'll confirm your booking within 24 hours.</p>
+            </div>
+            <form action="https://formspree.io/f/placeholder" method="POST" class="booking-form">
+              <input type="hidden" name="form_type" value="Book a Clean" />
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="clean-name">Full Name *</label>
+                  <input type="text" id="clean-name" name="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="clean-email">Email *</label>
+                  <input type="email" id="clean-email" name="email" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="clean-phone">Phone</label>
+                  <input type="tel" id="clean-phone" name="phone" />
+                </div>
+                <div class="form-group">
+                  <label for="clean-length">Boat Length (metres) *</label>
+                  <input type="number" id="clean-length" name="boat_length" min="5" max="40" step="0.5" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="clean-location">Location *</label>
+                  <select id="clean-location" name="location" required>
+                    <option value="">Select marina...</option>
+                    <option value="Brixham Marina">Brixham Marina</option>
+                    <option value="Torquay Marina">Torquay Marina</option>
+                    <option value="Darthaven Marina">Darthaven Marina (Dartmouth)</option>
+                    <option value="Swing Mooring">Swing Mooring / Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="clean-date">Preferred Date</label>
+                  <input type="date" id="clean-date" name="preferred_date" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="clean-notes">Additional Notes</label>
+                <textarea id="clean-notes" name="notes" placeholder="Boat name, berth number, any specific concerns..."></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--large" style="width:100%">Request Clean Booking</button>
+            </form>
+          </div>
+
+          <!-- Book an Inspection -->
+          <div class="form-card" id="book-inspection">
+            <div class="form-card__header form-card__header--inspection">
+              <h2>🔍 Book an Inspection</h2>
+              <p>Schedule a visual hull inspection with HD video report.</p>
+            </div>
+            <form action="https://formspree.io/f/placeholder" method="POST" class="booking-form">
+              <input type="hidden" name="form_type" value="Book an Inspection" />
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="inspect-name">Full Name *</label>
+                  <input type="text" id="inspect-name" name="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="inspect-email">Email *</label>
+                  <input type="email" id="inspect-email" name="email" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="inspect-phone">Phone</label>
+                  <input type="tel" id="inspect-phone" name="phone" />
+                </div>
+                <div class="form-group">
+                  <label for="inspect-length">Boat Length (metres) *</label>
+                  <input type="number" id="inspect-length" name="boat_length" min="5" max="40" step="0.5" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="inspect-location">Location *</label>
+                  <select id="inspect-location" name="location" required>
+                    <option value="">Select marina...</option>
+                    <option value="Brixham Marina">Brixham Marina</option>
+                    <option value="Torquay Marina">Torquay Marina</option>
+                    <option value="Darthaven Marina">Darthaven Marina (Dartmouth)</option>
+                    <option value="Swing Mooring">Swing Mooring / Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="inspect-reason">Reason for Inspection</label>
+                  <select id="inspect-reason" name="reason">
+                    <option value="">Select reason...</option>
+                    <option value="Pre-season check">Pre-season check</option>
+                    <option value="Pre-purchase">Pre-purchase assessment</option>
+                    <option value="Post-grounding">Post-grounding check</option>
+                    <option value="Insurance">Insurance documentation</option>
+                    <option value="Between cleans">Monitoring between cleans</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inspect-notes">Additional Notes</label>
+                <textarea id="inspect-notes" name="notes" placeholder="Specific areas of concern, boat name, berth number..."></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--large" style="width:100%">Request Inspection Booking</button>
+            </form>
+          </div>
+
+          <!-- General Enquiry -->
+          <div class="form-card" id="enquiry">
+            <div class="form-card__header form-card__header--enquiry">
+              <h2>💬 General Enquiry</h2>
+              <p>Got a question? We're happy to help.</p>
+            </div>
+            <form action="https://formspree.io/f/placeholder" method="POST" class="booking-form">
+              <input type="hidden" name="form_type" value="General Enquiry" />
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="enquiry-name">Full Name *</label>
+                  <input type="text" id="enquiry-name" name="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="enquiry-email">Email *</label>
+                  <input type="email" id="enquiry-email" name="email" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="enquiry-message">Your Message *</label>
+                <textarea id="enquiry-message" name="message" required placeholder="How can we help?"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--large" style="width:100%">Send Message</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="contact-sidebar">
+          <div class="contact-info">
+            <h3>Contact Information</h3>
+            <div class="contact-item">
+              <strong>📧 Email</strong>
+              <a href="mailto:hello@hullsafe.co.uk">hello@hullsafe.co.uk</a>
+            </div>
+            <div class="contact-item">
+              <strong>📱 Phone</strong>
+              <a href="tel:+447000000000">07XXX XXX XXX</a>
+            </div>
+            <div class="contact-item">
+              <strong>📍 Based in</strong>
+              <span>Brixham, South Devon</span>
+            </div>
+          </div>
+
+          <div class="contact-info">
+            <h3>Service Area</h3>
+            <ul class="service-areas">
+              <li><a href="/locations/brixham">Brixham Marina (MDL)</a></li>
+              <li><a href="/locations/torquay">Torquay Marina (MDL)</a></li>
+              <li><a href="/locations/dartmouth">Darthaven Marina (Dartmouth)</a></li>
+            </ul>
+          </div>
+
+          <div class="contact-info">
+            <h3>Quick Pricing</h3>
+            <div class="quick-price">
+              <span>Hull Cleaning</span>
+              <strong>£15/m</strong>
+            </div>
+            <div class="quick-price">
+              <span>Hull Inspection</span>
+              <strong>£10/m</strong>
+            </div>
+            <a href="/pricing" class="btn btn--outline btn--small" style="width:100%;margin-top:var(--space-md)">Full Pricing →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>
+
+<style>
+  .contact-grid { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-3xl); align-items: start; }
+  @media (max-width: 1024px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  .form-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .form-card__header {
+    padding: var(--space-xl);
+    border-bottom: 1px solid var(--surface-alt);
+  }
+
+  .form-card__header--clean { border-left: 4px solid var(--accent); }
+  .form-card__header--inspection { border-left: 4px solid var(--sea-blue); }
+  .form-card__header--enquiry { border-left: 4px solid var(--success); }
+
+  .form-card__header h2 { font-size: 1.25rem; margin-bottom: var(--space-xs); }
+  .form-card__header p { color: var(--text-light); font-size: 0.9rem; margin: 0; }
+
+  .booking-form { padding: var(--space-xl); }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+  @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+
+  /* Sidebar */
+  .contact-sidebar { position: sticky; top: calc(var(--header-height) + var(--space-lg)); }
+
+  .contact-info {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .contact-info h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--surface-alt);
+  }
+
+  .contact-item {
+    margin-bottom: var(--space-md);
+  }
+
+  .contact-item strong {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .contact-item a,
+  .contact-item span {
+    font-size: 0.95rem;
+    color: var(--text);
+  }
+
+  .service-areas {
+    list-style: none;
+  }
+
+  .service-areas li {
+    padding: var(--space-sm) 0;
+  }
+
+  .service-areas a {
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .quick-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .quick-price span { color: var(--text-light); font-size: 0.9rem; }
+  .quick-price strong { color: var(--primary); font-size: 1.1rem; }
+</style>

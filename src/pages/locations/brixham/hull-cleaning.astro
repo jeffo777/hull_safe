@@ -1,0 +1,109 @@
+---
+import LocationLayout from '../../../layouts/LocationLayout.astro';
+import locations from '../../../data/locations.json';
+import pricing from '../../../data/pricing.json';
+
+const loc = locations.locations[0];
+const p = pricing.services.hullCleaning;
+---
+<LocationLayout
+  title="Hull Cleaning in Brixham"
+  description="Robotic hull cleaning at Brixham Marina. Nutrient-rich harbour waters demand specialist care. Certified nylon brushes, HD video report, eco-compliant debris capture. From £15/metre."
+  locationName={loc.name} locationSlug={loc.slug} marina={loc.marina} tagline="Professional Hull Cleaning at Brixham Marina"
+  berths={loc.berths} maxVesselLength={loc.maxVesselLength} access={loc.access}
+  foulingFactors={loc.foulingFactors} contentAngle={loc.contentAngle}
+  breadcrumbService="Hull Cleaning" breadcrumbServiceSlug="hull-cleaning"
+>
+  <section class="section">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>Why Brixham Hulls Foul Faster Than Anywhere Else in Torbay</h2>
+          <p>Brixham is England's most valuable fishing port by landing value — and that's not just a statistic for the tourism brochures. The harbour's thriving commercial trawler fleet churns nutrient-rich sediment and organic matter through the water column on every tide. Those nutrients feed microscopic algae, which colonise your hull within days of a fresh antifouling application. Within weeks, you've got a slippery biofilm layer. Within months, barnacles.</p>
+          <p>Unlike the relatively open waters at Torquay or the estuarine conditions on the River Dart, Brixham's enclosed harbour creates a sheltered environment where water doesn't flush as aggressively. That trapped warmth in summer accelerates biological growth — and boat owners who only clean once a year consistently find their hulls carrying significantly more fouling than vessels in neighbouring marinas.</p>
+
+          <h3>What Our Brixham Cleaning Service Covers</h3>
+          <p>When we arrive at your berth in Brixham Marina, we deploy our Keelcrab Pro directly from the pontoon. The robot attaches to your hull and moves systematically across the underwater surface, cleaning with A.N.C.C.P. certified nylon brushes while its onboard HD camera feeds live footage back to our operator's screen. You can watch the entire process in real-time if you'd like — many of our Brixham clients say it's the most satisfying boat maintenance they've ever witnessed.</p>
+          <p>Every clean at Brixham includes a full hull and waterline pass, live camera monitoring throughout the clean, HD video footage delivered digitally after the service, and all removed fouling captured in our Keelcrab Bag so nothing re-enters the harbour water. We pay particular attention to the waterline — Brixham's tidal range and high nutrient levels mean waterline fouling accumulates noticeably faster here than at other Torbay marinas.</p>
+
+          <h3>The Brixham Fishing Heritage Connection</h3>
+          <p>Brixham's fishing fleet has understood hull maintenance for generations. Trawler skippers know that a clean hull burns less fuel and reaches fishing grounds faster — and they've been hauling boats out at Upham's Yard for as long as anyone can remember. What's changed is the technology. Our robotic approach delivers the same result without the cost and disruption of a lift-out, without the antifouling damage from pressure washing, and without the environmental impact of debris falling into the harbour.</p>
+          <p>Whether you own a 25ft sailing yacht tucked into the inner harbour or a classic wooden vessel on a visitor berth, our per-metre pricing keeps costs predictable. A typical 12-metre yacht costs £180 and takes about an hour — less time than the walk to the breakwater and back.</p>
+        </div>
+        <div class="content-sidebar">
+          <div class="price-box">
+            <span class="price-box__label">Hull Cleaning</span>
+            <span class="price-box__amount">£{p.pricePerMetre}</span>
+            <span class="price-box__unit">per metre</span>
+            <span class="price-box__min">Min: £{p.minimumCharge}</span>
+            <a href="/contact" class="btn btn--primary" style="width:100%;margin-top:var(--space-md)">Book a Clean</a>
+          </div>
+          <div class="sidebar-info">
+            <h4>Brixham-Specific Cleaning Notes</h4>
+            <ul>
+              <li>Heavy barnacle growth common May–October</li>
+              <li>Waterline fouling accelerated by harbour nutrients</li>
+              <li>Half-tide access — we schedule around tidal windows</li>
+              <li>Upham's Yard nearby for any above-water maintenance</li>
+            </ul>
+          </div>
+          <div class="other-services">
+            <h4>Also in Brixham</h4>
+            <a href="/locations/brixham/hull-inspection">Hull Inspection →</a>
+            <a href="/locations/brixham/maintenance-plans">Maintenance Plans →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Seasonal Cleaning Advice for Brixham Boat Owners</h2>
+        <p class="section__subtitle">Brixham's fouling calendar follows a predictable pattern driven by harbour temperature and commercial fishing activity.</p>
+      </div>
+      <div class="grid grid--2">
+        <div class="card">
+          <h3 class="card__title">🌱 Spring (March–May)</h3>
+          <p class="card__text">As water temperatures rise above 10°C, algae growth accelerates rapidly. A pre-season clean in late March or early April removes winter biofilm before it hardens. This is the most important single clean of the year for Brixham boats.</p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">☀️ Summer (June–August)</h3>
+          <p class="card__text">Peak fouling season. Barnacle larvae settle in warm water, and Brixham's nutrient levels mean they grow faster here than in open coastal waters. Subscription members typically schedule a mid-summer clean in July to stay on top of growth.</p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">🍂 Autumn (September–November)</h3>
+          <p class="card__text">Growth slows as temperatures drop, but autumn storms stir harbour sediment and coat hulls with silt. A post-season clean before winter lay-up protects your antifouling and gives you a clean baseline for the next survey.</p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">❄️ Winter (December–February)</h3>
+          <p class="card__text">Biological growth is minimal, but silt accumulation continues. If your boat stays in the water year-round, a winter inspection is a smart move — check antifoul condition while fouling is at its lightest and issues are easiest to spot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</LocationLayout>
+
+<style>
+  .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-3xl); align-items: start; }
+  @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } }
+  .content-main p { color: var(--text-light); margin-bottom: var(--space-md); line-height: 1.8; }
+  .content-main h3 { margin-top: var(--space-2xl); margin-bottom: var(--space-md); font-size: 1.25rem; }
+
+  .price-box { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-xl); text-align: center; margin-bottom: var(--space-xl); position: sticky; top: calc(var(--header-height) + var(--space-lg)); }
+  .price-box__label { display: block; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-sm); }
+  .price-box__amount { display: block; font-family: var(--font-heading); font-size: 3rem; font-weight: 800; color: var(--primary); }
+  .price-box__unit { display: block; color: var(--text-light); font-size: 0.9rem; }
+  .price-box__min { display: block; color: var(--text-muted); font-size: 0.8rem; margin-top: var(--space-xs); }
+
+  .sidebar-info { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-xl); margin-bottom: var(--space-xl); }
+  .sidebar-info h4 { font-size: 0.9rem; margin-bottom: var(--space-md); }
+  .sidebar-info ul { list-style: none; }
+  .sidebar-info li { padding: var(--space-xs) 0; font-size: 0.85rem; color: var(--text-light); }
+  .sidebar-info li::before { content: '→ '; color: var(--accent); font-weight: 600; }
+
+  .other-services { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-xl); }
+  .other-services h4 { font-size: 0.9rem; margin-bottom: var(--space-md); }
+  .other-services a { display: block; padding: var(--space-sm) 0; color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+</style>

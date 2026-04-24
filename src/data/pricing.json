@@ -1,0 +1,83 @@
+{
+  "currency": "GBP",
+  "currencySymbol": "£",
+  "lastUpdated": "2026-04-24",
+  "services": {
+    "hullCleaning": {
+      "name": "Hull Cleaning",
+      "slug": "hull-cleaning",
+      "pricePerMetre": 15,
+      "unit": "metre",
+      "minimumCharge": 150,
+      "description": "Professional robotic hull cleaning using certified nylon brushes that remove fouling without damaging your antifouling paint.",
+      "includes": [
+        "Full hull clean using certified nylon brushes",
+        "Debris capture via Keelcrab Bag (eco-compliant)",
+        "HD video recording of the clean",
+        "Digital report with before/after footage"
+      ],
+      "estimatedTimes": {
+        "12": "1 hour",
+        "16": "1.5 hours",
+        "18": "2 hours"
+      }
+    },
+    "hullInspection": {
+      "name": "Visual Hull Inspection",
+      "slug": "hull-inspection",
+      "pricePerMetre": 10,
+      "unit": "metre",
+      "minimumCharge": 100,
+      "description": "Detailed underwater visual condition report using HD camera technology — see exactly what's happening below the waterline.",
+      "includes": [
+        "Full HD underwater video scan",
+        "Visual condition report (PDF + video link)",
+        "Waterline, antifoul, and intake check",
+        "Recommendations for follow-up action"
+      ],
+      "disclaimer": "This is a visual condition report, not a qualified marine survey."
+    }
+  },
+  "subscriptions": {
+    "essential": {
+      "name": "Essential Plan",
+      "subtitle": "Quarterly Hull Care",
+      "frequency": "4 cleans per year",
+      "frequencyLabel": "Quarterly",
+      "discountPercent": 15,
+      "pricePerMetre": 12.75,
+      "minimumCharge": 127.5,
+      "popular": false,
+      "includes": [
+        "4× hull cleans per year",
+        "Priority scheduling in peak season",
+        "Digital report after every clean",
+        "15% saving vs one-off pricing"
+      ]
+    },
+    "premium": {
+      "name": "Premium Plan",
+      "subtitle": "Complete Hull Protection",
+      "frequency": "6 cleans per year",
+      "frequencyLabel": "Bi-monthly",
+      "discountPercent": 20,
+      "pricePerMetre": 12.0,
+      "minimumCharge": 120.0,
+      "popular": true,
+      "includes": [
+        "6× hull cleans per year",
+        "1× annual visual inspection included free",
+        "Priority scheduling guaranteed",
+        "20% saving vs one-off pricing",
+        "Seasonal fouling report"
+      ]
+    }
+  },
+  "examplePricing": [
+    { "length": 10, "label": "10m (33ft)", "cleaning": 150, "inspection": 100, "essential": 127.50, "premium": 120.00 },
+    { "length": 12, "label": "12m (39ft)", "cleaning": 180, "inspection": 120, "essential": 153.00, "premium": 144.00 },
+    { "length": 15, "label": "15m (49ft)", "cleaning": 225, "inspection": 150, "essential": 191.25, "premium": 180.00 },
+    { "length": 18, "label": "18m (59ft)", "cleaning": 270, "inspection": 180, "essential": 229.50, "premium": 216.00 },
+    { "length": 20, "label": "20m (66ft)", "cleaning": 300, "inspection": 200, "essential": 255.00, "premium": 240.00 }
+  ]
+}

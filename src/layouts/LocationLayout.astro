@@ -1,0 +1,223 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import pricing from '../data/pricing.json';
+
+interface Props {
+  title: string;
+  description: string;
+  locationName: string;
+  locationSlug: string;
+  marina: string;
+  tagline: string;
+  berths: number;
+  maxVesselLength: string;
+  access: string;
+  foulingFactors: string[];
+  contentAngle: string;
+  breadcrumbService?: string;
+  breadcrumbServiceSlug?: string;
+}
+
+const { 
+  title, description, locationName, locationSlug, marina, tagline,
+  berths, maxVesselLength, access, foulingFactors, contentAngle,
+  breadcrumbService, breadcrumbServiceSlug
+} = Astro.props;
+---
+<BaseLayout title={title} description={description}>
+  <section class="location-hero" data-location={locationSlug}>
+    <div class="location-hero__overlay"></div>
+    <div class="container location-hero__content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span>/</span>
+        <a href={`/locations/${locationSlug}`}>{locationName}</a>
+        {breadcrumbService && (
+          <>
+            <span>/</span>
+            <span class="breadcrumb__current">{breadcrumbService}</span>
+          </>
+        )}
+      </nav>
+      <h1>{title}</h1>
+      <p class="location-hero__tagline">{tagline}</p>
+      <div class="location-hero__stats">
+        <div class="location-hero__stat">
+          <span class="location-hero__stat-value">{berths}</span>
+          <span class="location-hero__stat-label">Berths</span>
+        </div>
+        <div class="location-hero__stat-divider"></div>
+        <div class="location-hero__stat">
+          <span class="location-hero__stat-value">{maxVesselLength}</span>
+          <span class="location-hero__stat-label">Max vessel</span>
+        </div>
+        <div class="location-hero__stat-divider"></div>
+        <div class="location-hero__stat">
+          <span class="location-hero__stat-value">£{pricing.services.hullCleaning.pricePerMetre}</span>
+          <span class="location-hero__stat-label">per metre</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <slot />
+
+  <!-- Location CTA -->
+  <section class="section section--cta">
+    <div class="container">
+      <div class="location-cta">
+        <h2>Ready to Book in {locationName}?</h2>
+        <p>Professional robotic hull cleaning & inspection at {marina}.</p>
+        <div class="location-cta__buttons">
+          <a href="/contact" class="btn btn--primary btn--large">Book a Clean</a>
+          <a href="/contact" class="btn btn--outline btn--large">Book an Inspection</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .location-hero {
+    position: relative;
+    padding: calc(var(--header-height) + var(--space-3xl)) 0 var(--space-3xl);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .location-hero[data-location="brixham"] {
+    background: linear-gradient(135deg, #1A252F 0%, #2C3E50 40%, #2980B9 100%);
+  }
+
+  .location-hero[data-location="torquay"] {
+    background: linear-gradient(135deg, #1A252F 0%, #2C3E50 40%, #27AE60 100%);
+  }
+
+  .location-hero[data-location="dartmouth"] {
+    background: linear-gradient(135deg, #1A252F 0%, #2C3E50 40%, #8E44AD 100%);
+  }
+
+  .location-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 80%, rgba(255,255,255,0.05) 0%, transparent 60%);
+  }
+
+  .location-hero__content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .breadcrumb {
+    margin-bottom: var(--space-lg);
+    font-size: 0.85rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .breadcrumb a:hover {
+    color: var(--accent);
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 var(--space-xs);
+  }
+
+  .breadcrumb__current {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .location-hero h1 {
+    color: var(--white);
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    margin-bottom: var(--space-sm);
+  }
+
+  .location-hero__tagline {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .location-hero__stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);
+    flex-wrap: wrap;
+  }
+
+  .location-hero__stat {
+    text-align: center;
+  }
+
+  .location-hero__stat-value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent);
+  }
+
+  .location-hero__stat-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .location-hero__stat-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* CTA */
+  .section--cta {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  }
+
+  .location-cta {
+    text-align: center;
+  }
+
+  .location-cta h2 {
+    color: var(--text-on-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .location-cta p {
+    color: rgba(26, 37, 47, 0.8);
+    font-size: 1.1rem;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .location-cta__buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .location-cta .btn--outline {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  .location-cta .btn--outline:hover {
+    background: var(--primary);
+    color: var(--white);
+  }
+
+  @media (max-width: 640px) {
+    .location-hero__stats {
+      gap: var(--space-md);
+    }
+    .location-hero__stat-divider {
+      display: none;
+    }
+  }
+</style>

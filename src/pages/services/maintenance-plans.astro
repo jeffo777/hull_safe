@@ -1,0 +1,191 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import pricing from '../../data/pricing.json';
+
+const essential = pricing.subscriptions.essential;
+const premium = pricing.subscriptions.premium;
+---
+<ServiceLayout
+  title="Maintenance Plans"
+  description="Save up to 20% with a HullSafe maintenance plan. Regular robotic hull cleaning keeps your boat performing at its best. Plans from £12/metre."
+  heroTitle="Maintenance Plans"
+  heroSubtitle="One-off cleans solve a problem. A maintenance plan prevents one. Save up to 20% and get priority scheduling."
+  heroBadge="Save up to 20%"
+  ctaText="Enquire About Plans"
+>
+
+  <!-- Why Subscribe -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Why Regular Hull Maintenance?</h2>
+        <p class="section__subtitle">A clean hull isn't just about appearance — it's about performance, fuel efficiency, and protecting your investment.</p>
+      </div>
+      <div class="grid grid--4">
+        <div class="card">
+          <div class="card__icon">⛽</div>
+          <h3 class="card__title">Save on Fuel</h3>
+          <p class="card__text">A fouled hull can increase fuel consumption by up to 30%. Regular cleaning pays for itself.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon">🎯</div>
+          <h3 class="card__title">Priority Scheduling</h3>
+          <p class="card__text">Plan members get priority booking — essential during the busy summer sailing season.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon">🛡️</div>
+          <h3 class="card__title">Extend Antifoul Life</h3>
+          <p class="card__text">Regular robotic cleaning prevents heavy fouling buildup, extending your antifouling paint's useful life.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon">📊</div>
+          <h3 class="card__title">Track Hull Health</h3>
+          <p class="card__text">Receive a digital report after every clean — building a maintenance history for your vessel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Cards -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Choose Your Plan</h2>
+        <p class="section__subtitle">Whether you own a 25ft sailing yacht or a 60ft motor cruiser, we have a plan that keeps your hull at peak performance.</p>
+      </div>
+      <div class="plans-grid">
+        <!-- Essential -->
+        <div class="pricing-card">
+          <h3>{essential.name}</h3>
+          <p class="pricing-card__subtitle">{essential.subtitle}</p>
+          <div class="pricing-card__price">
+            £{essential.pricePerMetre}<span>/metre</span>
+          </div>
+          <p class="pricing-card__frequency">{essential.frequency}</p>
+          <span class="badge badge--success">Save {essential.discountPercent}%</span>
+          <ul class="pricing-card__features">
+            {essential.includes.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <a href="/contact" class="btn btn--outline btn--large" style="width:100%">Enquire Now</a>
+        </div>
+
+        <!-- Premium -->
+        <div class="pricing-card pricing-card--featured">
+          <h3>{premium.name}</h3>
+          <p class="pricing-card__subtitle">{premium.subtitle}</p>
+          <div class="pricing-card__price">
+            £{premium.pricePerMetre}<span>/metre</span>
+          </div>
+          <p class="pricing-card__frequency">{premium.frequency}</p>
+          <span class="badge badge--accent">Save {premium.discountPercent}%</span>
+          <ul class="pricing-card__features">
+            {premium.includes.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <a href="/contact" class="btn btn--primary btn--large" style="width:100%">Enquire Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Example Pricing -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Example Costs by Boat Size</h2>
+        <p class="section__subtitle">Per-clean cost based on your boat's length. All prices are per individual clean.</p>
+      </div>
+      <div class="table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Boat Size</th>
+              <th>One-Off Clean</th>
+              <th>Essential (per clean)</th>
+              <th>Premium (per clean)</th>
+              <th>Annual Saving (Premium)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {pricing.examplePricing.map((row) => {
+              const annualOneOff = row.cleaning * 6;
+              const annualPremium = row.premium * 6;
+              const saving = annualOneOff - annualPremium;
+              return (
+                <tr>
+                  <td style="font-weight:600">{row.label}</td>
+                  <td>£{row.cleaning.toFixed(2)}</td>
+                  <td>£{row.essential.toFixed(2)}</td>
+                  <td style="color:var(--success);font-weight:600">£{row.premium.toFixed(2)}</td>
+                  <td style="color:var(--accent);font-weight:600">£{saving.toFixed(2)}/year</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who's It For -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Who Benefits from a Maintenance Plan?</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="card">
+          <div class="card__icon">⛵</div>
+          <h3 class="card__title">Private Boat Owners</h3>
+          <p class="card__text">Keep your yacht performing at its best year-round with scheduled cleans and documented hull reports.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon">🏫</div>
+          <h3 class="card__title">Sailing Schools & RYA Centres</h3>
+          <p class="card__text">Training vessels need to be operational 24/7 during the season. A plan keeps your fleet clean and ready.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon">🚢</div>
+          <h3 class="card__title">Charter Fleets</h3>
+          <p class="card__text">Pre-charter "clean and check" services ensure every vessel is presentable and performing for your clients.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>
+
+<style>
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2xl);
+    max-width: 800px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .plans-grid { grid-template-columns: 1fr; }
+  }
+
+  .pricing-card__subtitle {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .pricing-card__frequency {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+</style>

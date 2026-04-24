@@ -1,0 +1,88 @@
+---
+import LocationLayout from '../../../layouts/LocationLayout.astro';
+import locations from '../../../data/locations.json';
+import pricing from '../../../data/pricing.json';
+
+const loc = locations.locations[1];
+const p = pricing.services.hullInspection;
+---
+<LocationLayout
+  title="Hull Inspection in Torquay"
+  description="Visual hull inspection at MDL Torquay Marina. HD camera condition report for vessels up to 30m. Pre-purchase, pre-season, and insurance documentation. From £10/metre."
+  locationName={loc.name} locationSlug={loc.slug} marina={loc.marina} tagline="Visual Hull Inspection at Torquay Marina"
+  berths={loc.berths} maxVesselLength={loc.maxVesselLength} access={loc.access}
+  foulingFactors={loc.foulingFactors} contentAngle={loc.contentAngle}
+  breadcrumbService="Hull Inspection" breadcrumbServiceSlug="hull-inspection"
+>
+  <section class="section">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>Premium Vessels Deserve Documented Hull Intelligence</h2>
+          <p>Torquay Marina berths some of the most valuable vessels on the South Devon coast. Boats worth six or seven figures sit alongside visiting superyachts and well-maintained liveaboards — and for every one of those owners, knowing the condition of their hull below the waterline is not a luxury. It's basic asset management.</p>
+          <p>Yet surprisingly few boat owners inspect their hulls regularly. Most rely on the annual haul-out — an expensive, time-consuming process that gives you a single snapshot of your hull's condition once a year. Our robotic visual inspection changes that equation entirely. At £10 per metre, you can affordably check your hull between haul-outs, between cleans, before and after voyages, or whenever something feels off.</p>
+
+          <h3>The Torquay Large-Vessel Advantage</h3>
+          <p>Inspecting a vessel over 20 metres is where robotic technology really earns its keep. A traditional diver inspection of a 25-metre motor yacht takes significant dive time, involves safety management, and costs accordingly. Our Keelcrab Pro covers the same area systematically, recording continuous HD footage that can be reviewed frame-by-frame after the inspection — something a diver with a handheld camera simply cannot replicate with the same consistency.</p>
+          <p>For owners of larger vessels at Torquay, we offer a particularly detailed inspection report that breaks down the hull into zones — bow, midships, quarters, keel, rudder, and running gear — with separate observations and video clips for each section. This makes it easy to track changes between inspections and gives your surveyor or yard manager a precise starting point for any maintenance recommendations.</p>
+
+          <h3>Insurance and Documentation Value</h3>
+          <p>Several Torquay marina berth holders use our inspection reports as supporting documentation for their marine insurance renewals. While our report doesn't replace a full condition survey, the timestamped video evidence of hull condition provides a useful contemporaneous record. If you ever need to demonstrate that your hull was in good condition at a specific date — for insurance, for a sale negotiation, or for a warranty claim on antifouling — our video footage provides that evidence.</p>
+
+          <h3>Combining Inspection with Cleaning</h3>
+          <p>Many of our Torquay clients book a combined "inspect then clean" service. We run the camera inspection first, document the hull's current state, and then switch to cleaning mode. You receive a before-and-after video that shows exactly what was removed and confirms the quality of the clean. This combined approach is particularly popular with charter fleet operators who need to demonstrate vessel maintenance standards to clients and insurers.</p>
+
+          <div class="disclaimer-box">
+            <p><strong>⚠️ Important:</strong> Our inspection is a visual condition report delivered by robotic technology. It is not a qualified marine survey and does not replace the opinion of a certified marine surveyor. We do not provide structural assessments, osmosis testing, or MCA compliance surveys.</p>
+          </div>
+        </div>
+        <div class="content-sidebar">
+          <div class="price-box">
+            <span class="price-box__label">Hull Inspection</span>
+            <span class="price-box__amount">£{p.pricePerMetre}</span>
+            <span class="price-box__unit">per metre</span>
+            <span class="price-box__min">Min: £{p.minimumCharge}</span>
+            <a href="/contact" class="btn btn--primary" style="width:100%;margin-top:var(--space-md)">Book an Inspection</a>
+          </div>
+          <div class="sidebar-info">
+            <h4>Torquay Inspection Highlights</h4>
+            <ul>
+              <li>Zoned reporting for vessels over 20m</li>
+              <li>Insurance-grade timestamped video</li>
+              <li>Combined inspect + clean available</li>
+              <li>24/7 access — no tidal constraints</li>
+              <li>Charter fleet documentation packages</li>
+            </ul>
+          </div>
+          <div class="other-services">
+            <h4>Also in Torquay</h4>
+            <a href="/locations/torquay/hull-cleaning">Hull Cleaning →</a>
+            <a href="/locations/torquay/maintenance-plans">Maintenance Plans →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</LocationLayout>
+
+<style>
+  .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-3xl); align-items: start; }
+  @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } }
+  .content-main p { color: var(--text-light); margin-bottom: var(--space-md); line-height: 1.8; }
+  .content-main h3 { margin-top: var(--space-2xl); margin-bottom: var(--space-md); font-size: 1.25rem; }
+  .disclaimer-box { background: rgba(231,76,60,0.08); border: 1px solid rgba(231,76,60,0.2); border-radius: var(--radius-md); padding: var(--space-lg); margin-top: var(--space-xl); }
+  .disclaimer-box p { font-size: 0.9rem; color: var(--text-light); margin: 0; }
+  .price-box { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-xl); text-align: center; margin-bottom: var(--space-xl); position: sticky; top: calc(var(--header-height) + var(--space-lg)); }
+  .price-box__label { display: block; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-sm); }
+  .price-box__amount { display: block; font-family: var(--font-heading); font-size: 3rem; font-weight: 800; color: var(--primary); }
+  .price-box__unit { display: block; color: var(--text-light); font-size: 0.9rem; }
+  .price-box__min { display: block; color: var(--text-muted); font-size: 0.8rem; margin-top: var(--space-xs); }
+  .sidebar-info { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-xl); margin-bottom: var(--space-xl); }
+  .sidebar-info h4 { font-size: 0.9rem; margin-bottom: var(--space-md); }
+  .sidebar-info ul { list-style: none; }
+  .sidebar-info li { padding: var(--space-xs) 0; font-size: 0.85rem; color: var(--text-light); }
+  .sidebar-info li::before { content: '→ '; color: var(--accent); font-weight: 600; }
+  .other-services { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-xl); }
+  .other-services h4 { font-size: 0.9rem; margin-bottom: var(--space-md); }
+  .other-services a { display: block; padding: var(--space-sm) 0; color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+</style>

@@ -1,0 +1,327 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import pricing from '../data/pricing.json';
+---
+<ServiceLayout
+  title="Pricing"
+  description="Transparent, per-metre pricing for hull cleaning & inspection. From £10/metre. Save up to 20% with a maintenance plan. No hidden fees."
+  heroTitle="Transparent Pricing"
+  heroSubtitle="Simple per-metre pricing. No hidden fees, no surprises. Just honest costs based on your boat's length."
+  heroBadge="From £10 per metre"
+  ctaText="Get a Quote"
+>
+
+  <!-- One-Off Services -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>One-Off Services</h2>
+        <p class="section__subtitle">Pay as you go — ideal for seasonal boat owners or first-time customers.</p>
+      </div>
+      <div class="services-grid">
+        <!-- Cleaning -->
+        <div class="service-price-card">
+          <div class="service-price-card__header">
+            <h3>Hull Cleaning</h3>
+            <div class="service-price-card__price">
+              <span class="service-price-card__amount">£{pricing.services.hullCleaning.pricePerMetre}</span>
+              <span class="service-price-card__unit">per metre</span>
+            </div>
+            <p class="service-price-card__min">Minimum charge: £{pricing.services.hullCleaning.minimumCharge}</p>
+          </div>
+          <ul class="pricing-card__features">
+            {pricing.services.hullCleaning.includes.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <a href="/contact" class="btn btn--primary" style="width:100%">Book a Clean</a>
+        </div>
+
+        <!-- Inspection -->
+        <div class="service-price-card">
+          <div class="service-price-card__header">
+            <h3>Visual Hull Inspection</h3>
+            <div class="service-price-card__price">
+              <span class="service-price-card__amount">£{pricing.services.hullInspection.pricePerMetre}</span>
+              <span class="service-price-card__unit">per metre</span>
+            </div>
+            <p class="service-price-card__min">Minimum charge: £{pricing.services.hullInspection.minimumCharge}</p>
+          </div>
+          <ul class="pricing-card__features">
+            {pricing.services.hullInspection.includes.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <a href="/contact" class="btn btn--primary" style="width:100%">Book an Inspection</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscriptions -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Maintenance Plans</h2>
+        <p class="section__subtitle">Save on every clean with a subscription plan. Priority scheduling included.</p>
+      </div>
+      <div class="plans-grid">
+        <!-- Essential -->
+        <div class="pricing-card">
+          <h3>{pricing.subscriptions.essential.name}</h3>
+          <p class="plan-subtitle">{pricing.subscriptions.essential.subtitle}</p>
+          <div class="pricing-card__price">
+            £{pricing.subscriptions.essential.pricePerMetre}<span>/metre</span>
+          </div>
+          <p class="plan-freq">{pricing.subscriptions.essential.frequency}</p>
+          <span class="badge badge--success">Save {pricing.subscriptions.essential.discountPercent}%</span>
+          <ul class="pricing-card__features">
+            {pricing.subscriptions.essential.includes.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <a href="/contact" class="btn btn--outline btn--large" style="width:100%">Enquire Now</a>
+        </div>
+
+        <!-- Premium -->
+        <div class="pricing-card pricing-card--featured">
+          <h3>{pricing.subscriptions.premium.name}</h3>
+          <p class="plan-subtitle">{pricing.subscriptions.premium.subtitle}</p>
+          <div class="pricing-card__price">
+            £{pricing.subscriptions.premium.pricePerMetre}<span>/metre</span>
+          </div>
+          <p class="plan-freq">{pricing.subscriptions.premium.frequency}</p>
+          <span class="badge badge--accent">Save {pricing.subscriptions.premium.discountPercent}%</span>
+          <ul class="pricing-card__features">
+            {pricing.subscriptions.premium.includes.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <a href="/contact" class="btn btn--primary btn--large" style="width:100%">Enquire Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Example Pricing Table -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Quick Reference — Costs by Boat Size</h2>
+        <p class="section__subtitle">All prices shown per clean or per inspection.</p>
+      </div>
+      <div class="table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Boat Size</th>
+              <th>One-Off Clean</th>
+              <th>One-Off Inspection</th>
+              <th>Essential Plan</th>
+              <th>Premium Plan</th>
+            </tr>
+          </thead>
+          <tbody>
+            {pricing.examplePricing.map((row) => (
+              <tr>
+                <td style="font-weight:600">{row.label}</td>
+                <td>£{row.cleaning.toFixed(2)}</td>
+                <td>£{row.inspection.toFixed(2)}</td>
+                <td>£{row.essential.toFixed(2)}</td>
+                <td style="color:var(--success);font-weight:600">£{row.premium.toFixed(2)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">* Subscription prices shown per clean. Essential = 4 cleans/year, Premium = 6 cleans/year + free annual inspection.</p>
+    </div>
+  </section>
+
+  <!-- Pricing Calculator -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section__header">
+        <h2>Calculate Your Cost</h2>
+        <p class="section__subtitle">Enter your boat's length to see your exact pricing.</p>
+      </div>
+      <div class="calculator" id="pricing-calculator">
+        <div class="calculator__input">
+          <label for="boat-length">Boat length (metres)</label>
+          <input type="number" id="boat-length" min="5" max="40" value="12" step="0.5" />
+        </div>
+        <div class="calculator__results" id="calc-results">
+          <div class="calc-result">
+            <span class="calc-result__label">One-Off Clean</span>
+            <span class="calc-result__value" id="calc-cleaning">£180.00</span>
+          </div>
+          <div class="calc-result">
+            <span class="calc-result__label">One-Off Inspection</span>
+            <span class="calc-result__value" id="calc-inspection">£120.00</span>
+          </div>
+          <div class="calc-result">
+            <span class="calc-result__label">Essential Plan (per clean)</span>
+            <span class="calc-result__value" id="calc-essential">£153.00</span>
+          </div>
+          <div class="calc-result calc-result--highlight">
+            <span class="calc-result__label">Premium Plan (per clean)</span>
+            <span class="calc-result__value" id="calc-premium">£144.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>
+
+<script>
+  const input = document.getElementById('boat-length') as HTMLInputElement;
+  const calcCleaning = document.getElementById('calc-cleaning');
+  const calcInspection = document.getElementById('calc-inspection');
+  const calcEssential = document.getElementById('calc-essential');
+  const calcPremium = document.getElementById('calc-premium');
+
+  function calculate() {
+    const length = parseFloat(input.value) || 10;
+    const cleaning = Math.max(length * 15, 150);
+    const inspection = Math.max(length * 10, 100);
+    const essential = Math.max(length * 12.75, 127.50);
+    const premium = Math.max(length * 12, 120);
+
+    if (calcCleaning) calcCleaning.textContent = `£${cleaning.toFixed(2)}`;
+    if (calcInspection) calcInspection.textContent = `£${inspection.toFixed(2)}`;
+    if (calcEssential) calcEssential.textContent = `£${essential.toFixed(2)}`;
+    if (calcPremium) calcPremium.textContent = `£${premium.toFixed(2)}`;
+  }
+
+  input?.addEventListener('input', calculate);
+  calculate();
+</script>
+
+<style>
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2xl);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .service-price-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .service-price-card__header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--surface-alt);
+  }
+
+  .service-price-card__price {
+    margin: var(--space-md) 0;
+  }
+
+  .service-price-card__amount {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary);
+  }
+
+  .service-price-card__unit {
+    display: block;
+    color: var(--text-light);
+    font-size: 1rem;
+  }
+
+  .service-price-card__min {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2xl);
+    max-width: 800px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .plan-subtitle { color: var(--text-light); font-size: 0.95rem; margin-bottom: var(--space-md); }
+  .plan-freq { color: var(--text-muted); font-size: 0.85rem; margin-bottom: var(--space-md); }
+
+  .table-wrapper { overflow-x: auto; }
+  .table-note { color: var(--text-muted); font-size: 0.85rem; margin-top: var(--space-md); text-align: center; }
+
+  /* Calculator */
+  .calculator {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+  }
+
+  .calculator__input {
+    margin-bottom: var(--space-2xl);
+    text-align: center;
+  }
+
+  .calculator__input label {
+    display: block;
+    color: rgba(255,255,255,0.8);
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+  }
+
+  .calculator__input input {
+    width: 200px;
+    text-align: center;
+    padding: var(--space-md);
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: var(--radius-md);
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+  }
+
+  .calculator__input input:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .calc-result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .calc-result__label { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
+  .calc-result__value { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--white); }
+
+  .calc-result--highlight {
+    border-bottom: none;
+    background: rgba(245,166,35,0.1);
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-lg);
+    margin-top: var(--space-sm);
+  }
+
+  .calc-result--highlight .calc-result__value { color: var(--accent); font-size: 1.5rem; }
+
+  @media (max-width: 768px) {
+    .services-grid, .plans-grid { grid-template-columns: 1fr; }
+  }
+</style>

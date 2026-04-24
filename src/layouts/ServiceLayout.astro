@@ -1,0 +1,71 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  heroTitle: string;
+  heroSubtitle: string;
+  heroBadge?: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const { 
+  title, 
+  description, 
+  heroTitle, 
+  heroSubtitle, 
+  heroBadge = '',
+  ctaText = 'Book Now',
+  ctaLink = '/contact'
+} = Astro.props;
+---
+<BaseLayout title={title} description={description}>
+  <section class="page-hero">
+    <div class="page-hero__overlay"></div>
+    <div class="container page-hero__content">
+      {heroBadge && <span class="badge badge--accent">{heroBadge}</span>}
+      <h1>{heroTitle}</h1>
+      <p class="page-hero__subtitle">{heroSubtitle}</p>
+      <a href={ctaLink} class="btn btn--primary btn--large">{ctaText}</a>
+    </div>
+  </section>
+
+  <slot />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    padding: calc(var(--header-height) + var(--space-4xl)) 0 var(--space-4xl);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #1a3a4a 100%);
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 80%, rgba(52, 152, 219, 0.12) 0%, transparent 60%);
+  }
+
+  .page-hero__content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .page-hero h1 {
+    color: var(--white);
+    margin: var(--space-md) 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .page-hero__subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin: 0 auto var(--space-2xl);
+    line-height: 1.7;
+  }
+</style>

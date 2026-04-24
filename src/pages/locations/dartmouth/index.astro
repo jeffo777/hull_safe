@@ -1,0 +1,99 @@
+---
+import LocationLayout from '../../../layouts/LocationLayout.astro';
+import locations from '../../../data/locations.json';
+import pricing from '../../../data/pricing.json';
+
+const loc = locations.locations[2]; // Dartmouth
+---
+<LocationLayout
+  title="Hull Cleaning & Inspection in Dartmouth"
+  description="Professional robotic hull cleaning & inspection at Darthaven Marina, Dartmouth. River Dart estuary specialist. 270 berths, vessels up to 21.3m. From £15/metre."
+  locationName={loc.name}
+  locationSlug={loc.slug}
+  marina={loc.marina}
+  tagline={loc.tagline}
+  berths={loc.berths}
+  maxVesselLength={loc.maxVesselLength}
+  access={loc.access}
+  foulingFactors={loc.foulingFactors}
+  contentAngle={loc.contentAngle}
+>
+  <section class="section">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>Hull Care at {loc.marina}</h2>
+          <p>{loc.character}</p>
+          <p>HullSafe is uniquely positioned to serve River Dart boat owners. We understand the estuarine challenges — from Dartmoor agricultural runoff to fluctuating salinity levels — and our Keelcrab Pro robot is purpose-built to tackle the silt, algae, and biofilm that accumulates faster on river moorings than in open harbours.</p>
+          <p>Whether you're berthed at Darthaven, on a Dart Harbour swing mooring, or at a private pontoon, we bring professional robotic hull cleaning directly to your vessel.</p>
+        </div>
+        <div class="content-sidebar">
+          <div class="marina-info">
+            <h3>Marina at a Glance</h3>
+            <dl>
+              <dt>Berths</dt><dd>{loc.berths}</dd>
+              <dt>Max Vessel</dt><dd>{loc.maxVesselLength}</dd>
+              <dt>Access</dt><dd>{loc.access}</dd>
+              <dt>Operator</dt><dd>{loc.operator}</dd>
+              <dt>On-Site Yard</dt><dd>{loc.nearbyYard || 'N/A'}</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>The River Dart Fouling Challenge</h2>
+        <p class="section__subtitle">Your hull faces different enemies on the River Dart. We know every one of them.</p>
+      </div>
+      <div class="grid grid--2">
+        {loc.foulingFactors.map((factor) => (
+          <div class="card"><p class="card__text">{factor}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header"><h2>Our Services in Dartmouth</h2></div>
+      <div class="grid grid--3">
+        <a href="/locations/dartmouth/hull-cleaning" class="card service-link">
+          <div class="card__icon">🛥️</div>
+          <h3 class="card__title">Hull Cleaning</h3>
+          <p class="card__text">Full robotic hull clean from £{pricing.services.hullCleaning.pricePerMetre}/m. Silt and algae-specific cleaning.</p>
+          <span class="card__cta">Learn more →</span>
+        </a>
+        <a href="/locations/dartmouth/hull-inspection" class="card service-link">
+          <div class="card__icon">🔍</div>
+          <h3 class="card__title">Hull Inspection</h3>
+          <p class="card__text">Visual condition report from £{pricing.services.hullInspection.pricePerMetre}/m. Monitor river-specific fouling.</p>
+          <span class="card__cta">Learn more →</span>
+        </a>
+        <a href="/locations/dartmouth/maintenance-plans" class="card service-link">
+          <div class="card__icon">📋</div>
+          <h3 class="card__title">Maintenance Plans</h3>
+          <p class="card__text">Save up to {pricing.subscriptions.premium.discountPercent}%. Higher-frequency plans for river moorings.</p>
+          <span class="card__cta">Learn more →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</LocationLayout>
+
+<style>
+  .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-3xl); align-items: start; }
+  @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } }
+  .content-main p { color: var(--text-light); margin-bottom: var(--space-md); }
+  .content-main p:first-of-type { color: var(--text); font-size: 1.05rem; }
+  .marina-info { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-xl); position: sticky; top: calc(var(--header-height) + var(--space-lg)); }
+  .marina-info h3 { font-size: 1rem; margin-bottom: var(--space-md); }
+  .marina-info dl { display: grid; grid-template-columns: auto 1fr; gap: var(--space-sm) var(--space-md); }
+  .marina-info dt { font-weight: 600; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.03em; }
+  .marina-info dd { font-size: 0.9rem; color: var(--text); }
+  .service-link { text-decoration: none; color: var(--text); }
+  .card__cta { color: var(--accent); font-weight: 600; font-size: 0.9rem; margin-top: var(--space-md); display: inline-block; }
+</style>

@@ -1,0 +1,69 @@
+{
+  "services": [
+    {
+      "name": "Hull Cleaning",
+      "slug": "hull-cleaning",
+      "icon": "🛥️",
+      "shortDescription": "Professional robotic hull cleaning that removes fouling without damaging your antifouling paint.",
+      "longDescription": "Using our Keelcrab Pro underwater robot, we clean your hull in the water — no lift-out needed. Certified nylon brushes remove barnacles, algae, and biofilm while preserving your antifouling coating. Every clean includes HD video documentation and a digital report.",
+      "steps": [
+        { "title": "Book Your Clean", "description": "Tell us your boat length, location, and preferred date. We'll confirm within 24 hours." },
+        { "title": "We Clean Your Hull", "description": "Our Keelcrab Pro robot attaches to your hull and cleans up to 7m² per minute. All debris is captured in our eco-compliant filter bag." },
+        { "title": "Get Your Report", "description": "Receive HD video footage and a digital before/after report within 24 hours of your clean." }
+      ],
+      "benefits": [
+        { "title": "Preserves Antifouling", "description": "A.N.C.C.P. certified brushes clean without damaging your paint — extending its useful life." },
+        { "title": "Eco-Compliant", "description": "All removed debris is captured in the Keelcrab Bag. Nothing enters the water." },
+        { "title": "No Lift-Out Required", "description": "Save £500+ on marina hoist fees. We clean while your boat stays in the water." },
+        { "title": "HD Video Documentation", "description": "See exactly what we see — HD footage of your entire hull, shared with you digitally." }
+      ],
+      "cleaningTimes": [
+        { "length": "12m (39ft)", "time": "~1 hour" },
+        { "length": "16m (52ft)", "time": "~1.5 hours" },
+        { "length": "18m (59ft)", "time": "~2 hours" }
+      ],
+      "coverageStats": {
+        "displacement": { "label": "Sailboats (displacement hulls)", "coverage": "95-97%" },
+        "planing": { "label": "Motorboats (planing/semi-planing)", "coverage": "85-87%" }
+      }
+    },
+    {
+      "name": "Hull Inspection",
+      "slug": "hull-inspection",
+      "icon": "🔍",
+      "shortDescription": "Detailed underwater visual condition report using HD camera technology.",
+      "longDescription": "Our Keelcrab Pro's HD camera system provides a comprehensive visual inspection of your hull below the waterline. You receive a full video recording and a written condition report — giving you a clear picture of your hull's health without the cost of a lift-out.",
+      "steps": [
+        { "title": "Book Your Inspection", "description": "Tell us your boat length, location, and what you'd like us to focus on." },
+        { "title": "We Inspect Your Hull", "description": "Our robot scans your entire hull with HD cameras, documenting the waterline, antifoul condition, intakes, and any areas of concern." },
+        { "title": "Get Your Report", "description": "Receive a visual condition report (PDF + video link) with observations and recommendations." }
+      ],
+      "benefits": [
+        { "title": "See Below the Waterline", "description": "HD video reveals what's happening to your hull — fouling levels, antifoul condition, and potential issues." },
+        { "title": "Pre-Season Peace of Mind", "description": "Check your hull's condition before the sailing season without a costly lift-out." },
+        { "title": "Pre-Purchase Confidence", "description": "Considering buying a boat? A visual hull inspection reveals the condition below the waterline before you commit." },
+        { "title": "Digital Documentation", "description": "Your report includes timestamped video and written observations — useful for insurance and maintenance records." }
+      ],
+      "disclaimer": "This is a visual condition report delivered by robotic technology. It is not a qualified marine survey and does not replace the opinion of a certified marine surveyor."
+    }
+  ],
+  "quadSafe": [
+    { "pillar": "Safe for the Hull", "icon": "🛡️", "description": "Precision nylon brushes preserve your antifouling coating — certified to clean without damage." },
+    { "pillar": "Safe for the Sea", "icon": "🌊", "description": "Eco-compliant debris capture means nothing enters the water. Marina approved." },
+    { "pillar": "Safe for the Wallet", "icon": "💰", "description": "No lift-out needed. Save £500+ on marina hoist fees and keep your boat in the water." },
+    { "pillar": "Safe for the Crew", "icon": "📹", "description": "HD visual reports give you early warning on hull integrity, intakes, and potential issues." }
+  ],
+  "comparison": {
+    "headers": ["Feature", "HullSafe (Robotic)", "Traditional Diver", "Marina Lift-Out"],
+    "rows": [
+      ["Typical Cost (15m yacht)", "£225", "£400-600+", "£500-800+"],
+      ["Time to Complete", "1-2 hours", "Variable", "Full day+"],
+      ["Boat Stays in Water", "✅ Yes", "✅ Yes", "❌ No"],
+      ["Anti-foul Preservation", "✅ Certified brushes", "⚠️ Risk of damage", "❌ Pressure wash damage"],
+      ["Eco-Compliant", "✅ Debris captured", "❌ Debris in water", "✅ Yard waste mgmt"],
+      ["HD Video Report Included", "✅ Yes", "❌ Usually extra", "❌ No"],
+      ["Safety", "✅ No divers needed", "⚠️ HSE dive team", "⚠️ Heavy machinery"],
+      ["Booking Flexibility", "✅ Days notice", "⚠️ Limited", "❌ Weeks ahead"]
+    ]
+  }
+}
