@@ -203,6 +203,15 @@ const description = "Professional robotic hull cleaning & inspection across Sout
           <span>Keelcleaners Poole, UK</span>
         </cite>
       </div>
+      <div class="keelcrab-trust-badge animate-in">
+        <a href="https://keelcrab.com" target="_blank" rel="noopener noreferrer" class="keelcrab-trust-badge__link">
+          <img src="/images/keelcrab/keelcrab-point-logo-tr.png" alt="Keelcrab Point Logo" width="80" height="80" loading="lazy" />
+          <div class="keelcrab-trust-badge__text">
+            <span class="keelcrab-trust-badge__title">Authorised Keelcrab Point</span>
+            <span class="keelcrab-trust-badge__subtitle">South Devon's certified operator</span>
+          </div>
+        </a>
+      </div>
       <div class="trust-stats">
         <div class="trust-stat">
           <span class="trust-stat__value">450+</span>
@@ -573,6 +582,58 @@ const description = "Professional robotic hull cleaning & inspection across Sout
   .testimonial__author span {
     color: var(--text-light);
     font-size: 0.9rem;
+  }
+
+  /* --- Keelcrab Trust Badge --- */
+  .keelcrab-trust-badge {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .keelcrab-trust-badge__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-lg) var(--space-2xl);
+    background: var(--surface);
+    border: 2px solid rgba(245, 166, 35, 0.2);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .keelcrab-trust-badge__link:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+
+  .keelcrab-trust-badge__link img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .keelcrab-trust-badge__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .keelcrab-trust-badge__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--primary);
+    letter-spacing: -0.01em;
+  }
+
+  .keelcrab-trust-badge__subtitle {
+    font-size: 0.85rem;
+    color: var(--text-light);
   }
 
   /* --- Trust Stats --- */

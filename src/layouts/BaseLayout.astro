@@ -106,8 +106,9 @@ const siteUrl = "https://hullsafe.co.uk";
         <div class="footer__brand">
           <a href="/" class="footer__logo">Hull<span>Safe</span></a>
           <p class="footer__tagline">Professional robotic hull cleaning & inspection across South Devon.</p>
-          <a href="https://keelcrab.com" target="_blank" rel="noopener noreferrer" class="powered-by">
-            Powered by Keelcrab
+          <a href="https://keelcrab.com" target="_blank" rel="noopener noreferrer" class="footer__keelcrab-badge">
+            <img src="/images/keelcrab/keelcrab-point-logo.png" alt="Authorised Keelcrab Point" width="120" height="120" loading="lazy" />
+            <span>Authorised Keelcrab Point</span>
           </a>
         </div>
 
@@ -409,6 +410,36 @@ const siteUrl = "https://hullsafe.co.uk";
     font-size: 0.95rem;
     margin-bottom: var(--space-lg);
     line-height: 1.6;
+  }
+
+  .footer__keelcrab-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+  }
+
+  .footer__keelcrab-badge:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+  }
+
+  .footer__keelcrab-badge img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+  }
+
+  .footer__keelcrab-badge span {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
   }
 
   .footer__links h4 {

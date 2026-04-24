@@ -6,7 +6,7 @@ import ServiceLayout from '../layouts/ServiceLayout.astro';
   description="See HullSafe's robotic hull cleaning in action. Before & after photos, underwater GoPro footage, and Keelcrab technology videos."
   heroTitle="Gallery"
   heroSubtitle="See the technology in action — underwater footage, before & after results, and live cleaning demonstrations."
-  heroImage="/images/keelcrab/keelcrab-underwater-cleaning.jpg"
+  heroImage="/images/keelcrab/keelcrab-pontoon-setup.jpg"
   heroBadge="Real Results"
   ctaText="Book a Clean"
 >
@@ -101,6 +101,42 @@ import ServiceLayout from '../layouts/ServiceLayout.astro';
     </div>
   </section>
 
+  <!-- Keelcrab Pro — Close-Up Gallery -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>The Keelcrab Pro — Up Close</h2>
+        <p class="section__subtitle">Professional photography of the exact Keelcrab Pro robot, control unit, and interchangeable brush system we use at HullSafe.</p>
+      </div>
+      <div class="photo-grid photo-grid--light">
+        <div class="photo-card photo-card--light">
+          <img src="/images/keelcrab/optimised/underwater-keelcrab-action-1.jpg" alt="Keelcrab Pro robot showing HD camera lenses and certified nylon brush tracks" loading="lazy" />
+          <p>Keelcrab Pro with dual HD camera lenses and certified nylon brush system</p>
+        </div>
+        <div class="photo-card photo-card--light">
+          <img src="/images/keelcrab/optimised/underwater-keelcrab-cleaning.jpg" alt="Front view of the Keelcrab Pro showing track system and camera housing" loading="lazy" />
+          <p>Front view — precision track system designed for smooth hull navigation</p>
+        </div>
+        <div class="photo-card photo-card--light">
+          <img src="/images/keelcrab/optimised/keelcrab-equipment-detail.jpg" alt="Keelcrab Pro robot alongside the Keelcrab ACS control unit with live monitoring screen" loading="lazy" />
+          <p>Robot and ACS control unit — the operator's complete remote monitoring system</p>
+        </div>
+        <div class="photo-card photo-card--light">
+          <img src="/images/keelcrab/optimised/keelcrab-brushes-detail.jpg" alt="Close-up of Keelcrab interchangeable A.N.C.C.P certified nylon brush heads" loading="lazy" />
+          <p>A.N.C.C.P certified interchangeable brush heads — designed to clean without stripping antifouling</p>
+        </div>
+        <div class="photo-card photo-card--light">
+          <img src="/images/keelcrab/optimised/keelcrab-product-shot.jpg" alt="Keelcrab ACS control unit showing live video screen and remote control ports" loading="lazy" />
+          <p>ACS control station — live HD video feed and full remote diagnostics</p>
+        </div>
+        <div class="photo-card photo-card--light">
+          <img src="/images/keelcrab/optimised/marina-harbour-scene.jpg" alt="Keelcrab Pro portable carry case with KEELCRAB branding" loading="lazy" />
+          <p>Professional carry case — the complete Keelcrab Pro system is fully portable to any marina</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Before/After Placeholder -->
   <section class="section section--alt">
     <div class="container">
@@ -166,6 +202,33 @@ import ServiceLayout from '../layouts/ServiceLayout.astro';
     color: rgba(255,255,255,0.7);
     font-size: 0.85rem;
     line-height: 1.4;
+  }
+
+  /* Light-background variant for product shots */
+  .photo-card--light {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: all var(--transition-base);
+  }
+
+  .photo-card--light:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+
+  .photo-card--light img {
+    height: 240px;
+    object-fit: contain;
+    background: var(--surface);
+    border-radius: var(--radius-md);
+  }
+
+  .photo-card--light p {
+    color: var(--text-light);
+    margin-top: var(--space-sm);
   }
 
   .coming-soon {
