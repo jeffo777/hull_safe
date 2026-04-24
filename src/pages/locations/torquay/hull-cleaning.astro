@@ -1,10 +1,17 @@
 ---
 import LocationLayout from '../../../layouts/LocationLayout.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 import locations from '../../../data/locations.json';
 import pricing from '../../../data/pricing.json';
 
 const loc = locations.locations[1];
 const p = pricing.services.hullCleaning;
+
+const faqs = [
+  { q: "Is Torquay's fouling different from Brixham?", a: "Yes. Torquay Marina sits on a more open stretch of coastline than Brixham's enclosed harbour, so the water is generally clearer with lower nutrient levels. Fouling at Torquay tends to be lighter but still consistent — expect soft algae and biofilm growth throughout summer, with barnacle settlement peaking in July and August." },
+  { q: "Can you clean GRP (fibreglass) hulls at Torquay without damage?", a: "Absolutely. Most yachts at Torquay Marina are GRP construction, and our Keelcrab Pro is specifically designed for this. We use soft nylon brush heads that are A.N.C.C.P. certified not to damage antifouling coatings or the gel coat beneath. The robot's controlled pressure is far gentler than manual scrubbing or pressure washing." },
+  { q: "Do motor yachts need cleaning more or less often than sailing yachts?", a: "Motor yachts generally benefit from more frequent cleaning because their flatter, wider hull surfaces present a larger target for fouling and they're more sensitive to drag. A fouled planing hull can lose significant top-end speed and increase fuel consumption dramatically. We typically recommend 4–6 cleans per year for motor cruisers at Torquay." },
+];
 ---
 <LocationLayout
   title="Hull Cleaning in Torquay"
@@ -86,6 +93,9 @@ const p = pricing.services.hullCleaning;
       </div>
     </div>
   </section>
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
+
 </LocationLayout>
 
 <style>

@@ -1,10 +1,17 @@
 ---
 import LocationLayout from '../../../layouts/LocationLayout.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 import locations from '../../../data/locations.json';
 import pricing from '../../../data/pricing.json';
 
 const loc = locations.locations[1];
 const p = pricing.services.hullInspection;
+
+const faqs = [
+  { q: "Can you inspect charter fleet vessels at Torquay?", a: "Yes. We offer fleet inspection services for charter operators at Torquay Marina. Regular inspections help fleet managers monitor hull condition across multiple vessels efficiently, without the downtime and cost of individual haul-outs. We can provide a consolidated report for your entire fleet." },
+  { q: "How does an underwater inspection differ from a dry dock survey?", a: "An underwater inspection captures HD video of your hull in its natural state — you see exactly what's growing, where, and how your antifouling is performing. A dry dock survey provides access for physical testing (moisture meters, hammer tests) but requires an expensive haul-out. Our in-water inspection is ideal for routine monitoring between full surveys." },
+  { q: "What hull issues are most common at Torquay Marina?", a: "The most common findings at Torquay include antifouling wear around the waterline, anode erosion (especially zinc anodes in saltwater), gel coat scratches from marina manoeuvres, and through-hull fitting fouling. Our inspection reports flag all of these with timestamped video so you can act before problems escalate." },
+];
 ---
 <LocationLayout
   title="Hull Inspection in Torquay"
@@ -64,6 +71,9 @@ const p = pricing.services.hullInspection;
       </div>
     </div>
   </section>
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
+
 </LocationLayout>
 
 <style>

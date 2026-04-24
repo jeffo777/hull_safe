@@ -1,10 +1,17 @@
 ---
 import LocationLayout from '../../../layouts/LocationLayout.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 import locations from '../../../data/locations.json';
 import pricing from '../../../data/pricing.json';
 
 const loc = locations.locations[2];
 const p = pricing.services.hullInspection;
+
+const faqs = [
+  { q: "Can you inspect mooring chains and tackle while inspecting my hull?", a: "While our primary service focuses on the hull itself, the Keelcrab's camera can visually inspect mooring chains, shackles, and ground tackle in the immediate vicinity of your vessel. If you'd like us to pay particular attention to your mooring hardware, let us know when booking and we'll factor in the extra time." },
+  { q: "Is an underwater inspection useful for river-moored boats?", a: "Particularly so. River-moored vessels face unique challenges — silt accumulation around waterline fittings, faster anode depletion in brackish water, and debris impact damage from river flotsam. Regular inspections catch these issues early, before they become expensive repairs." },
+  { q: "What's the visibility like underwater on the River Dart?", a: "Visibility on the Dart varies with tides, rainfall, and season — from reasonably clear to quite murky after heavy rain. The Keelcrab's built-in LED lighting system is designed for exactly these conditions, producing clear HD footage even in low-visibility harbour water. We'll schedule around spring tides and dry weather for the best results." },
+];
 ---
 <LocationLayout
   title="Hull Inspection in Dartmouth"
@@ -62,6 +69,9 @@ const p = pricing.services.hullInspection;
       </div>
     </div>
   </section>
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
+
 </LocationLayout>
 
 <style>

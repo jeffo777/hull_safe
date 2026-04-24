@@ -1,10 +1,17 @@
 ---
 import LocationLayout from '../../../layouts/LocationLayout.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 import locations from '../../../data/locations.json';
 import pricing from '../../../data/pricing.json';
 
 const loc = locations.locations[0];
 const p = pricing.services.hullCleaning;
+
+const faqs = [
+  { q: "Why do hulls foul faster in Brixham than other Torbay marinas?", a: "Brixham's enclosed harbour is home to England's most valuable fishing fleet by landing value. The commercial trawler activity churns nutrient-rich sediment through the water column, feeding algae and accelerating biological growth. Combined with the harbour's sheltered, warm conditions, hulls here typically foul 20–30% faster than at the more open Torquay Marina." },
+  { q: "Can you clean fishing vessel hulls as well as yachts?", a: "Yes. We clean all types of vessel hull — sailing yachts, motor cruisers, fishing boats, and commercial workboats. For fishing vessels, the fuel savings from a clean hull are particularly significant given the distances covered. We use the appropriate brush head for each hull type and coating." },
+  { q: "How often should I have my hull cleaned at Brixham?", a: "For Brixham-based boats, we recommend a minimum of four cleans per year — pre-season (March/April), mid-summer (July), post-season (October), and optionally mid-winter. The nutrient-rich harbour water means fouling accumulates faster here than elsewhere in Torbay, so more frequent cleaning yields the best results." },
+];
 ---
 <LocationLayout
   title="Hull Cleaning in Brixham"
@@ -84,6 +91,9 @@ const p = pricing.services.hullCleaning;
       </div>
     </div>
   </section>
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
+
 </LocationLayout>
 
 <style>

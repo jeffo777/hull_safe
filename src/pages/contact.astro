@@ -1,5 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
+import FAQSection from '../components/FAQSection.astro';
+
+const faqs = [
+  { q: "How quickly can you respond to a booking request?", a: "We aim to respond to all enquiries within 24 hours. During peak season (May–September), we may book up quickly, so we recommend getting in touch at least a week in advance. Maintenance plan members get priority scheduling." },
+  { q: "Can you do an emergency or urgent hull clean?", a: "We'll always do our best to accommodate urgent requests — whether it's a race preparation, an unexpected surveyor visit, or a pre-sale requirement. Contact us directly by phone for same-week availability and we'll fit you in if we possibly can." },
+  { q: "What information do you need to give me a quote?", a: "Just three things: your boat's length (LOA), which marina or mooring you're at, and roughly when you'd like the service. If you know your hull material and when it was last antifouled, that helps us select the right brush — but it's not essential for a quote." },
+];
 ---
 <ServiceLayout
   title="Contact & Booking"
@@ -199,6 +206,9 @@ import ServiceLayout from '../layouts/ServiceLayout.astro';
       </div>
     </div>
   </section>
+
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
 
 </ServiceLayout>
 

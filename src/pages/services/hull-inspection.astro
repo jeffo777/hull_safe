@@ -1,17 +1,26 @@
 ---
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import FAQSection from '../../components/FAQSection.astro';
 import services from '../../data/services.json';
 import pricing from '../../data/pricing.json';
 
 const service = services.services[1]; // Hull Inspection
 const inspectionPricing = pricing.services.hullInspection;
+
+const faqs = [
+  { q: "Is a visual hull inspection the same as a marine survey?", a: "No. A marine survey is a comprehensive assessment conducted by a qualified surveyor covering structural integrity, systems, and seaworthiness. Our visual hull inspection is a below-waterline camera inspection that documents the condition of your hull, antifouling, anodes, and underwater fittings using HD video. It complements — but does not replace — a full marine survey." },
+  { q: "Can you check for osmosis or gel coat blistering?", a: "Our HD camera can visually identify signs of osmotic blistering, gel coat deterioration, and surface delamination on GRP (fibreglass) hulls. However, confirming osmosis requires moisture testing with specialist equipment, which is outside our scope. If we spot visual indicators, we'll flag them in your report so you can arrange further investigation." },
+  { q: "Will my insurance company accept a HullSafe inspection report?", a: "Our reports provide timestamped HD video and photographic evidence of your hull's condition, which many insurers accept as supporting documentation. However, we recommend checking with your insurer first — some policies specifically require a surveyor's report. Our inspection evidence is often used alongside a formal survey to provide a more complete picture." },
+  { q: "What does the inspection report include?", a: "Every inspection report includes HD video footage of your entire underwater hull, timestamped still images highlighting any areas of concern, a written summary of findings covering antifouling condition, visible fouling levels, anode wear, and underwater fittings, plus recommendations for any action needed. The report is delivered digitally as a PDF with video links." },
+  { q: "Can I get an inspection before buying a second-hand boat?", a: "Absolutely — pre-purchase inspections are one of our most popular services. We'll give you a clear visual picture of what's happening below the waterline before you commit to buying. You'll see the hull condition, antifouling wear, anode state, and any visible damage — all documented on video so you can share it with your surveyor or broker." },
+];
 ---
 <ServiceLayout
   title="Hull Inspection"
   description="Underwater visual hull inspection across South Devon using HD camera technology. See what's happening below the waterline without a lift-out. From £10/metre."
   heroTitle="Visual Hull Inspection"
   heroSubtitle="See exactly what's happening below your waterline — HD camera footage and a detailed condition report, without a costly lift-out."
-  heroImage="/images/keelcrab/keelcrab-action.jpg"
+  heroImage="/images/keelcrab/optimised/underwater-keelcrab-closeup.jpg"
   heroBadge="From £10 per metre"
   ctaText="Book an Inspection"
 >
@@ -131,6 +140,9 @@ const inspectionPricing = pricing.services.hullInspection;
       </div>
     </div>
   </section>
+
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
 
 </ServiceLayout>
 

@@ -1,6 +1,15 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
+import FAQSection from '../components/FAQSection.astro';
 import pricing from '../data/pricing.json';
+
+const faqs = [
+  { q: "How does your pricing compare to a traditional lift-out and scrub?", a: "A typical marina lift-out costs £300–£600 for the crane alone, plus pressure washing, hardstanding fees, and lost sailing time. Our in-water robotic clean costs £15/metre — so a 12m yacht is just £180. You save hundreds of pounds and your boat never leaves the water." },
+  { q: "Are there any additional charges beyond the per-metre price?", a: "No. Our per-metre price includes the full robotic clean, HD video documentation, debris capture, and digital delivery of your report. There are no travel fees, weekend surcharges, or hidden extras within our standard South Devon service area." },
+  { q: "How do I measure my boat's length for pricing purposes?", a: "We use Length Overall (LOA) — the total length of your boat from bow to stern, including any bowsprit, davits, or swim platforms. If you're unsure, check your marina contract or builder's specifications. We're happy to confirm the measurement when we arrive." },
+  { q: "Do you charge extra for heavily fouled hulls?", a: "No. The per-metre price is the same regardless of fouling severity. However, heavily fouled hulls take longer to clean, so we may need to schedule a longer time slot. We'll always let you know the expected duration when you book." },
+  { q: "Can I combine a hull clean and inspection for a discount?", a: "We don't currently offer a formal bundle discount, but if you book a clean and inspection together we can often do both in a single visit, saving you time. The Premium Maintenance Plan includes a free annual inspection, which is the most cost-effective way to get both services regularly." },
+];
 ---
 <ServiceLayout
   title="Pricing"
@@ -172,6 +181,9 @@ import pricing from '../data/pricing.json';
       </div>
     </div>
   </section>
+
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
 
 </ServiceLayout>
 

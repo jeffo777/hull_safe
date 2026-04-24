@@ -1,12 +1,20 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
+import FAQSection from '../components/FAQSection.astro';
+
+const faqs = [
+  { q: "What is Keelcrab and where does it come from?", a: "Keelcrab is an underwater hull cleaning robot designed and manufactured by Aeffe S.r.l. in Como, Italy. It was developed with EU Horizon 2020 research funding and is now used by professional operators across Europe and beyond. HullSafe is an authorised Keelcrab Point operator, bringing this Italian marine technology to South Devon." },
+  { q: "What training do your operators have?", a: "All HullSafe operators are trained and certified by Keelcrab on the safe deployment, operation, and maintenance of the robot. This includes hull assessment, brush selection for different antifouling types, camera operation, and proper debris capture procedures." },
+  { q: "Are you an authorised Keelcrab dealer?", a: "Yes. HullSafe is an authorised Keelcrab Point — the official network of certified operators and service providers. This means we use genuine Keelcrab equipment, certified brushes, and follow the manufacturer's recommended procedures for every clean and inspection." },
+  { q: "What makes HullSafe different from other hull cleaning services?", a: "Three things: technology, transparency, and environmental responsibility. We use a purpose-built robot rather than divers or pressure washers. Every clean is documented with HD video sent to your phone. And all debris is captured in our Keelcrab Bag rather than released into the harbour. No other hull cleaning service in South Devon offers all three." },
+];
 ---
 <ServiceLayout
   title="About HullSafe"
   description="Professional robotic hull cleaning & inspection across South Devon. Powered by Keelcrab Pro technology from Italy. Learn about our mission, technology, and service area."
   heroTitle="About HullSafe"
   heroSubtitle="Professional robotic hull cleaning & inspection — bringing world-class Italian marine technology to South Devon."
-  heroImage="/images/keelcrab/keelcrab-pontoon-setup.jpg"
+  heroImage="/images/keelcrab/keelcrab-operator-victoria.jpg"
   heroBadge="Powered by Keelcrab"
   ctaText="Get in Touch"
 >
@@ -137,6 +145,9 @@ import ServiceLayout from '../layouts/ServiceLayout.astro';
       </div>
     </div>
   </section>
+
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
 
 </ServiceLayout>
 

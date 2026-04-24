@@ -1,11 +1,18 @@
 ---
 import LocationLayout from '../../../layouts/LocationLayout.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 import locations from '../../../data/locations.json';
 import pricing from '../../../data/pricing.json';
 
 const loc = locations.locations[0];
 const essential = pricing.subscriptions.essential;
 const premium = pricing.subscriptions.premium;
+
+const faqs = [
+  { q: "When is the busiest period for hull cleaning at Brixham?", a: "June through August is our peak season at Brixham, when demand is highest and fouling growth is at its fastest. Maintenance plan members get priority scheduling, which is especially valuable during these months when one-off booking slots fill up quickly." },
+  { q: "Can I arrange a plan if my boat is only in Brixham seasonally?", a: "Yes. If you keep your boat at Brixham during the sailing season only, we can tailor a plan around your berthing schedule. We'll concentrate your cleans during the months your boat is in the water and pause the plan during winter lay-up if needed." },
+  { q: "How much can a Brixham boat owner save with a maintenance plan?", a: "A 12m yacht on our Premium Plan saves around £108 per year compared to booking six one-off cleans individually. Factor in the fuel savings from a consistently clean hull — up to 20% reduction in consumption — and the plan pays for itself many times over." },
+];
 ---
 <LocationLayout
   title="Maintenance Plans in Brixham"
@@ -79,6 +86,9 @@ const premium = pricing.subscriptions.premium;
       </div>
     </div>
   </section>
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
+
 </LocationLayout>
 
 <style>

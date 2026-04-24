@@ -1,11 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQSection from '../components/FAQSection.astro';
 import pricing from '../data/pricing.json';
 import services from '../data/services.json';
 import locations from '../data/locations.json';
 
 const title = "Robotic Hull Cleaning & Inspection — Brixham, Torquay, Dartmouth";
 const description = "Professional robotic hull cleaning & inspection across South Devon. Powered by Keelcrab technology. From £15/metre. Save up to 20% with a maintenance plan.";
+
+const faqs = [
+  { q: "What is robotic hull cleaning and how does it work?", a: "Robotic hull cleaning uses an underwater robot — our Keelcrab Pro — to clean your boat's hull while it stays in the water. The robot is deployed from the pontoon, attaches to your hull, and moves across the surface using A.N.C.C.P. certified nylon brushes to remove barnacles, algae, and biofilm. An onboard HD camera provides live footage throughout the clean." },
+  { q: "Do I need to take my boat out of the water for a hull clean?", a: "No — that's the whole point. Our robotic service cleans your hull in-water at your marina berth. No crane, no travel lift, no expensive haul-out fees, and no disruption to your schedule. Your boat stays afloat while we work." },
+  { q: "Where does HullSafe operate?", a: "We cover three South Devon marinas: MDL Brixham Marina, MDL Torquay Marina, and Darthaven Marina in Dartmouth. We also service vessels on swing moorings and private pontoons along the River Dart." },
+  { q: "How is robotic cleaning different from using a diver?", a: "Robotic cleaning eliminates the need for commercial dive teams and associated HSE risks — there are no divers in the water at any point. The robot delivers consistent, systematic coverage with certified brushes that won't damage your antifouling, plus HD video proof of the entire clean sent to your phone." },
+  { q: "Can I watch the cleaning process?", a: "Yes. The Keelcrab's onboard HD camera feeds live footage to the operator's screen, and you're welcome to watch from the pontoon. After the clean, the full video footage is delivered directly to your smartphone so you can see exactly what was done." },
+];
 ---
 <BaseLayout title={title} description={description}>
 
@@ -212,6 +221,21 @@ const description = "Professional robotic hull cleaning & inspection across Sout
           </div>
         </a>
       </div>
+      <div class="keelcrab-trust-badge animate-in animate-delay-1">
+        <a href="/docs/anccp-certificate.pdf" target="_blank" rel="noopener noreferrer" class="keelcrab-trust-badge__link">
+          <div class="anccp-badge-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" fill="var(--accent)" opacity="0.15"/>
+              <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" stroke="var(--accent)" stroke-width="1.5" fill="none"/>
+              <path d="M9 12l2 2 4-4" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="keelcrab-trust-badge__text">
+            <span class="keelcrab-trust-badge__title">A.N.C.C.P. Certified</span>
+            <span class="keelcrab-trust-badge__subtitle">Safe for antifouling — view certificate</span>
+          </div>
+        </a>
+      </div>
       <div class="trust-stats">
         <div class="trust-stat">
           <span class="trust-stat__value">450+</span>
@@ -232,6 +256,9 @@ const description = "Professional robotic hull cleaning & inspection across Sout
       </div>
     </div>
   </section>
+
+  <!-- ===== FAQs ===== -->
+  <FAQSection faqs={faqs} />
 
   <!-- ===== CTA ===== -->
   <section class="section section--cta" id="cta">
@@ -588,7 +615,27 @@ const description = "Professional robotic hull cleaning & inspection across Sout
   .keelcrab-trust-badge {
     display: flex;
     justify-content: center;
+    margin-bottom: var(--space-lg);
+  }
+
+  .keelcrab-trust-badge + .keelcrab-trust-badge {
     margin-bottom: var(--space-3xl);
+  }
+
+  @media (min-width: 769px) {
+    .keelcrab-trust-badge {
+      display: inline-flex;
+      margin: 0 var(--space-md) var(--space-3xl);
+    }
+  }
+
+  .anccp-badge-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
   .keelcrab-trust-badge__link {

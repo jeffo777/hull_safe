@@ -1,5 +1,12 @@
 ---
 import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+const faqs = [
+  { q: "Are there UK regulations about hull fouling and invasive species?", a: "Yes. The UK's Non-Native Species Secretariat (NNSS) publishes hull fouling guidance for vessel owners, and the IMO's 2023 Biofouling Guidelines set international standards for managing hull fouling to prevent invasive species transfer. While compliance is currently advisory for recreational vessels, many marinas and harbour authorities are increasingly requiring evidence of hull management." },
+  { q: "Can biofouling really transfer invasive species between harbours?", a: "Absolutely. Hull fouling is one of the primary vectors for translocating invasive aquatic species between water bodies. Organisms like carpet sea squirts, slipper limpets, and wireweed have all been spread via fouled hulls in UK waters. Regular hull cleaning is one of the most effective biosecurity measures a boat owner can take." },
+  { q: "What is the IMO's 2023 Biofouling Guidelines and does it affect leisure boats?", a: "The International Maritime Organization updated its Biofouling Guidelines in 2023 to strengthen the global framework for managing hull fouling. While primarily aimed at commercial shipping, the guidelines encourage all vessel operators — including recreational boat owners — to maintain clean hulls and keep biofouling management records. As awareness grows, these standards are likely to become more relevant to leisure boats." },
+];
 ---
 <BlogPostLayout
   title="What Is Marine Biofouling and Why Should You Care?"
@@ -49,5 +56,7 @@ import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
 <h2>The Bottom Line</h2>
 
 <p>Biofouling isn't a cosmetic issue — it's a performance, maintenance, and financial issue. The organisms colonising your hull are costing you fuel, costing you antifouling life, and costing you the enjoyment of a responsive, clean-bottomed boat. The good news is that regular professional cleaning, timed to intervene before fouling hardens and bonds permanently, keeps these costs under control and extends the working life of your hull coating.</p>
+
+<FAQSection faqs={faqs} heading="Biofouling FAQs" />
 
 </BlogPostLayout>

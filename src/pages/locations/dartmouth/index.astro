@@ -1,9 +1,16 @@
 ---
 import LocationLayout from '../../../layouts/LocationLayout.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 import locations from '../../../data/locations.json';
 import pricing from '../../../data/pricing.json';
 
 const loc = locations.locations[2]; // Dartmouth
+
+const faqs = [
+  { q: "Can you clean boats on swing moorings on the River Dart?", a: "Yes. We regularly service vessels on Dart Harbour swing moorings as well as those berthed at Darthaven Marina. For swing moorings, we'll coordinate access via tender and work alongside your vessel. Scheduling depends on weather and tidal conditions." },
+  { q: "How does the River Dart's brackish water affect hull fouling?", a: "The River Dart's mix of freshwater from Dartmoor and saltwater from the sea creates brackish conditions that encourage a different fouling profile — more silt, algae, and biofilm than the heavy barnacle growth seen in open harbours like Brixham. This means hulls foul differently but no less quickly, especially in summer." },
+  { q: "Do you cover the whole River Dart or just Darthaven?", a: "Our primary base is Darthaven Marina, but we cover the navigable River Dart from the harbour mouth up to Totnes. This includes Dart Marina, Noss Marina, private pontoons, and Dart Harbour Authority swing moorings. Contact us with your location and we'll confirm access." },
+];
 ---
 <LocationLayout
   title="Hull Cleaning & Inspection in Dartmouth"
@@ -83,6 +90,9 @@ const loc = locations.locations[2]; // Dartmouth
       </div>
     </div>
   </section>
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
+
 </LocationLayout>
 
 <style>

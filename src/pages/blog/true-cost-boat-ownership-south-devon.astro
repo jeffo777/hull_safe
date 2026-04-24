@@ -1,5 +1,12 @@
 ---
 import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+const faqs = [
+  { q: "What are typical marina berthing fees in South Devon?", a: "Annual marina fees in South Devon range from approximately £3,500 for a 10m berth at Brixham to £14,000+ for larger vessels at Torquay. Dartmouth's swing moorings offer a cheaper alternative at £2,000–£4,000, but with trade-offs in convenience and weather exposure. Prices vary by marina, vessel length, and beam." },
+  { q: "How much should I budget annually for hull maintenance?", a: "For a 12m yacht, budget approximately £600–£800 per year for professional hull cleaning (four quarterly cleans or a subscription plan). Add £600–£750 per year amortised for biannual antifouling. Regular robotic cleaning actually reduces your antifouling costs by extending the coating's effective life, so the net cost is lower than it first appears." },
+  { q: "Does regular hull cleaning actually save money in the long run?", a: "Yes. A clean hull reduces fuel consumption by 15–20% compared to a fouled one, extends antifouling life by preventing barnacle damage, and avoids the need for expensive emergency haul-outs. For a motor cruiser, fuel savings alone can exceed the annual cost of a cleaning plan. It's consistently the best-value maintenance investment on any boat." },
+];
 ---
 <BlogPostLayout
   title="The True Cost of Owning a Boat in South Devon"
@@ -58,5 +65,7 @@ import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
 <p>For a 12-metre sailing yacht on a Brixham annual berth, the realistic all-in annual cost of ownership looks roughly like this: berthing £4,000 + insurance £800 + antifouling £1,200 (biannual, amortised) + engine service £400 + hull cleaning plan £612 + safety equipment £300 + miscellaneous maintenance £500-1,000. That puts you at approximately £7,800-8,300 per year — before you've bought a single shackle, replaced a halyard, or filled the diesel tank.</p>
 
 <p>Is it worth it? That's a question only you can answer. But for the boat owners who sail out of Brixham, Torquay, and Dartmouth every weekend, who watch the sun set over Torbay from their cockpit, and who wouldn't trade their mooring for a house extension — the answer is invariably yes.</p>
+
+<FAQSection faqs={faqs} heading="Boat Ownership FAQs" />
 
 </BlogPostLayout>

@@ -1,10 +1,19 @@
 ---
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import FAQSection from '../../components/FAQSection.astro';
 import services from '../../data/services.json';
 import pricing from '../../data/pricing.json';
 
 const service = services.services[0]; // Hull Cleaning
 const cleaningPricing = pricing.services.hullCleaning;
+
+const faqs = [
+  { q: "What types of fouling can the robot remove?", a: "Our Keelcrab Pro removes all common types of hull fouling — soft algae and biofilm, hard barnacles and mussels, tubeworm deposits, and waterline slime. We select the appropriate brush head for the severity of growth, from soft nylon for light biofilm to firmer bristles for heavy barnacle encrustations." },
+  { q: "Will hull cleaning damage my antifouling paint?", a: "No. Our A.N.C.C.P. certified nylon brushes are specifically tested and proven not to remove hard matrix antifouling paint. In fact, regular robotic cleaning extends your antifoul's useful life by preventing heavy fouling from bonding to the coating — meaning you can go longer between expensive re-applications." },
+  { q: "How much fuel can I save with a clean hull?", a: "A fouled hull can increase fuel consumption by up to 30%. Regular cleaning typically reduces fuel costs by 15-20% compared to a neglected hull. For a motor cruiser doing regular passages across Torbay, that can easily exceed the cost of the clean itself within a few trips." },
+  { q: "Can you clean a catamaran or multihull?", a: "Yes. The Keelcrab Pro works on all hull shapes including catamarans, trimarans, and twin-keel yachts. The robot navigates flat and curved surfaces equally well. We clean each hull section systematically and provide separate video footage for each hull." },
+  { q: "What's the difference between robotic cleaning and pressure washing?", a: "Pressure washing uses high-pressure water jets that strip antifouling paint and blast debris directly into the water — damaging your coating and polluting the harbour. Our robotic cleaning uses certified brushes that preserve your antifouling while capturing all removed fouling in the Keelcrab Bag. It's gentler, greener, and more effective." },
+];
 ---
 <ServiceLayout
   title="Hull Cleaning"
@@ -138,6 +147,9 @@ const cleaningPricing = pricing.services.hullCleaning;
       </div>
     </div>
   </section>
+
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
 
 </ServiceLayout>
 

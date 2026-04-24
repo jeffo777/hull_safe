@@ -1,10 +1,17 @@
 ---
 import LocationLayout from '../../../layouts/LocationLayout.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 import locations from '../../../data/locations.json';
 import pricing from '../../../data/pricing.json';
 
 const loc = locations.locations[2];
 const p = pricing.services.hullCleaning;
+
+const faqs = [
+  { q: "Is silt a bigger problem than barnacles on the River Dart?", a: "On the River Dart, silt and soft fouling (algae, biofilm) tend to dominate over the heavy barnacle growth found in saltwater harbours like Brixham. The Dart's brackish conditions and agricultural runoff from Dartmoor create nutrient-rich water that feeds rapid algae growth, while the lower salinity inhibits some barnacle settlement. Either way, your hull needs regular attention." },
+  { q: "Can you clean a boat that dries out at low tide on the Dart?", a: "For vessels on drying moorings, we need to work during the tidal window when there's sufficient water depth for the robot to operate. We'll schedule around the tides to ensure a full clean is possible. Contact us with your mooring location and we'll advise on the best timing." },
+  { q: "How does river fouling differ from coastal fouling?", a: "River fouling on the Dart is typically softer and siltier than coastal fouling. You'll see more freshwater algae, biofilm, and mud deposits rather than the hard barnacles and mussels common in open harbours. The good news is that softer fouling is quicker to remove robotically — cleans on river-moored boats are often faster than their coastal equivalents." },
+];
 ---
 <LocationLayout
   title="Hull Cleaning in Dartmouth"
@@ -87,6 +94,9 @@ const p = pricing.services.hullCleaning;
       </div>
     </div>
   </section>
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
+
 </LocationLayout>
 
 <style>

@@ -1,9 +1,16 @@
 ---
 import LocationLayout from '../../../layouts/LocationLayout.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 import locations from '../../../data/locations.json';
 import pricing from '../../../data/pricing.json';
 
 const loc = locations.locations[1]; // Torquay
+
+const faqs = [
+  { q: "Can you clean larger motor yachts at Torquay Marina?", a: "Yes. Torquay Marina accommodates vessels up to 30 metres, and our Keelcrab Pro is designed to handle hulls of all sizes. Larger motor yachts simply take proportionally longer — a 20m vessel typically takes around 2.5 hours. We've cleaned everything from 25ft sailing yachts to 60ft motor cruisers." },
+  { q: "Is Torquay Marina accessible at all tides?", a: "Yes — MDL Torquay Marina is a locked marina with 24-hour access regardless of tidal state. This gives us maximum flexibility when scheduling your clean, and means we can work at the most convenient time for you." },
+  { q: "Do you offer services to visiting yachts at Torquay?", a: "Absolutely. If you're on a visitor berth or transiting through Torbay, we can arrange a hull clean or inspection during your stay. Just let us know your arrival dates and berth number, and we'll schedule around your itinerary." },
+];
 ---
 <LocationLayout
   title="Hull Cleaning & Inspection in Torquay"
@@ -83,6 +90,9 @@ const loc = locations.locations[1]; // Torquay
       </div>
     </div>
   </section>
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
+
 </LocationLayout>
 
 <style>

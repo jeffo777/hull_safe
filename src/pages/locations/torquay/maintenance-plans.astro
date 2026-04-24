@@ -1,11 +1,18 @@
 ---
 import LocationLayout from '../../../layouts/LocationLayout.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 import locations from '../../../data/locations.json';
 import pricing from '../../../data/pricing.json';
 
 const loc = locations.locations[1];
 const essential = pricing.subscriptions.essential;
 const premium = pricing.subscriptions.premium;
+
+const faqs = [
+  { q: "Do Torquay's motor yacht owners benefit more from premium plans?", a: "Often, yes. Larger motor yachts at Torquay consume significantly more fuel, and a fouled hull can increase consumption by up to 30%. The Premium Plan's six annual cleans keep your hull in optimal condition year-round, and the free annual inspection provides documented peace of mind — making the ROI particularly strong for fuel-hungry motor cruisers." },
+  { q: "Can I switch between Essential and Premium plans?", a: "Yes. You can upgrade from Essential to Premium or downgrade at any time. We'll pro-rata the difference and adjust your schedule accordingly. Many boat owners start with Essential and upgrade after seeing the difference regular cleaning makes." },
+  { q: "Is there a discount for multiple boats on one plan?", a: "If you have two or more boats at Torquay Marina (or across our service area), talk to us about multi-vessel arrangements. We can coordinate scheduling to service both vessels on the same visit, which is more efficient for everyone. Contact us to discuss your specific requirements." },
+];
 ---
 <LocationLayout
   title="Maintenance Plans in Torquay"
@@ -87,6 +94,9 @@ const premium = pricing.subscriptions.premium;
       </div>
     </div>
   </section>
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
+
 </LocationLayout>
 
 <style>

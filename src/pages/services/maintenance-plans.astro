@@ -1,9 +1,18 @@
 ---
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import FAQSection from '../../components/FAQSection.astro';
 import pricing from '../../data/pricing.json';
 
 const essential = pricing.subscriptions.essential;
 const premium = pricing.subscriptions.premium;
+
+const faqs = [
+  { q: "Can I cancel my maintenance plan at any time?", a: "Yes. Our maintenance plans are flexible rolling agreements, not long-term contracts. If your circumstances change — whether you sell your boat, move marina, or simply want to pause — you can cancel with 30 days' notice. No penalties, no hidden exit fees." },
+  { q: "What's the best time of year to start a maintenance plan?", a: "Late winter or early spring is ideal. Starting a plan in February or March means your first clean removes the winter biofilm before the growing season begins, giving your antifouling the best possible start. However, you can join a plan at any point in the year — we'll schedule your cleans around the seasons from your start date." },
+  { q: "Do maintenance plans include hull inspections?", a: "The Premium Plan includes one free annual visual hull inspection (worth £10/metre) in addition to your six scheduled cleans. The Essential Plan focuses on cleaning only — but you can always add a one-off inspection at any time at the standard rate." },
+  { q: "How do I know when my next clean is due?", a: "We manage your schedule and contact you to arrange each clean in advance. Plan members get priority booking slots, which is especially valuable during the busy summer months when demand peaks across all three marinas." },
+  { q: "Is a maintenance plan worth it for a boat under 10 metres?", a: "Yes. Even on smaller vessels, fouling affects performance and fuel consumption. The minimum charge per clean is £150 regardless of boat length, so a plan gives you that same clean at a discounted rate — plus the convenience of scheduled maintenance without having to remember to book each time." },
+];
 ---
 <ServiceLayout
   title="Maintenance Plans"
@@ -156,6 +165,9 @@ const premium = pricing.subscriptions.premium;
       </div>
     </div>
   </section>
+
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
 
 </ServiceLayout>
 

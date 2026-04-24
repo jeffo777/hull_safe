@@ -1,5 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
+import FAQSection from '../components/FAQSection.astro';
+
+const faqs = [
+  { q: "Can I see footage of my own hull clean?", a: "Yes — every clean includes HD video footage delivered directly to your smartphone after the service. You'll see exactly what the robot saw and did, including before and after views of your hull. Many of our customers keep these as a maintenance record." },
+  { q: "What quality is the underwater camera footage?", a: "The Keelcrab Pro's onboard camera shoots in HD with built-in LED lighting, rated IP68 for full submersion. The footage is clear enough to identify individual barnacles, coating wear, and anode condition even in lower-visibility harbour water." },
+  { q: "Do you have before-and-after photos of real hull cleans?", a: "We're building our local gallery with real before-and-after results from boats in Brixham, Torquay, and Dartmouth. In the meantime, the video footage above shows genuine Keelcrab cleaning operations. Book a clean and you'll receive your own before-and-after HD footage." },
+];
 ---
 <ServiceLayout
   title="Gallery"
@@ -152,6 +159,9 @@ import ServiceLayout from '../layouts/ServiceLayout.astro';
       </div>
     </div>
   </section>
+
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
 
 </ServiceLayout>
 

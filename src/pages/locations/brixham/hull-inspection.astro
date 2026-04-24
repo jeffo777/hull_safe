@@ -1,10 +1,17 @@
 ---
 import LocationLayout from '../../../layouts/LocationLayout.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 import locations from '../../../data/locations.json';
 import pricing from '../../../data/pricing.json';
 
 const loc = locations.locations[0];
 const p = pricing.services.hullInspection;
+
+const faqs = [
+  { q: "Can you inspect a boat at Brixham before I buy it?", a: "Yes — pre-purchase inspections are a popular service at Brixham. We'll provide HD video footage and a written condition report of the hull, antifouling, anodes, and underwater fittings so you can see exactly what's below the waterline before committing to a purchase." },
+  { q: "Do you work alongside marine surveyors at Brixham?", a: "We often do. Several marine surveyors operating in the Brixham and Torbay area recommend our underwater video as a complement to their above-waterline surveys. Our HD footage provides visual evidence that a surveyor can reference without needing a haul-out." },
+  { q: "Can you inspect a boat on Upham's Yard hardstanding?", a: "Our service is designed for in-water inspections using the Keelcrab's underwater camera. For boats on hardstanding at Upham's Yard, a visual inspection doesn't require our equipment — but we're happy to discuss your needs and recommend the best approach." },
+];
 ---
 <LocationLayout
   title="Hull Inspection in Brixham"
@@ -61,6 +68,9 @@ const p = pricing.services.hullInspection;
       </div>
     </div>
   </section>
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
+
 </LocationLayout>
 
 <style>

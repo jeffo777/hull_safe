@@ -1,11 +1,18 @@
 ---
 import LocationLayout from '../../../layouts/LocationLayout.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 import locations from '../../../data/locations.json';
 import pricing from '../../../data/pricing.json';
 
 const loc = locations.locations[2];
 const essential = pricing.subscriptions.essential;
 const premium = pricing.subscriptions.premium;
+
+const faqs = [
+  { q: "Can you access swing moorings year-round for maintenance plans?", a: "We can access most Dart Harbour swing moorings year-round, weather permitting. During winter, strong tides and poor weather may occasionally require us to reschedule, but we always aim to stay within your plan's schedule. We'll communicate proactively if conditions affect timing." },
+  { q: "Do river-moored boats need more frequent cleaning than marina boats?", a: "Generally, yes. The Dart's nutrient-rich water accelerates soft fouling growth compared to cleaner marina environments. We typically recommend the Premium Plan (six cleans per year) for river-moored boats, compared to the Essential Plan (four cleans) which may suffice for boats in Torquay's locked marina." },
+  { q: "Is the maintenance plan price the same for Dartmouth as Brixham?", a: "Yes. Our per-metre pricing and plan rates are identical across all three locations — Brixham, Torquay, and Dartmouth. There are no location surcharges or travel fees within our standard South Devon service area." },
+];
 ---
 <LocationLayout
   title="Maintenance Plans in Dartmouth"
@@ -89,6 +96,9 @@ const premium = pricing.subscriptions.premium;
       </div>
     </div>
   </section>
+  <!-- FAQs -->
+  <FAQSection faqs={faqs} />
+
 </LocationLayout>
 
 <style>

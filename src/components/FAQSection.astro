@@ -1,0 +1,147 @@
+---
+/**
+ * FAQSection.astro — Reusable FAQ component with JSON-LD structured data
+ * 
+ * Usage:
+ * <FAQSection faqs={[{ q: "Question?", a: "Answer." }]} />
+ * 
+ * Features:
+ * - Accessible <details>/<summary> expand/collapse (no JS required)
+ * - FAQPage JSON-LD schema for Google rich snippets
+ * - Cross-link to main FAQ page
+ * - Matches existing site design tokens
+ */
+
+interface FAQ {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  faqs: FAQ[];
+  heading?: string;
+  showLink?: boolean;
+}
+
+const { faqs, heading = "Frequently Asked Questions", showLink = true } = Astro.props;
+
+// Build JSON-LD structured data
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+---
+
+<section class="section faq-inline-section">
+  <div class="container">
+    <div class="section__header">
+      <h2>{heading}</h2>
+    </div>
+    <div class="faq-inline-list">
+      {faqs.map((faq) => (
+        <details class="faq-inline-item">
+          <summary>{faq.q}</summary>
+          <div class="faq-inline-answer">
+            <p>{faq.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+    {showLink && (
+      <div class="faq-inline-link">
+        <a href="/faq">More questions? See our full FAQ →</a>
+      </div>
+    )}
+  </div>
+</section>
+
+<!-- FAQ Schema JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+<style>
+  .faq-inline-section {
+    padding: var(--space-3xl) 0;
+    background: var(--surface);
+  }
+
+  .faq-inline-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-inline-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 0;
+  }
+
+  .faq-inline-item summary {
+    padding: var(--space-lg) 0;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    color: var(--text);
+    transition: color var(--transition-base);
+  }
+
+  .faq-inline-item summary:hover {
+    color: var(--primary);
+  }
+
+  .faq-inline-item summary::after {
+    content: '+';
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--accent);
+    flex-shrink: 0;
+    transition: transform var(--transition-base);
+  }
+
+  .faq-inline-item[open] summary::after {
+    content: '−';
+  }
+
+  .faq-inline-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-inline-answer {
+    padding: 0 0 var(--space-lg) 0;
+  }
+
+  .faq-inline-answer p {
+    color: var(--text-light);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    max-width: 720px;
+  }
+
+  .faq-inline-link {
+    text-align: center;
+    margin-top: var(--space-2xl);
+  }
+
+  .faq-inline-link a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color var(--transition-base);
+  }
+
+  .faq-inline-link a:hover {
+    color: var(--primary);
+  }
+</style>
