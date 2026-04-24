@@ -212,17 +212,15 @@ const faqs = [
           <span>Keelcleaners Poole, UK</span>
         </cite>
       </div>
-      <div class="keelcrab-trust-badge animate-in">
-        <a href="https://keelcrab.com" target="_blank" rel="noopener noreferrer" class="keelcrab-trust-badge__link">
+      <div class="trust-badges-row">
+        <a href="https://keelcrab.com" target="_blank" rel="noopener noreferrer" class="trust-badge-card animate-in">
           <img src="/images/keelcrab/keelcrab-point-logo-tr.png" alt="Keelcrab Point Logo" width="80" height="80" loading="lazy" />
-          <div class="keelcrab-trust-badge__text">
-            <span class="keelcrab-trust-badge__title">Authorised Keelcrab Point</span>
-            <span class="keelcrab-trust-badge__subtitle">South Devon's certified operator</span>
+          <div class="trust-badge-card__text">
+            <span class="trust-badge-card__title">Authorised Keelcrab Point</span>
+            <span class="trust-badge-card__subtitle">South Devon's certified operator</span>
           </div>
         </a>
-      </div>
-      <div class="keelcrab-trust-badge animate-in animate-delay-1">
-        <a href="/docs/anccp-certificate.pdf" target="_blank" rel="noopener noreferrer" class="keelcrab-trust-badge__link">
+        <a href="/docs/anccp-certificate.pdf" target="_blank" rel="noopener noreferrer" class="trust-badge-card animate-in animate-delay-1">
           <div class="anccp-badge-icon">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" fill="var(--accent)" opacity="0.15"/>
@@ -230,9 +228,9 @@ const faqs = [
               <path d="M9 12l2 2 4-4" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <div class="keelcrab-trust-badge__text">
-            <span class="keelcrab-trust-badge__title">A.N.C.C.P. Certified</span>
-            <span class="keelcrab-trust-badge__subtitle">Safe for antifouling — view certificate</span>
+          <div class="trust-badge-card__text">
+            <span class="trust-badge-card__title">A.N.C.C.P. Certified</span>
+            <span class="trust-badge-card__subtitle">Safe for antifouling — view certificate</span>
           </div>
         </a>
       </div>
@@ -612,37 +610,26 @@ const faqs = [
   }
 
   /* --- Keelcrab Trust Badge --- */
-  .keelcrab-trust-badge {
-    display: flex;
-    justify-content: center;
-    margin-bottom: var(--space-lg);
+  /* --- Trust Badges Row --- */
+  .trust-badges-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    max-width: 700px;
+    margin: 0 auto var(--space-3xl);
   }
 
-  .keelcrab-trust-badge + .keelcrab-trust-badge {
-    margin-bottom: var(--space-3xl);
-  }
-
-  @media (min-width: 769px) {
-    .keelcrab-trust-badge {
-      display: inline-flex;
-      margin: 0 var(--space-md) var(--space-3xl);
+  @media (min-width: 600px) {
+    .trust-badges-row {
+      grid-template-columns: 1fr 1fr;
     }
   }
 
-  .anccp-badge-icon {
-    width: 60px;
-    height: 60px;
+  .trust-badge-card {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .keelcrab-trust-badge__link {
-    display: inline-flex;
-    align-items: center;
     gap: var(--space-lg);
-    padding: var(--space-lg) var(--space-2xl);
+    padding: var(--space-lg) var(--space-xl);
     background: var(--surface);
     border: 2px solid rgba(245, 166, 35, 0.2);
     border-radius: var(--radius-lg);
@@ -651,37 +638,48 @@ const faqs = [
     box-shadow: var(--shadow-sm);
   }
 
-  .keelcrab-trust-badge__link:hover {
+  .trust-badge-card:hover {
     border-color: var(--accent);
     box-shadow: var(--shadow-glow);
     transform: translateY(-2px);
   }
 
-  .keelcrab-trust-badge__link img {
-    width: 60px;
-    height: 60px;
+  .trust-badge-card img {
+    width: 50px;
+    height: 50px;
     object-fit: contain;
     flex-shrink: 0;
   }
 
-  .keelcrab-trust-badge__text {
+  .anccp-badge-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .trust-badge-card__text {
     display: flex;
     flex-direction: column;
     gap: 2px;
   }
 
-  .keelcrab-trust-badge__title {
+  .trust-badge-card__title {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     color: var(--primary);
     letter-spacing: -0.01em;
   }
 
-  .keelcrab-trust-badge__subtitle {
-    font-size: 0.85rem;
+  .trust-badge-card__subtitle {
+    font-size: 0.8rem;
     color: var(--text-light);
   }
+
+
 
   /* --- Trust Stats --- */
   .trust-stats {
