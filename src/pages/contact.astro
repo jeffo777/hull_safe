@@ -22,141 +22,37 @@ const faqs = [
   <section class="section">
     <div class="container">
       <div class="contact-grid">
-        <!-- Forms -->
+        <!-- Contact Form -->
         <div class="forms-column">
-          <!-- Book a Clean -->
-          <div class="form-card" id="book-clean">
-            <div class="form-card__header form-card__header--clean">
-              <h2>🛥️ Book a Clean</h2>
-              <p>Tell us about your boat and we'll confirm your booking within 24 hours.</p>
+          <div class="form-card" id="contact-form">
+            <div class="form-card__header">
+              <h2>Send Us a Message</h2>
+              <p>Whether you'd like to book a service, get a quote, or just ask a question — drop us a line and we'll get back to you within 24 hours.</p>
             </div>
-            <form action="https://formspree.io/f/placeholder" method="POST" class="booking-form">
-              <input type="hidden" name="form_type" value="Book a Clean" />
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="clean-name">Full Name *</label>
-                  <input type="text" id="clean-name" name="name" required />
-                </div>
-                <div class="form-group">
-                  <label for="clean-email">Email *</label>
-                  <input type="email" id="clean-email" name="email" required />
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="clean-phone">Phone</label>
-                  <input type="tel" id="clean-phone" name="phone" />
-                </div>
-                <div class="form-group">
-                  <label for="clean-length">Boat Length (metres) *</label>
-                  <input type="number" id="clean-length" name="boat_length" min="5" max="40" step="0.5" required />
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="clean-location">Location *</label>
-                  <select id="clean-location" name="location" required>
-                    <option value="">Select marina...</option>
-                    <option value="Brixham Marina">Brixham Marina</option>
-                    <option value="Torquay Marina">Torquay Marina</option>
-                    <option value="Darthaven Marina">Darthaven Marina (Dartmouth)</option>
-                    <option value="Swing Mooring">Swing Mooring / Other</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="clean-date">Preferred Date</label>
-                  <input type="date" id="clean-date" name="preferred_date" />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="clean-notes">Additional Notes</label>
-                <textarea id="clean-notes" name="notes" placeholder="Boat name, berth number, any specific concerns..."></textarea>
-              </div>
-              <button type="submit" class="btn btn--primary btn--large" style="width:100%">Request Clean Booking</button>
-            </form>
-          </div>
+            <form action="https://formsubmit.co/hello@hullsafe.co.uk" method="POST" class="booking-form">
+              <!-- FormSubmit config -->
+              <input type="hidden" name="_subject" value="New enquiry from HullSafe website" />
+              <input type="hidden" name="_next" value="https://hullsafe.co.uk/contact?submitted=true" />
+              <input type="hidden" name="_captcha" value="true" />
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 
-          <!-- Book an Inspection -->
-          <div class="form-card" id="book-inspection">
-            <div class="form-card__header form-card__header--inspection">
-              <h2>🔍 Book an Inspection</h2>
-              <p>Schedule a visual hull inspection with HD video report.</p>
-            </div>
-            <form action="https://formspree.io/f/placeholder" method="POST" class="booking-form">
-              <input type="hidden" name="form_type" value="Book an Inspection" />
               <div class="form-row">
                 <div class="form-group">
-                  <label for="inspect-name">Full Name *</label>
-                  <input type="text" id="inspect-name" name="name" required />
+                  <label for="contact-name">Name <span class="required">*</span></label>
+                  <input type="text" id="contact-name" name="name" required placeholder="Your name" />
                 </div>
                 <div class="form-group">
-                  <label for="inspect-email">Email *</label>
-                  <input type="email" id="inspect-email" name="email" required />
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="inspect-phone">Phone</label>
-                  <input type="tel" id="inspect-phone" name="phone" />
-                </div>
-                <div class="form-group">
-                  <label for="inspect-length">Boat Length (metres) *</label>
-                  <input type="number" id="inspect-length" name="boat_length" min="5" max="40" step="0.5" required />
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="inspect-location">Location *</label>
-                  <select id="inspect-location" name="location" required>
-                    <option value="">Select marina...</option>
-                    <option value="Brixham Marina">Brixham Marina</option>
-                    <option value="Torquay Marina">Torquay Marina</option>
-                    <option value="Darthaven Marina">Darthaven Marina (Dartmouth)</option>
-                    <option value="Swing Mooring">Swing Mooring / Other</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="inspect-reason">Reason for Inspection</label>
-                  <select id="inspect-reason" name="reason">
-                    <option value="">Select reason...</option>
-                    <option value="Pre-season check">Pre-season check</option>
-                    <option value="Pre-purchase">Pre-purchase assessment</option>
-                    <option value="Post-grounding">Post-grounding check</option>
-                    <option value="Insurance">Insurance documentation</option>
-                    <option value="Between cleans">Monitoring between cleans</option>
-                    <option value="Other">Other</option>
-                  </select>
+                  <label for="contact-email">Email <span class="required">*</span></label>
+                  <input type="email" id="contact-email" name="email" required placeholder="you@example.com" />
                 </div>
               </div>
               <div class="form-group">
-                <label for="inspect-notes">Additional Notes</label>
-                <textarea id="inspect-notes" name="notes" placeholder="Specific areas of concern, boat name, berth number..."></textarea>
-              </div>
-              <button type="submit" class="btn btn--primary btn--large" style="width:100%">Request Inspection Booking</button>
-            </form>
-          </div>
-
-          <!-- General Enquiry -->
-          <div class="form-card" id="enquiry">
-            <div class="form-card__header form-card__header--enquiry">
-              <h2>💬 General Enquiry</h2>
-              <p>Got a question? We're happy to help.</p>
-            </div>
-            <form action="https://formspree.io/f/placeholder" method="POST" class="booking-form">
-              <input type="hidden" name="form_type" value="General Enquiry" />
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="enquiry-name">Full Name *</label>
-                  <input type="text" id="enquiry-name" name="name" required />
-                </div>
-                <div class="form-group">
-                  <label for="enquiry-email">Email *</label>
-                  <input type="email" id="enquiry-email" name="email" required />
-                </div>
+                <label for="contact-phone">Phone <span class="optional">(optional)</span></label>
+                <input type="tel" id="contact-phone" name="phone" placeholder="07XXX XXX XXX" />
               </div>
               <div class="form-group">
-                <label for="enquiry-message">Your Message *</label>
-                <textarea id="enquiry-message" name="message" required placeholder="How can we help?"></textarea>
+                <label for="contact-message">Message <span class="required">*</span></label>
+                <textarea id="contact-message" name="message" required rows="5" placeholder="Tell us about your boat, which service you're interested in, or ask us anything..."></textarea>
               </div>
               <button type="submit" class="btn btn--primary btn--large" style="width:100%">Send Message</button>
             </form>
@@ -227,11 +123,8 @@ const faqs = [
   .form-card__header {
     padding: var(--space-xl);
     border-bottom: 1px solid var(--surface-alt);
+    border-left: 4px solid var(--accent);
   }
-
-  .form-card__header--clean { border-left: 4px solid var(--accent); }
-  .form-card__header--inspection { border-left: 4px solid var(--sea-blue); }
-  .form-card__header--enquiry { border-left: 4px solid var(--success); }
 
   .form-card__header h2 { font-size: 1.25rem; margin-bottom: var(--space-xs); }
   .form-card__header p { color: var(--text-light); font-size: 0.9rem; margin: 0; }
@@ -240,6 +133,10 @@ const faqs = [
 
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
   @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+
+  .required { color: var(--accent); font-weight: 600; }
+  .optional { color: var(--text-muted); font-weight: 400; font-size: 0.85em; }
+
 
   /* Sidebar */
   .contact-sidebar { position: sticky; top: calc(var(--header-height) + var(--space-lg)); }
