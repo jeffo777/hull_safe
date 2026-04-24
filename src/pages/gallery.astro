@@ -65,6 +65,42 @@ import ServiceLayout from '../layouts/ServiceLayout.astro';
     </div>
   </section>
 
+  <!-- Photo Gallery -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section__header">
+        <h2>The Equipment & Team</h2>
+        <p class="section__subtitle">Authentic photos of Keelcrab technology and operators at work — the same equipment and process we use at HullSafe.</p>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-card">
+          <img src="/images/keelcrab/keelcrab-pontoon-setup.jpg" alt="Keelcrab robot with control unit and screen set up on a marina pontoon" loading="lazy" />
+          <p>Complete Keelcrab setup — robot, control unit, and live monitoring screen at the marina</p>
+        </div>
+        <div class="photo-card">
+          <img src="/images/keelcrab/keelcrab-studio-brushes.jpg" alt="Keelcrab robot showing certified brushes and track system alongside the control unit" loading="lazy" />
+          <p>A.N.C.C.P certified brushes and precision track system — engineered to clean without damaging antifouling</p>
+        </div>
+        <div class="photo-card">
+          <img src="/images/keelcrab/keelcrab-operator-marina.jpg" alt="Keelcrab operator monitoring a live hull clean from the pontoon with a sailboat behind" loading="lazy" />
+          <p>Operator monitoring a live clean from the pontoon — photos and video sent directly to your smartphone</p>
+        </div>
+        <div class="photo-card">
+          <img src="/images/keelcrab/keelcrab-operator-watching.jpg" alt="Operator watching the Keelcrab work underwater from a harbour pontoon" loading="lazy" />
+          <p>Calm, professional operation — no divers, no disruption, just results</p>
+        </div>
+        <div class="photo-card">
+          <img src="/images/keelcrab/keelcrab-brush-closeup.jpg" alt="Close-up of Keelcrab cleaning brush mechanism with green rollers" loading="lazy" />
+          <p>Close-up of the interchangeable brush system — soft, standard, and heavy-duty options</p>
+        </div>
+        <div class="photo-card">
+          <img src="/images/keelcrab/yacht-clean-hull-result.jpg" alt="Sailing yacht with a visibly clean waterline after Keelcrab service" loading="lazy" />
+          <p>The result — a clean waterline, improved performance, and up to 20% fuel savings</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Before/After Placeholder -->
   <section class="section section--alt">
     <div class="container">
@@ -102,6 +138,34 @@ import ServiceLayout from '../layouts/ServiceLayout.astro';
   .video-card p {
     color: var(--text-light);
     font-size: 0.9rem;
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+  }
+
+  @media (max-width: 768px) {
+    .photo-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .photo-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-sm);
+  }
+
+  .photo-card p {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.85rem;
+    line-height: 1.4;
   }
 
   .coming-soon {
