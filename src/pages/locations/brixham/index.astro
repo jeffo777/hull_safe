@@ -63,7 +63,8 @@ const faqs = [
       <div class="grid grid--2">
         {loc.foulingFactors.map((factor) => (
           <div class="card">
-            <p class="card__text">{factor}</p>
+            <h3 class="card__title">{factor.title}</h3>
+            <p class="card__text">{factor.description}</p>
           </div>
         ))}
       </div>
@@ -108,16 +109,21 @@ const faqs = [
   .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-3xl); align-items: start; }
   @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } }
 
-  .content-main p { color: var(--text-light); margin-bottom: var(--space-md); }
+  .content-main p { color: var(--text-light); margin-bottom: var(--space-md); line-height: 1.7; }
   .content-main p:first-of-type { color: var(--text); font-size: 1.05rem; }
 
   .marina-info {
-    background: var(--surface); border-radius: var(--radius-lg);
-    padding: var(--space-xl); position: sticky; top: calc(var(--header-height) + var(--space-lg));
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-lg));
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0, 0, 0, 0.06);
   }
-  .marina-info h3 { font-size: 1rem; margin-bottom: var(--space-md); }
+  .marina-info h3 { font-size: 1rem; margin-bottom: var(--space-md); color: var(--primary); }
   .marina-info dl { display: grid; grid-template-columns: auto 1fr; gap: var(--space-sm) var(--space-md); }
-  .marina-info dt { font-weight: 600; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.03em; }
+  .marina-info dt { font-weight: 600; font-size: 0.85rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.03em; }
   .marina-info dd { font-size: 0.9rem; color: var(--text); }
 
   .service-link { text-decoration: none; color: var(--text); }

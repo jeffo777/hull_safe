@@ -14,10 +14,10 @@
       "nearbyYard": "Dolphin Boatyard — 65-ton hoist",
       "character": "Working fishing harbour first, marina second. One of England's most significant fishing ports by catch value — the birthplace of trawling.",
       "foulingFactors": [
-        "Active fishing harbour with higher nutrient load from fishing waste",
-        "South-facing bay exposure to English Channel currents",
-        "Gulf Stream-influenced waters extend the fouling season",
-        "Mixed commercial and leisure vessel traffic increases debris"
+        { "title": "High Nutrient Load", "description": "Active fishing harbour with higher nutrient load from fishing waste — accelerating marine growth on hulls." },
+        { "title": "Channel Exposure", "description": "South-facing bay exposure to English Channel currents brings warm, organism-rich water into the harbour." },
+        { "title": "Extended Fouling Season", "description": "Gulf Stream-influenced waters extend the fouling season well beyond the summer months." },
+        { "title": "Heavy Vessel Traffic", "description": "Mixed commercial and leisure vessel traffic increases debris and biological material in the water." }
       ],
       "contentAngle": "Position HullSafe as part of Brixham's maritime heritage — where England's fishing tradition meets 21st-century marine technology.",
       "services": ["hull-cleaning", "hull-inspection", "maintenance-plans"]
@@ -36,10 +36,10 @@
       "nearbyYard": null,
       "character": "The English Riviera — Torquay is the premium end of Torbay, primarily leisure motor-yachts and sailing yachts with larger, higher-value vessels.",
       "foulingFactors": [
-        "Larger vessels up to 30m — bigger cleaning jobs",
-        "MDL 5 Gold Anchor standards demand regular maintenance",
-        "Recent MDL investment in pontoons and facilities raises service expectations",
-        "Town centre location offers high visibility"
+        { "title": "Larger Vessels", "description": "Vessels up to 30m mean bigger cleaning jobs — and more surface area for fouling to take hold." },
+        { "title": "5 Gold Anchor Standards", "description": "MDL's premium accreditation demands regular hull maintenance to match the marina's high standards." },
+        { "title": "Rising Expectations", "description": "Recent MDL investment in pontoons and facilities raises the bar for vessel presentation and care." },
+        { "title": "High Visibility", "description": "Town centre location means your hull condition is noticed — by fellow berth holders and marina staff alike." }
       ],
       "contentAngle": "Premium hull care for the English Riviera — where professional service meets world-class marina facilities.",
       "services": ["hull-cleaning", "hull-inspection", "maintenance-plans"]
@@ -58,11 +58,11 @@
       "nearbyYard": "On-site — 40-ton travel hoist, engineers, shipwrights",
       "character": "The River Dart presents fundamentally different fouling conditions. Freshwater from Dartmoor meets seawater in a tidal estuary — creating unique challenges for hull maintenance.",
       "foulingFactors": [
-        "Tidal estuary with fluctuating salinity — freshwater from Dartmoor meets seawater",
-        "Agricultural runoff from Dartmoor creates nutrient-rich water accelerating biofouling",
-        "Fine sediment and silt carried by the river accumulates on hulls",
-        "Many vessels on stationary swing moorings — no movement means faster fouling",
-        "Dart Harbour actively concerned about invasive alien species transfer"
+        { "title": "Brackish Estuary", "description": "Tidal estuary with fluctuating salinity — freshwater from Dartmoor meets seawater, creating unique fouling conditions." },
+        { "title": "Agricultural Runoff", "description": "Nutrient-rich water from Dartmoor agricultural runoff accelerates biofouling growth on hulls." },
+        { "title": "Silt Accumulation", "description": "Fine sediment and silt carried by the river settles and accumulates on hull surfaces." },
+        { "title": "Stationary Moorings", "description": "Many vessels on stationary swing moorings — no movement means faster, heavier fouling." },
+        { "title": "Invasive Species Risk", "description": "Dart Harbour actively concerned about invasive alien species transfer between vessels." }
       ],
       "contentAngle": "Your hull faces different enemies on the River Dart. We know every one of them.",
       "services": ["hull-cleaning", "hull-inspection", "maintenance-plans"]
