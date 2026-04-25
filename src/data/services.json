@@ -12,10 +12,12 @@
         { "title": "Get Your Report", "description": "Receive HD video footage and a digital before/after report within 24 hours of your clean." }
       ],
       "benefits": [
-        { "title": "Preserves Antifouling", "description": "A.N.C.C.P. certified brushes clean without damaging your paint — extending its useful life." },
-        { "title": "Eco-Compliant", "description": "All removed debris is captured in the Keelcrab Bag. Nothing enters the water." },
-        { "title": "No Lift-Out Required", "description": "Save £500+ on marina hoist fees. We clean while your boat stays in the water." },
-        { "title": "HD Video Documentation", "description": "See exactly what we see — HD footage of your entire hull, shared with you digitally." }
+        { "title": "Cut Fuel Costs by Up to 30%", "description": "Even light biofilm increases drag by 10–15%. Barnacles and hard fouling can push fuel consumption up by 30%. A clean hull means less resistance, less fuel burned, and more money in your pocket." },
+        { "title": "Preserve Your Antifouling", "description": "A.N.C.C.P. certified nylon brushes remove fouling without damaging your antifouling coating. Regular gentle cleaning prevents heavy growth from bonding to the paint, extending its useful life by 1–2 seasons." },
+        { "title": "No Lift-Out Required", "description": "Skip the £500+ crane fees, the scheduling headache, and the full-day disruption. We clean your hull in the water at your berth — typically in 1–2 hours while you carry on with your day." },
+        { "title": "Reduce Your Carbon Footprint", "description": "Less fuel burned means lower CO₂ emissions. The IMO recognises hull cleaning as an effective tool for reducing greenhouse gas output from vessels — good for the planet and increasingly important for marina compliance." },
+        { "title": "Prevent Invasive Species", "description": "Hull fouling is a primary vector for transporting invasive non-native species between harbours. Regular cleaning removes organisms before they can spread, protecting local marine ecosystems and meeting biosecurity obligations." },
+        { "title": "HD Video Documentation", "description": "Every clean includes HD video footage of your hull shared digitally. See exactly what was removed, confirm the quality of the clean, and build a maintenance record for your vessel over time." }
       ],
       "cleaningTimes": [
         { "length": "12m (39ft)", "time": "~1 hour" },
@@ -39,10 +41,12 @@
         { "title": "Get Your Report", "description": "Receive a visual condition report (PDF + video link) with observations and recommendations." }
       ],
       "benefits": [
-        { "title": "See Below the Waterline", "description": "HD video reveals what's happening to your hull — fouling levels, antifoul condition, and potential issues." },
-        { "title": "Pre-Season Peace of Mind", "description": "Check your hull's condition before the sailing season without a costly lift-out." },
-        { "title": "Pre-Purchase Confidence", "description": "Considering buying a boat? A visual hull inspection reveals the condition below the waterline before you commit." },
-        { "title": "Digital Documentation", "description": "Your report includes timestamped video and written observations — useful for insurance and maintenance records." }
+        { "title": "Catch Problems Early", "description": "HD video reveals cracks, corrosion, coating breakdown, and dents before they become expensive repairs. A £100 inspection can prevent a £5,000 emergency haul-out." },
+        { "title": "Monitor Antifouling Condition", "description": "See exactly how your antifouling paint is performing without a costly lift-out. Identify wear patterns, erosion hotspots, and degradation — so you know when repainting is actually needed, not just guessing." },
+        { "title": "Check Through-Hull Fittings", "description": "Water intakes, skin fittings, and anodes are invisible from above — but critical to your boat's safety. Our camera checks every underwater fitting for blockages, corrosion, and wear." },
+        { "title": "Pre-Purchase Confidence", "description": "Considering buying a boat? A visual hull inspection reveals the real condition below the waterline before you commit. Share the HD footage with your surveyor or broker for a more complete picture." },
+        { "title": "Insurance Documentation", "description": "Timestamped HD video provides contemporaneous evidence of your hull's condition at a specific date. Useful for insurance renewals, warranty claims, and sale negotiations." },
+        { "title": "Optimise Maintenance Scheduling", "description": "Stop guessing when your hull needs attention. Inspections tell you exactly when a clean or haul-out is actually needed — saving you money on unnecessary work and preventing neglect." }
       ],
       "disclaimer": "This is a visual condition report delivered by robotic technology. It is not a qualified marine survey and does not replace the opinion of a certified marine surveyor."
     }

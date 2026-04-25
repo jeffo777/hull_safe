@@ -3,6 +3,7 @@ import LocationLayout from '../../../layouts/LocationLayout.astro';
 import FAQSection from '../../../components/FAQSection.astro';
 import locations from '../../../data/locations.json';
 import pricing from '../../../data/pricing.json';
+import services from '../../../data/services.json';
 
 const loc = locations.locations[1];
 const p = pricing.services.hullCleaning;
@@ -36,7 +37,7 @@ const faqs = [
 
           <h3>The Torquay Visitor Effect</h3>
           <p>Torquay Marina attracts a high volume of visiting yachts during summer, particularly during regatta weekends. This transient traffic introduces biological material from other harbours — including, potentially, invasive non-native species. Keeping your hull clean contributes to the biosecurity of the marina ecosystem, a concern Dart Harbour has been particularly vocal about in recent years.</p>
-          <p>A clean hull is also a better-looking hull. If you're berthed in a premium marina where aesthetics matter — where potential charter clients walk the pontoons, where visiting yacht owners compare their neighbours' waterlines — a regular professional clean keeps your vessel looking as good below the surface as it does above.</p>
+          <p>For charter fleet operators and sailing schools, a clean hull directly impacts business performance. A fouled vessel underperforms, burns more fuel, and creates a poor first impression. Regular cleaning ensures every vessel in your fleet is ready to perform when clients step aboard.</p>
 
           <h3>Practical Details for Torquay Boat Owners</h3>
           <p>Torquay Marina offers 24/7 access via the lock gates, giving us more scheduling flexibility than the half-tide access at Brixham. We can typically accommodate same-week bookings during the quieter months and aim for 7-10 days during peak summer season. Your boat stays in the water throughout — we operate from the pontoon alongside your vessel, and the entire process is completed without you needing to be present.</p>
@@ -70,6 +71,23 @@ const faqs = [
   </section>
 
   <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Why Clean Your Hull?</h2>
+        <p class="section__subtitle">The real, measurable benefits of professional robotic hull cleaning — backed by industry research and IMO guidelines.</p>
+      </div>
+      <div class="grid grid--3">
+        {services.services[0].benefits.map((benefit) => (
+          <div class="card">
+            <h3 class="card__title">{benefit.title}</h3>
+            <p class="card__text">{benefit.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="container">
       <div class="section__header">
         <h2>Who Benefits Most from Hull Cleaning in Torquay?</h2>

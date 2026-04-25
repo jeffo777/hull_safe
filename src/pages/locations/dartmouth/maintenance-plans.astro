@@ -3,6 +3,7 @@ import LocationLayout from '../../../layouts/LocationLayout.astro';
 import FAQSection from '../../../components/FAQSection.astro';
 import locations from '../../../data/locations.json';
 import pricing from '../../../data/pricing.json';
+import services from '../../../data/services.json';
 
 const loc = locations.locations[2];
 const essential = pricing.subscriptions.essential;
@@ -59,6 +60,23 @@ const faqs = [
   </section>
 
   <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Why Regular Cleaning Pays Off</h2>
+        <p class="section__subtitle">A single clean solves today's problem. A maintenance plan prevents tomorrow's. Here's what consistent hull care delivers.</p>
+      </div>
+      <div class="grid grid--3">
+        {services.services[0].benefits.map((benefit) => (
+          <div class="card">
+            <h3 class="card__title">{benefit.title}</h3>
+            <p class="card__text">{benefit.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="container">
       <div class="section__header">
         <h2>River Dart Maintenance Plan Options</h2>
